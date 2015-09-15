@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "OpenShift-Sample-App",
   "version": "1.0.0",
   "description": "OpenShift Sample Application",
@@ -32,4 +33,15 @@
 
   "private": true,
   "main": "server.js"
+=======
+  "name": "test2",
+  "version": "1.0.0",
+  "description": "test script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nischay Maridevegowda",
+  "license": "ISC"
+>>>>>>> 28da030d7e28f412e073ee07aa4360b6d6ec0853
 }
