@@ -1,0 +1,53 @@
+﻿
+h1#intro {
+    color:rebeccapurple;
+}
+
+.blueFG {
+    color : blueviolet;
+}
+        
+#lists{
+    color :aquamarine;
+    clear:both;
+}
+
+#firstparagaph{
+    background-color:yellow;
+    padding:50px;
+    margin:auto;
+    width:300px;
+    //border:3px;
+    //border-style:dotted;
+    //visibility:collapse;
+    //display:none;
+    text-align:justify;
+    float:left;
+}
+#secondparagraph{
+    background-color:red;
+    color:aqua;
+    float:left;
+    width:300px;
+}
+    
+.centered {
+    //width:600px;
+    //margin:auto;
+    
+}
+
+    .container{
+            width:600px;
+            margin:auto;
+
+        }
+
+    .col-6{
+        width:300px;
+        float:left;
+    }
+    .col-4{
+        width:200px;
+        float:left;
+    }
