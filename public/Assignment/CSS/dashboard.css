@@ -16,10 +16,7 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
-.sub-header_2 {
-  padding-bottom: 10px;
-  border-bottom: 0px solid #eee;
-}
+
 /*
  * Top navigation
  * Hide default border to remove 1px line.
