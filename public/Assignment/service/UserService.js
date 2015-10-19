@@ -7,8 +7,8 @@
     function UserService() {
 
         var users = [
-            { username : "Nischay" , Password : "nischay"},
-            { username: "gavrav", Password: "gavrav" }
+            { username : "Nischay" , Password : "nischay" , email:"nischay@neu.edu"},
+            { username: "Gavrav", Password: "gavrav", email: "gavrav@neu.edu" }
 
         ];
 

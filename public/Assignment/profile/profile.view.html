@@ -1,0 +1,53 @@
+﻿<h1 class="header_2">Profile</h1>
+<div>
+    <form>
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Last Name :</h4>
+            </div>
+            <div class="col-md-6">
+                <input ng-model="user.lastname" type="text" placeholder="Last Name" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h4>First Name :</h4>
+            </div>
+            <div class="col-md-6">
+                <input ng-model="user.firstname" type="text" placeholder="First Name" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Username :</h4>
+            </div>
+            <div class="col-md-6">
+                <input ng-model="user.userid" type="text" placeholder="your_id" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Passsword :</h4>
+            </div>
+            <div class="col-md-6">
+                <input ng-model="user.password" type="password" placeholder="**********" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Email :</h4>
+            </div>
+            <div class="col-md-6">
+                <input ng-model="user.email" type="email" placeholder="your_id@domain.com" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-6">
+                <a ng-click="update(user)" class="btn btn-default form-control" href="profile.html" role="button">Update</a>
+            </div>
+        </div>
+    </form>
+</div>
