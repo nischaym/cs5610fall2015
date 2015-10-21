@@ -3,25 +3,29 @@
         .module("FormBuilderApp")
         .controller("ProfileController", ProfileController)
 
-    function ProfileController($scope, UserService, $location) {
-
+    function ProfileController($scope, UserService, $location, $rootScope)
+    {
         $scope.users = UserService.getAllUsers();
+        var users = $scope.users;
+        var present_username = $rootScope.username;
         console.log($scope.users);
-
         $scope.update = update;
 
-        function update(user) {
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].username == present_username) {
+                $scope.user.username = present_username;
+                break;
+            }
+        }
 
-            var newUser = {
-                userid,
+        function update(user)
+        {
+            var newUser =
+            {
+                username,
                 password,
                 email
             };
-
-            if (password == verifypassword) {
-                $scope.users.push(newUser);
-                $location.url('/profile');
-            }
         }
     };
 })();

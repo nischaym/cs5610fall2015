@@ -3,30 +3,38 @@
         .module("FormBuilderApp")
         .controller("RegisterController", RegisterController)
 
-    function RegisterController($scope, UserService ,$location) {
+    function RegisterController($scope, UserService, $location, $rootScope)
+    {
 
         $scope.users = UserService.getAllUsers();
+
         console.log($scope.users);
 
         $scope.login = login;
 
-        function login(userid, password, verifypassword, email) {
+        function login(username, password, verifypassword, email)
+        {
 
-            var newUser = {
-                userid,
+            var newUser =
+            {
+                username,
                 password,
                 email
             };
 
-            if (password == verifypassword)
+            //userid = Guid.create();
+
+            if ((verifypassword != null) &&
+                (username != null) &&
+                (password != null) &&
+                (password == verifypassword))
             {
                 $scope.users.push(newUser);
+                //$scope.users = UserService.getAllUsers();
+                //UserService.createUser(newUser)
+                $rootScope.username = username;
                 $location.url('/profile');
             }
-            
-
         }
-
     };
-
 })();

@@ -14,7 +14,8 @@
             controller : "RegisterController"
         })
         .when("/profile", {
-            templateUrl: "profile/profile.view.html"
+            templateUrl: "profile/profile.view.html",
+            controller : "ProfileController"
         })
         .when("/login", {
             templateUrl: "login/login.view.html",
@@ -24,7 +25,8 @@
             templateUrl: "admin/admin.view.html"
         })
         .when("/forms", {
-            templateUrl: "forms/forms.view.html"
+            templateUrl: "form/form.view.html",
+            controller : "FormController"
         })
         .otherwise({
             redirectTo: "/home"

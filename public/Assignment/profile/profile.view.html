@@ -21,8 +21,9 @@
             <div class="col-md-2">
                 <h4>Username :</h4>
             </div>
-            <div class="col-md-6">
-                <input ng-model="user.userid" type="text" placeholder="your_id" class="form-control">
+            <div class="col-md-6" ng-show="user.username!==undefined">
+                {{user.username}}
+                <input ng-model="user.username" type="text" placeholder="your_id" class="form-control">
             </div>
         </div>
         <div class="row">
