@@ -22,7 +22,7 @@
                 <h4>Username :</h4>
             </div>
             <div class="col-md-6" ng-show="user.username!==undefined">
-                {{user.username}}
+                {{username}}
                 <input ng-model="user.username" type="text" placeholder="your_id" class="form-control">
             </div>
         </div>
@@ -47,8 +47,9 @@
 
             </div>
             <div class="col-md-6">
-                <a ng-click="update(user)" class="btn btn-default form-control" href="profile.html" role="button">Update</a>
+                <a ng-click="update()" class="btn btn-default form-control" role="button">Update</a>
             </div>
         </div>
+        {{$rootScope.user.username}}
     </form>
 </div>

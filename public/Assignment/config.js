@@ -15,7 +15,7 @@
         })
         .when("/profile", {
             templateUrl: "profile/profile.view.html",
-            controller : "ProfileController"
+            controller: "ProfileController"
         })
         .when("/login", {
             templateUrl: "login/login.view.html",

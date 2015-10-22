@@ -5,21 +5,22 @@
         .factory("UserService", UserService)
         
 
-    function UserService() {
+    function UserService($rootScope) {
 
         var users = [
-            { userid : 0001, username : "Nischay" , password : "nischay" , email:"nischay@neu.edu"},
-            { userid : 0001, username: "Gavrav", password: "gavrav", email: "gavrav@neu.edu" }
+            { userid : 1, username : "Nischay" , password : "nischay" , email:"nischay@neu.edu" , firstname : "Nischaygowda" ,lastname : "m"},
+            { userid:  2, username: "Gavrav", password: "gavrav", email: "gavrav@neu.edu", firstname: "Ga", lastname: "G" }
 
         ];
-
+        //var i;
+        $rootScope.user = { userid:"", username: "", password: "" , email : "", firstname : "" , lastname :"" };
         var service =
         {
             getAllUsers: getAllUsers ,
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
-            findAllUsers: findAllUsers,
+            //findAllUsers: findAllUsers,
             createUser: createUser,
-            deleteUserById: deleteUserById,
+            //deleteUserById: deleteUserById,
             updateUser: updateUser
 
         }
@@ -31,20 +32,20 @@
             return users;
         }
 
-        function findUserByUsernameAndPassword(username , password , ca_fn)
+        function findUserByUsernameAndPassword(username , password , cb_fn)
         {
-            for(var i; i< users.length ;i++)
+            for(var i=0; i< users.length ;i++)
             {
                 if (username == users[i].username)
                 {
-                    ca_fn(user[i]);
+                    cb_fn(users[i]);
                     break;
                 }
                 else 
                 {
                     if (i+1 == users.length)
                     {
-                        ca_fn(null);
+                        cb_fn(null);
                     }
                     else 
                     {
@@ -54,18 +55,13 @@
             }
         }
 
-        function findAllUsers(ca_fn)
+        function createUser(user, cb_fn)
         {
-            ca_fn(users);
+            user.userid = users.length + 1;
+            users.push(user);
+            cb_fn(user);
         }
-
-        function createUser(user,ca_fn)
-        {
-            users[users.length].id = 0;
-            users[users.length].username = user.username;
-            ca_fn(users[users.length]);
-        }
-
+        /*
         function deleteUserById (userid,ca_fn)
         {
             for (var i=0;i<users.length;i++)
@@ -78,20 +74,25 @@
             }
             ca_fn(users);
 
-        }
+        }*/
 
-        function updateUser(userid , user , ca_fn)
+        function updateUser(userid , user , cb_fn)
         {
             for(var i=0;i<users.length;i++)
             {
                 if (users[i].userid == userid)
                 {
-                    users[i] = user;
+                    users[i].username = user.username;
+                    users[i].password = user.password;
+                    users[i].email = user.email;
+                    users[i].firstname = user.firstname;
+                    users[i].lastname = user.lastname;
+                    cb_fn(users[i]);
                     break;
                 }
             }
         }
-
+        
     }
 
 })();

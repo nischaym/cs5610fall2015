@@ -5,27 +5,37 @@
 
     function ProfileController($scope, UserService, $location, $rootScope)
     {
-        $scope.users = UserService.getAllUsers();
-        var users = $scope.users;
-        var present_username = $rootScope.username;
-        console.log($scope.users);
+        var userid = $rootScope.user.userid;
+        //var id = $rootScope.user.userid;
+        $scope.user.username = $rootScope.user.username;
+        $scope.user.lastname = $rootScope.user.lastname;
+        //console.log($scope.users);
+        //console.log(present_username);
+        console.log(userid)
         $scope.update = update;
 
-        for (var i = 0; i < users.length; i++) {
-            if (users[i].username == present_username) {
-                $scope.user.username = present_username;
-                break;
-            }
-        }
-
-        function update(user)
+        function update()
         {
             var newUser =
             {
-                username,
-                password,
-                email
+                username : $scope.user.username,
+                password:  $scope.user.password,
+                email:     $scope.user.email,
+                firstname: $scope.user.firstname,
+                lastname:  $scope.user.lastname
             };
+            UserService.updateUser(userid, newUser, refresh_page)
+            
+        }
+        function refresh_page(user)
+        {
+            console.log(user.lastname);
+            $scope.user.username = user.username;
+            $scope.user.lastname = user.lastname;
+            $scope.user.email = user.email;
+            $scope.user.password = user.password;
+            $scope.user.firstname = user.firstname;
+            $location.url('/profile')
         }
     };
 })();

@@ -6,35 +6,33 @@
     function RegisterController($scope, UserService, $location, $rootScope)
     {
 
-        $scope.users = UserService.getAllUsers();
+        $scope.register = register;
 
-        console.log($scope.users);
-
-        $scope.login = login;
-
-        function login(username, password, verifypassword, email)
+        function register()
         {
 
             var newUser =
             {
-                username,
-                password,
-                email
+                username : $scope.username,
+                password : $scope.password,
+                email: $scope.email
             };
 
-            //userid = Guid.create();
-
-            if ((verifypassword != null) &&
-                (username != null) &&
-                (password != null) &&
-                (password == verifypassword))
-            {
-                $scope.users.push(newUser);
-                //$scope.users = UserService.getAllUsers();
-                //UserService.createUser(newUser)
-                $rootScope.username = username;
-                $location.url('/profile');
-            }
+ /*           if (($scope.verifypassword != null) &&
+                ($scope.username != null) &&
+                ($scope.password != null) &&
+                ($scope.password == $scope.verifypassword))
+            {*/
+                UserService.createUser(newUser , route_to_profile)
+            //}
         }
+
+        function route_to_profile(user) {
+            $rootScope.user.username = user.username;
+            $rootScope.user.password = user.password;
+            $location.url('/profile');
+        }
+
     };
 })();
+
