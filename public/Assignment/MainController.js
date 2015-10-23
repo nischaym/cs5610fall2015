@@ -8,6 +8,8 @@
         $scope.$location = $location;
         $scope.hello = "hello from MC";
         
+        
+
     }
 
 })();
