@@ -101,7 +101,17 @@
                     break;
                 }
             }
-            cb_fn(forms);
+
+            var j = 0;
+            for (var i = 0; i < forms.length; i++) {
+                if (forms[i].userid == newForm.userid) {
+                    form_temp[j] = forms[i];
+                    j = j + 1;
+                }
+            }
+            cb_fn(form_temp);
+            form_temp = [];
+
         }
     }
 })();

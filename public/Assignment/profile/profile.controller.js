@@ -35,7 +35,7 @@
             $scope.user.email = user.email;
             $scope.user.password = user.password;
             $scope.user.firstname = user.firstname;
-            $location.url('/profile')
+           // $location.url('/profile')
         }
     };
 })();

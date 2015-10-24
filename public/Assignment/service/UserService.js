@@ -36,7 +36,7 @@
         {
             for(var i=0; i< users.length ;i++)
             {
-                if (username == users[i].username)
+                if (username == users[i].username && (password == users[i].password))
                 {
                     cb_fn(users[i]);
                     break;
@@ -53,6 +53,7 @@
                     }
                 }
             }
+
         }
 
         function createUser(user, cb_fn)

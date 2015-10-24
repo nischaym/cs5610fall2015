@@ -23,13 +23,17 @@
                 ($scope.password != null) &&
                 ($scope.password == $scope.verifypassword))
             {*/
-                UserService.createUser(newUser , route_to_profile)
+            UserService.createUser(newUser, route_to_profile)
+            $rootScope.user.logged = true;
+            $rootScope.user.globalusername = newUser.username;
+            console.log($rootScope.user.globalusername);
             //}
         }
 
         function route_to_profile(user) {
             $rootScope.user.username = user.username;
             $rootScope.user.password = user.password;
+            $rootScope.user.email = user.email;
             $location.url('/profile');
         }
 

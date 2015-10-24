@@ -28,6 +28,11 @@
             templateUrl: "form/form.view.html",
             controller : "FormController"
         })
+
+        .when("/form-fields", {
+            templateUrl: "form/form-fields.view.html",
+            controller: "FormController"
+        })
         .otherwise({
             redirectTo: "/home"
         });
