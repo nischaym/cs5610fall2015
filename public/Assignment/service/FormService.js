@@ -11,22 +11,40 @@
             { formid: "2", userid: "2", formname: "Contact List" }
         ];
 
+        var form_temp = [];
 
         var formservice =
         {
             createFormForUser: createFormForUser,
             findAllFormsForUser: findAllFormsForUser,
             deleteFormById: deleteFormById,
-            updateFormById: updateFormById
+            updateFormById: updateFormById,
+            allForms : allForms
+
         }
+
         return formservice;
+
+        function allForms ()
+        {
+            return forms.length;
+        }
 
         function createFormForUser(userid, form, cb_fn)
         {
-            //form.userid = userid;
-            //form.formid = forms.length + 1;
             forms.push(form);
-            cb_fn(forms);
+            var j = 0;
+            for (var i = 0; i < forms.length; i++)
+            {
+                if (forms[i].userid == form.userid)
+                {
+                    form_temp[j] = forms[i];
+                    j = j + 1;
+                }
+            }
+            cb_fn(form_temp);
+            console.log(form_temp);
+            form_temp = [];
         }
 
         
@@ -47,15 +65,27 @@
 
         function deleteFormById (formid , cb_fn)
         {
+            var userid;
             for(var i=0;i<forms.length;i++)
             {
                 if(formid == forms[i].formid)
                 {
-                    forms.splice(i,1);
+                    userid = forms[i].userid
+                    forms.splice(i, 1);
                     break;
                 }
             }
-            cb_fn(forms);
+
+            var j = 0;
+            for (var i = 0; i < forms.length; i++) {
+                if (forms[i].userid == userid) {
+                    form_temp[j] = forms[i];
+                    j = j + 1;
+                }
+            }
+            cb_fn(form_temp);
+            console.log(form_temp);
+            form_temp = [];
         }
 
         function updateFormById(formid , newForm , cb_fn)

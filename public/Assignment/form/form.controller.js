@@ -19,7 +19,8 @@
         function addForm()
         {
             var newform = {
-                formid: $scope.forms.length + 1,
+                formid: (FormService.allForms() + 1),
+                //formid: $scope.forms.length + 1,
                 userid: user.userid,
                 formname: $scope.form.formname
             };
@@ -27,7 +28,7 @@
             //form.userid = 1;//$rootScope.user.userid;
             //form.formid = $scope.forms.length + 1;
             //form.formname = $scope.form.formname;
-            FormService.createFormForUser(1, newform, update_forms);
+            FormService.createFormForUser(user.userid, newform, update_forms);
             $scope.form.formname = "";
         }
 
@@ -68,19 +69,12 @@
             $scope.form.formname = "";
         }
 
-
-
         /* Call Back Functions*/ 
-        function update_forms(forms)
-        {
+
+        function update_forms(forms) {
             $scope.forms = forms;
             //$location.url('/forms');
         }
-
-
-
     }
-
-
 
 })(); 

@@ -22,6 +22,7 @@
             else 
             {
                 $rootScope.user = user;
+                $rootScope.user.logged = true;
                 $location.url('/profile');
             }
         }
