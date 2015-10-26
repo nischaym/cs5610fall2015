@@ -18,16 +18,20 @@
                 email: $scope.email
             };
 
- /*           if (($scope.verifypassword != null) &&
+            if (($scope.verifypassword != null) &&
                 ($scope.username != null) &&
                 ($scope.password != null) &&
                 ($scope.password == $scope.verifypassword))
-            {*/
+            {
             UserService.createUser(newUser, route_to_profile)
             $rootScope.user.logged = true;
             $rootScope.user.globalusername = newUser.username;
             console.log($rootScope.user.globalusername);
-            //}
+            }
+            else 
+            {
+                alert("data is insufficient");
+            }
         }
 
         function route_to_profile(user) {

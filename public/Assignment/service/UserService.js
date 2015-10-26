@@ -18,9 +18,9 @@
         {
             getAllUsers: getAllUsers ,
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
-            //findAllUsers: findAllUsers,
+            findAllUsers: findAllUsers,
             createUser: createUser,
-            //deleteUserById: deleteUserById,
+            deleteUserById: deleteUserById,
             updateUser: updateUser
 
         }
@@ -30,6 +30,11 @@
         function getAllUsers()
         {
             return users;
+        }
+
+        function findAllUsers(cb_fn)
+        {
+            cb_fn(users);
         }
 
         function findUserByUsernameAndPassword(username , password , cb_fn)
@@ -62,20 +67,20 @@
             users.push(user);
             cb_fn(user);
         }
-        /*
+        
         function deleteUserById (userid,ca_fn)
         {
             for (var i=0;i<users.length;i++)
             {
                 if (users[i].userid == userid)
                 {
-                    user.username = null;
-                    user.password = null;
+                    users.splice(i, 1);
+                    break;
                 }
             }
             ca_fn(users);
 
-        }*/
+        }
 
         function updateUser(userid , user , cb_fn)
         {

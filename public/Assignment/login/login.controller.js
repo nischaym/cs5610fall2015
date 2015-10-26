@@ -23,7 +23,7 @@
             {
                 $rootScope.user = user;
                 $rootScope.user.logged = true;
-                $rootScope.user.globalusername = user.username;
+                //$rootScope.user.globalusername = user.username;
                 $location.url('/profile');
             }
         }
