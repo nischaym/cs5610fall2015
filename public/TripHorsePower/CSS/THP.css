@@ -1,9 +1,0 @@
-﻿.width-auto .nav > li>a {
-    padding-left:100px;
-    padding-right:100px;
-}
-
-color-crimson .nav>li.active>a{
-
-    background-color:crimson;
-}

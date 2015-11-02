@@ -1,0 +1,105 @@
+﻿.sub-header_2 ,header_2 {
+  padding-bottom: 10px;
+  border-bottom: 0px solid #eee;
+}
+
+.padding-10px {
+    padding:10px
+}
+
+
+
+.table-my.nav >a {
+    
+    border: 1px;
+    border-color:gold;
+
+}
+
+
+
+.nav-tab-style {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-color: gold;
+    border-top:none;
+    border: 1px solid gold;
+}
+
+
+  .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 100%;
+            margin: 0;
+            height:778px;
+        }
+
+
+
+  .detailBox {
+    width:870px;
+    border:1px solid #bbb;
+    margin-bottom:10px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+ 
