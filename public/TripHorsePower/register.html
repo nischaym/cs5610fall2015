@@ -23,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="font-size:50px; color:#337ab7;" href="index.html">TripHorsePower</a>
+                    <a class="navbar-brand" style="font-size:50px; color:#337ab7;" href="#/home">TripHorsePower</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -34,29 +34,30 @@
                         <li ng-if="user.logged" ng-click="eraseUser()"><a style="color:#337ab7" href="#/home">Logout</a></li>
                     </ul>
                 </div>
+                <div>
+                    <form class="navbar-form navbar-right " role="search">
+                        <input style="padding-right:0px" type="text" class="form-control" placeholder="Search...">
+                        <button style="height:34px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </form>
+
+                </div>
             </div>
         </nav>
     </div>
 
     <div class="width-auto table-bordered container" style=" background-color:floralwhite; border-color:gold; font-size:16px">
         <ul class="nav nav-pills" role="tablist">
-            <li role="presentation" class="active"><a href="index.html">Home</a></li>
+            <li role="presentation" class="active"><a href="#">Home</a></li>
             <li role="presentation"><a href="profile.html">Profile</a></li>
             <li role="presentation"><a href="#">Messages </a></li>
-            <li class="pull-right">
-                <form class="navbar-form navbar-right " role="search">
-                    <input style="padding-right:0px" type="text" class="form-control" placeholder="Search...">
-                    <button style="height:30px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                </form>
-            </li>
         </ul>
     </div>
 
     <div class="container">
-        <div class="row" style="padding-top:2px">
+        <div class="row" style="padding-top:2px ; border:1px solid gold">
             <!--side bar div-->
             <div class="col-md-3 sidebar pull-right" style="background-color:floralwhite ;border-color:gold">
-                <ul class="nav nav-sidebar" style="font-size:16px; height:780px; padding-top:10px;padding-bottom:20px">
+                <ul class="nav nav-sidebar" style="font-size:16px; height:800px; padding-top:10px;padding-bottom:20px">
                     <li ng-class="{'active' : $location.url().indexOf('home') != -1} "><a style=" padding-top:20px;padding-bottom:20px" href="results.html">Trending<span class="sr-only">(current)</span></a></li>
                     <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('profile') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Escape to the Mountains</a></li>
                     <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('admin') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Magic of White Fields</a></li>
@@ -66,70 +67,52 @@
             </div>
 
             <div>
-                <div class="col-md-9 col-sm-8 col-xs-7" style="padding-left:0px ; padding-right:0px;background-color:floralwhite;border:1px solid gold">
-                    <div style="background-color:floralwhite" class="font-color">
-                        <div class="table-bordered" >
-                            <h2><a>Trip1</a></h2>
-                            <p class="text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
-                        <div class="table-bordered">
-                            <h2><a>Trip1</a></h2>
-                            <p class="text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
+                <div class="col-md-9 col-sm-8 col-xs-7" style="padding-left:0px ; padding-right:0px">
+                    <div style="margin:20px; padding:20px">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4>Email :</h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <input ng-model="username" type="email" placeholder="your_id@domain.com" class="form-control">
+                                </div>
+                            </div>
 
-                        <div class="table-bordered" >
-                            <h2><a>Trip1</a></h2>
-                            <p class="text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
-                        <div class="table-bordered">
-                            <h2><a>Trip1</a></h2>
-                            <p class="text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
-                        <div class="table-bordered">
-                            <h2><a>Trip1</a></h2>
-                            <p class="text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4>Username :</h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <input ng-model="username" type="text" placeholder="your_id" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4>Passsword :</h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <input ng-model="password" type="password" placeholder="**********" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4>Verify Passsword :</h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <input ng-model="verifypassword" type="password" placeholder="**********" class="form-control">
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-6">
+                                    <a ng-click="Register(username , password)" class="btn btn-default form-control" role="button">Register</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 

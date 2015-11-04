@@ -12,34 +12,35 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     
 </head>
-<body style="background-color:crimson" >
+<body style="background-color:#337ab7" >
     <div>
         <nav class="navbar navbar-inverse" style="margin-bottom:2px; background-color:floralwhite; border-color:gold;height:100px ">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:black">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" style="font-size:50px; color:#337ab7;" href="#/home">TripHorsePower</a>
+                    <a class="navbar-brand" style="font-size:50px; color:#337ab7;" href="index.html">TripHorsePower</a>
+                    <!--div>
+                        <form class="navbar-form navbar-right " role="search">
+                            <input style="padding-right:0px" type="text" class="form-control" placeholder="Search...">
+                            <button style="height:34px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </form>
+
+                    </div-->
+    
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right" >
-                        <li><a style="color:#337ab7" href="index.html">Home<span class="sr-only">(current)</span></a></li>
-                        <li ng-if="!user.logged" ng-class="{'active' : $location.url().indexOf('register') != -1} "><a style="color:#337ab7" href="#/register">Register</a>
+                            <li><a style="color:#337ab7" ng-class="{'active' : $location.url().indexOf('index.html') != -1} " href="index.html">Home<span class="sr-only">(current)</span></a></li>
+                        <li ng-if="!user.logged" ng-class="{'active' : $location.url().indexOf('register') != -1} "><a style="color:#337ab7" href="register.html">Register</a>
                         <li ng-if="user.logged"><a style="color:#337ab7" href="#"><span ng-bind="user.username"></span></a></li>
                         <li ng-if="!user.logged" ng-class="{'active' : $location.url().indexOf('login') != -1} "><a style="color:#337ab7" href="login.html">Login</a></li>
                         <li ng-if="user.logged" ng-click="eraseUser()"><a style="color:#337ab7" href="#/home">Logout</a></li>
                     </ul>
-                </div>
-                <div>
-                    <form class="navbar-form navbar-right " role="search">
-                        <input style="padding-right:0px" type="text" class="form-control" placeholder="Search...">
-                        <button style="height:34px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </form>
-
                 </div>
             </div>
         </nav>
@@ -47,27 +48,32 @@
 
     <div class="width-auto table-bordered container" style=" background-color:floralwhite; border-color:gold; font-size:16px">
         <ul class="nav nav-pills" role="tablist">
-            <li role="presentation" class="active"><a style="background-color:crimson" href="#">Home</a></li>
+            <li role="presentation" class="active"><a href="index.html">Home</a></li>
             <li role="presentation"><a href="profile.html">Profile</a></li>
             <li role="presentation"><a href="#">Messages </a></li>
+            <li class="pull-right"> <form class="navbar-form navbar-right " role="search">
+                    <input style="padding-right:0px" type="text" class="form-control" placeholder="Search...">
+                    <button style="height:30px"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+            </li>
         </ul>
     </div>
 
     <div class="container" >
         <div class="row" style="padding-top:2px">
             <!--side bar div-->
-            <div class="col-md-3 sidebar pull-right" style="background-color:floralwhite ;border-color:gold">
+            <div class="sidebar col-md-3 pull-right" style="background-color:floralwhite ;border-color:gold">
                 <ul class="nav nav-sidebar" style="font-size:16px; height:800px; padding-top:10px;padding-bottom:20px">
                     <li ng-class="{'active' : $location.url().indexOf('home') != -1} "><a style=" padding-top:20px;padding-bottom:20px" href="results.html">Trending<span class="sr-only">(current)</span></a></li>
-                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('profile') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="#/profile">Escape to the Mountains</a></li>
-                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('admin') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="#/admin">Magic of White Fields</a></li>
-                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('forms') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="#/forms">Hamshire Heavens</a></li>
-                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('forms') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="#/forms">Hamshire Heavens</a></li>
+                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('profile') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Escape to the Mountains</a></li>
+                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('admin') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Magic of White Fields</a></li>
+                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('forms') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Hamshire Heavens</a></li>
+                    <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('forms') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Hamshire Heavens</a></li>
                 </ul>
             </div>
 
             <div>
-                <div class="col-md-9 col-sm-8 col-xs-7" style="padding-left:0px ; padding-right:0px">
+                <div class="col-md-9 col-sm-8" style="padding-left:0px ; padding-right:0px">
                     <div id="myCarousel" class="carousel slide  " data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
