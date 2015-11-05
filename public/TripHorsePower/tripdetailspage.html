@@ -55,7 +55,7 @@
     <div class="container" style="background-color:floralwhite">
         <div class="row" style="padding-top:2px">
             <!--side bar div-->
-            <div class="col-md-3 sidebar pull-right" style="background-color:floralwhite ;border-color:gold">
+            <div class="sidebar col-md-3  pull-right" style="background-color:floralwhite ;border-color:gold">
                 <ul class="nav nav-sidebar" style="font-size:16px; height:800px; padding-top:10px;padding-bottom:20px">
                     <li ng-class="{'active' : $location.url().indexOf('home') != -1} "><a style=" padding-top:20px;padding-bottom:20px" href="results.html">Trending<span class="sr-only">(current)</span></a></li>
                     <li ng-if="user.logged" ng-class="{'active' : $location.url().indexOf('profile') != -1}"><a style=" padding-top:20px;padding-bottom:20px" href="tripdetailspage.html">Escape to the Mountains</a></li>
@@ -66,11 +66,11 @@
             </div>
 
             <div>
-                <div class="col-md-9 col-sm-8 col-xs-7">
+                <div class="col-md-9 col-sm-8">
 
-                    <div class="row" style="border:1px solid gold; height:150px">
+                    <div class="row" style="border:1px solid gold">
 
-                        <div class="col-md-9">
+                        <div class="col-md-9 col-sm-6">
                             <h1 style="color:#337ab7"> Escape to the Mountains</h1>
                             <a class="btn btn-social btn-facebook">
                                 <i class="fa fa-facebook"></i> Share on Facebook
@@ -83,7 +83,7 @@
                             <div class="row">
                                 <img class="pull-right" style="height:100px;width:100px" src="images/no_user_thumbnail.jpg" />
                             </div>
-                            <div class="row" style="padding-left:127px">
+                            <div class="row pull-right" style="padding-right:20px">
                                 <h4><a> username</a></h4>
                             </div>
                         </div>
