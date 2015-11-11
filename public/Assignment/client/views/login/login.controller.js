@@ -10,7 +10,8 @@
         $scope.login = function (username, password)
         {
             //console.log(username, password)
-            UserService.findUserByUsernameAndPassword(username, password, checklogin);
+            // UserService.findUserByUsernameAndPassword(username, password, checklogin);
+
         }
 
         function checklogin(user) 
