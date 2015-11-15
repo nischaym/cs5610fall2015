@@ -1,41 +1,46 @@
 ﻿(function () {
     angular
         .module("FormBuilderApp")
-        .controller("ProfileController", ProfileController)
+        .controller("ProfileController", ProfileController);
 
     function ProfileController($scope, UserService, $location, $rootScope)
     {
+
+        var model = this;
+        model.update = update;
+
+        model.user = {"username":"" ,"userid":"" , "password":"","email":"", "lastname":"",firstname:""};
+
         var userid = $rootScope.user.userid;
-        //var id = $rootScope.user.userid;
-        $scope.user.username = $rootScope.user.username;
-        $scope.user.lastname = $rootScope.user.lastname;
-        //console.log($scope.users);
-        //console.log(present_username);
-        console.log(userid)
-        $scope.update = update;
+        model.user.username = $rootScope.user.username;
+        model.user.email = $rootScope.user.email;
+        model.user.firstname = $rootScope.user.firstname;
+        model.user.password = $rootScope.user.password;
+        model.user.lastname = $rootScope.user.lastname;
 
         function update()
         {
             var newUser =
             {
-                username : $scope.user.username,
-                password:  $scope.user.password,
-                email:     $scope.user.email,
-                firstname: $scope.user.firstname,
-                lastname:  $scope.user.lastname
+                username : model.user.username,
+                password:  model.user.password,
+                email:     model.user.email,
+                firstname: model.user.firstname,
+                lastname:  model.user.lastname
             };
-            UserService.updateUser(userid, newUser, refresh_page)
+
+            UserService.updateUser(userid, newUser).then(function(response){
+
+                var newUser = response;
+                model.user.username = newUser.username;
+                model.user.lastname = newUser.lastname;
+                model.user.email = newUser.email;
+                model.user.password = newUser.password;
+                model.user.firstname = newUser.firstname;
+                $rootScope.user = newUser;
+
+            });
             
-        }
-        function refresh_page(user)
-        {
-            console.log(user.lastname);
-            $scope.user.username = user.username;
-            $scope.user.lastname = user.lastname;
-            $scope.user.email = user.email;
-            $scope.user.password = user.password;
-            $scope.user.firstname = user.firstname;
-           // $location.url('/profile')
         }
     };
 })();

@@ -2,16 +2,14 @@
 
     angular
         .module("FormBuilderApp")
-        .factory("UserService", UserService)
+        .factory("UserService", UserService);
         
 
-    function UserService($rootScope) {
+    function UserService($rootScope,$http,$q) {
 
-        var users = [
-            { userid : 1, username : "Nischay" , password : "nischay" , email:"nischay@neu.edu" , firstname : "Nischaygowda" ,lastname : "m"},
-            { userid:  2, username: "Gavrav", password: "gavrav", email: "gavrav@neu.edu", firstname: "Ga", lastname: "G" }
+        var users = [];
 
-        ];
+
         //var i;
         $rootScope.user = { userid:"", username: "", password: "" , email : "", firstname : "" , lastname :"" };
         var service =
@@ -23,7 +21,7 @@
             deleteUserById: deleteUserById,
             updateUser: updateUser
 
-        }
+        };
 
         return service;
 
@@ -37,35 +35,25 @@
             cb_fn(users);
         }
 
-        function findUserByUsernameAndPassword(username , password , cb_fn)
+        function findUserByUsernameAndPassword(username , password )
         {
-            for(var i=0; i< users.length ;i++)
-            {
-                if (username == users[i].username && (password == users[i].password))
-                {
-                    cb_fn(users[i]);
-                    break;
-                }
-                else 
-                {
-                    if (i+1 == users.length)
-                    {
-                        cb_fn(null);
-                    }
-                    else 
-                    {
-                        /*do nothing*/
-                    }
-                }
-            }
+            var deferred = $q.defer();
+            $http.get("/api/user?username="+username+"&password="+password)
+                .success(function(response){
 
+                    deferred.resolve(response);
+                });
+           return deferred.promise;
         }
 
-        function createUser(user, cb_fn)
+        function createUser(user)
         {
-            user.userid = users.length + 1;
-            users.push(user);
-            cb_fn(user);
+            var deferred = $q.defer();
+            $http.post("/api/user",user)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
         }
         
         function deleteUserById (userid,ca_fn)
@@ -82,23 +70,18 @@
 
         }
 
-        function updateUser(userid , user , cb_fn)
+        function updateUser(userid , user)
         {
-            for(var i=0;i<users.length;i++)
-            {
-                if (users[i].userid == userid)
-                {
-                    users[i].username = user.username;
-                    users[i].password = user.password;
-                    users[i].email = user.email;
-                    users[i].firstname = user.firstname;
-                    users[i].lastname = user.lastname;
-                    cb_fn(users[i]);
-                    break;
-                }
-            }
+
+            var deferred = $q.defer();
+            $http.put("/api/user/"+userid ,user)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
         }
-        
+
     }
 
 })();

@@ -6,7 +6,7 @@
                 <h4>Last Name :</h4>
             </div>
             <div class="col-md-6">
-                <input ng-model="user.lastname" type="text" placeholder="Last Name" class="form-control">
+                <input ng-model="model.user.lastname" type="text" placeholder="Last Name" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -14,7 +14,7 @@
                 <h4>First Name :</h4>
             </div>
             <div class="col-md-6">
-                <input ng-model="user.firstname" type="text" placeholder="First Name" class="form-control">
+                <input ng-model="model.user.firstname" type="text" placeholder="First Name" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-6" ng-show="user.username!==undefined">
                 
-                <input ng-model="user.username" type="text" placeholder="your_id" class="form-control">
+                <input ng-model="model.user.username" type="text" placeholder="your_id" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -31,7 +31,7 @@
                 <h4>Passsword :</h4>
             </div>
             <div class="col-md-6">
-                <input ng-model="user.password" type="password" placeholder="**********" class="form-control">
+                <input ng-model="model.user.password" type="password" placeholder="**********" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -39,7 +39,7 @@
                 <h4>Email :</h4>
             </div>
             <div class="col-md-6">
-                <input ng-model="user.email" type="email" placeholder="your_id@domain.com" class="form-control">
+                <input ng-model="model.user.email" type="email" placeholder="your_id@domain.com" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -47,9 +47,9 @@
 
             </div>
             <div class="col-md-6">
-                <a ng-click="update()" class="btn btn-default form-control" role="button">Update</a>
+                <a ng-click="model.update()" class="btn btn-default form-control" role="button">Update</a>
             </div>
         </div>
-        {{$rootScope.user.username}}
+
     </form>
 </div>

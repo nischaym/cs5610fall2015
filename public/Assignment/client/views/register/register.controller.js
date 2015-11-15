@@ -6,32 +6,42 @@
     function RegisterController($scope, UserService, $location, $rootScope)
     {
 
-        $scope.register = register;
+        var model = this;
+        model.register = register;
 
         function register()
         {
 
             var newUser =
             {
-                username : $scope.username,
-                password : $scope.password,
-                email: $scope.email
+                username : model.username,
+                password : model.password,
+                email: model.email
             };
+            //console.log(newUser);
+            //if (($scope.verifypassword != null) &&
+            //    ($scope.username != null) &&
+            //    ($scope.password != null) &&
+            //    ($scope.password == $scope.verifypassword))
+            //{
+                UserService.createUser(newUser).then(function (response) {
 
-            if (($scope.verifypassword != null) &&
-                ($scope.username != null) &&
-                ($scope.password != null) &&
-                ($scope.password == $scope.verifypassword))
-            {
-            UserService.createUser(newUser, route_to_profile)
-            $rootScope.user.logged = true;
-            $rootScope.user.globalusername = newUser.username;
-            console.log($rootScope.user.globalusername);
-            }
-            else 
-            {
-                alert("data is insufficient");
-            }
+                    newUser = response;
+                    $rootScope.user.username = newUser.username;
+                    $rootScope.user.password = newUser.password;
+                    $rootScope.user.email = newUser.email;
+                    $location.url('/profile');
+                    $rootScope.user.logged = true;
+                    $rootScope.user.globalusername = newUser.username;
+                    console.log($rootScope.user.globalusername);
+
+                });
+
+            //}
+            //else
+            //{
+            //    alert("data is insufficient");
+            //}
         }
 
         function route_to_profile(user) {

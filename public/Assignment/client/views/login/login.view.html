@@ -3,19 +3,19 @@
 
 <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">
-        <img src="../../images/onlineform2.png" class="img-responsive" alt="Image Loading">
+        <img src="../../../../Assignment/client/images/onlineform.jpg" class="img-responsive" alt="Image Loading">
         <h4>Students</h4>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
-        <img src="../../images/onlineform2.png" class="img-responsive" alt="Image Loading">
+        <img src="../../../../Assignment/client/images/onlineform.jpg" class="img-responsive" alt="Image Loading">
         <h4>Personal</h4>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
-        <img src="../../images/onlineform2.png" class="img-responsive" alt="Image Loading">
+        <img src="../../../../Assignment/client/images/onlineform.jpg" class="img-responsive" alt="Image Loading">
         <h4>Universities</h4>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
-        <img src="../../images/onlineform2.png" class="img-responsive" alt="Image Loading">
+        <img src="../../../../Assignment/client/images/onlineform.jpg" class="img-responsive" alt="Image Loading">
         <h4>Corporate</h4>
     </div>
 </div>
@@ -27,7 +27,7 @@
                 <h4>Username :</h4>
             </div>
             <div class="col-md-6">
-                <input ng-model="username" type="text" placeholder="your_id" class="form-control">
+                <input ng-model="model.username" type="text" placeholder="your_id" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -35,7 +35,7 @@
                 <h4>Passsword :</h4>
             </div>
             <div class="col-md-6">
-                <input ng-model="password" type="password" placeholder="**********" class="form-control">
+                <input ng-model="model.password" type="password" placeholder="**********" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -43,7 +43,7 @@
 
             </div>
             <div class="col-md-6">
-                <a ng-click="login(username , password)" class="btn btn-default form-control"  role="button">Login</a>
+                <a ng-click="model.login(model.username , model.password)" class="btn btn-default form-control"  role="button">Login</a>
             </div>
         </div>
     </form>

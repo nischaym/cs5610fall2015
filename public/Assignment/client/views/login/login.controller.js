@@ -5,28 +5,30 @@
 
     function LoginController($scope , UserService, $rootScope, $location) {
 
+        var model = this;
+        model.login=login;
 
         /* function for the check of login*/
-        $scope.login = function (username, password)
+        function login (username, password)
         {
-            //console.log(username, password)
-            // UserService.findUserByUsernameAndPassword(username, password, checklogin);
+            var user;
+            UserService.findUserByUsernameAndPassword(username, password).then(function(response){
 
+                user = response;
+                console.log('back in contriller');
+                console.log(user);
+                if(user == null)
+                {
+                    alert("username not present");
+                }
+                else
+                {
+                    $rootScope.user = user;
+                    $rootScope.user.logged = true;
+                    $rootScope.user.globalusername = user.username;
+                    $location.url('/profile');
+                }
+            });
         }
-
-        function checklogin(user) 
-        {
-            if(user == null)
-            {
-                alert("username not present");
-            }
-            else 
-            {
-                $rootScope.user = user;
-                $rootScope.user.logged = true;
-                //$rootScope.user.globalusername = user.username;
-                $location.url('/profile');
-            }
-        }
-    };
+    }
 })();
