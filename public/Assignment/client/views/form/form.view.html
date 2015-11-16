@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <input ng-model="form.formname" placeholder="name" type="text" class="form-control" />
+                        <input ng-model="form.title" placeholder="name" type="text" class="form-control" />
                     </th>
                     <th>
                         <button ng-click="addForm()" type="button" class="btn btn-default" aria-label="Left Align">
@@ -36,7 +36,7 @@
             <tbody>
                 <tr ng-repeat="form in forms">
                     <td>
-                        <h5>{{form.formname}}</h5>
+                        <h5><a href="#/form/{{user.userid}}/{{$index}}">{{form.title}}</a></h5>
                     </td>
                     <td>
                         <button ng-click="deleteForm($index)" type="button" class="btn btn-default" aria-label="Left Align">

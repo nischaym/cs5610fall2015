@@ -175,7 +175,7 @@
                     <tr>
                         <td>
                             <p>Add New Field :</p>
-                            <select class="form-control">
+                            <select ng-model="model.fieldType" class="form-control">
                                 <option>Single Line Text</option>
                                 <option>Date</option>
                                 <option>Dropdown</option>
@@ -186,7 +186,7 @@
                         </td>
                         <td class="text-center table-content-center_25">
                             <div>
-                                <button type="button" class="btn btn-default" aria-label="Left Align">
+                                <button ng-model="model.addField()" type="button" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                 </button>
                             </div>

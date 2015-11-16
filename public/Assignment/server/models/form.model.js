@@ -6,83 +6,36 @@ module.exports = function(app){
     var api;
     api = {
         create: create,
-        findAll: findAll,
-        findById: findById,
+        //findAll: findAll,
+        //findById: findById,
         update: update,
         remove: remove,
-        findFormByTitle: findFormByTitle
-
+        findFormByTitle: findFormByTitle,
+        findFormsByUserid: findFormsByUserid
     };
 
     return api;
 
-    function create(){
-        forms.push(form);
-        return(forms);
-    }
+    function create(userid , form){
 
-    function findAll(){
-
-        return(forms);
-    }
-
-    function findById( formid){
-
-        /*Check for the form in the mock list */
-        var form = null;
-        for (var i=0;i < forms.length;i++)
-        {
-            if (forms[i].formid == formid)
-            {
-                form = forms[i];
-                break;
-            }
-            else
-            {
-                /*Do Nothing */
-            }
-        }
-        return(form);
-    }
-
-    function update(formid,form){
-
-        //var user = null;
-        for (var i=0;i < forms.length;i++)
-        {
-            if (forms[i].formid == formid)
-            {
-                forms[i].formname = form.formname;
-                forms[i].password = form.password;
-                forms[i].email = form.email;
-                forms[i].firstname = form.firstname;
-                forms[i].lastname = form.lastname;
-                //cb_fn(users[i]);
-                break;
-            }
-            else
-            {
-                /*Do Nothing */
-            }
-        }
-        return(form);
-    }
-
-    function remove(formid){
+        var newForm = form;
+        var temp = [];
+        var j=0;
+        newForm.id = forms.length + 1;
+        forms.push(newForm);
 
         for (var i=0;i<forms.length;i++)
         {
-            if (forms[i].formid == formid)
+            if(forms[i].userid == userid)
             {
-                forms.splice(i, 1);
-                break;
+                temp[j] = forms[i];
+                j++;
             }
         }
-        ca_fn(forms);
+        return(temp);
     }
 
-
-    /* specific to Form */
+    /* specific to User Object*/
 
     function findFormByTitle( title){
 
@@ -96,5 +49,55 @@ module.exports = function(app){
             }
         }
         return(form);
+    }
+
+    function findFormsByUserid(userid){
+
+        var temp = [];
+        var j=0;
+
+        for (var i=0;i<forms.length;i++)
+        {
+            if(forms[i].userid == userid)
+            {
+                temp[j] = forms[i];
+                j++;
+            }
+        }
+        return(temp);
+     }
+
+
+    function remove(id){
+
+        for (var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                forms.splice(i,1);
+                break;
+            }
+        }
+        return(0);
+    }
+
+    function update(id,form){
+
+        console.log('model');
+        console.log(id);
+        console.log(form);
+
+        for (var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                console.log('inside if');
+                console.log(forms[i]);
+                forms[i].title = form.title;
+                console.log(forms[i]);
+                break;
+            }
+        }
+        return(forms);
     }
 };

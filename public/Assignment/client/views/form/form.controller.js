@@ -2,78 +2,77 @@
 
     angular
         .module("FormBuilderApp")
-        .controller("FormController", FormController)
+        .controller("FormController", FormController);
 
-    function FormController($scope , FormService ,$location,$rootScope)
+    function FormController($scope , FormService ,$location,$rootScope,$q)
     {
-        $scope.form = {formid: "" , userid: "", formname:""};
+        //$scope.form.title = "";
         var user = $rootScope.user;
-
-        FormService.findAllFormsForUser(user.userid, update_forms);
-
+        $scope.user.userid = $rootScope.user.userid;
         $scope.addForm = addForm;
         $scope.deleteForm = deleteForm;
         $scope.selectForm = selectForm;
         $scope.updateForm = updateForm;
 
+        FormService.findAllFormsForUser($scope.user.userid).then(function(response){
+            $scope.forms = response;
+        });
+
         function addForm()
         {
             var newform = {
-                formid: (FormService.allForms() + 1),
-                //formid: $scope.forms.length + 1,
                 userid: user.userid,
-                formname: $scope.form.formname
+                title: $scope.form.title
             };
 
-            //form.userid = 1;//$rootScope.user.userid;
-            //form.formid = $scope.forms.length + 1;
-            //form.formname = $scope.form.formname;
-            FormService.createFormForUser(user.userid, newform, update_forms);
-            $scope.form.formname = "";
+            console.log('controller');
+            console.log(newform);
+            FormService.createFormForUser(newform.userid, newform).then(function(response){
+
+                $scope.forms = response;
+            });
+
+            $scope.form.title = "";
         }
 
         function deleteForm(index)
         {
-            console.log($scope.form);
-            var newform = {
-                formid: $scope.forms[index].formid,
-                userid: "",
-                formname: $scope.form.formname
-            };
+            var id = $scope.forms[index].id;
 
-            //form.formid = ;
-            FormService.deleteFormById(newform.formid, update_forms);
+            console.log(id);
+            FormService.deleteFormById(id).then(function(response){
+
+                console.log(response);
+                FormService.findAllFormsForUser($scope.user.userid).then(function(response){
+                    $scope.forms = response;
+                })
+            })
         }
 
         function selectForm(index) {
-            
-            $scope.selectedFormIndex = index;
-            $scope.newForm = {
-                formid: $scope.forms[index].formid,
-                userid: $scope.forms[index].userid,
-                formname: $scope.forms[index].formname
-            };
-            $scope.form.formname = $scope.forms[index].formname;
-            
+
+            FormService.findAllFormsForUser($scope.user.userid).then(function(response){
+                $scope.forms = response;
+                $scope.selectedFormIndex = index;
+                $scope.form.title = $scope.forms[index].title;
+            })
         }
 
         function updateForm()
         {
-            $scope.newForm.formname = $scope.form.formname;
-            //$scope.forms[$scope.selectedFormIndex].formname = form.formname;
-            //$scope.forms[$scope.selectedFormIndex].formid = form.formid;
-            //$scope.forms[$scope.selectedFormIndex].userid = form.userid;
-            console.log("controller");
-            console.log($scope.newForm);
-            FormService.updateFormById($scope.newForm.userid, $scope.newForm, update_forms)
-            $scope.form.formname = "";
-        }
+            var newForm = {
 
-        /* Call Back Functions*/ 
+                id: $scope.forms[$scope.selectedFormIndex].id,
+                title: $scope.form.title,
+                userid: $scope.user.userid
+            };
+           FormService.updateFormById(newForm.id, newForm).then(function(response){
 
-        function update_forms(forms) {
-            $scope.forms = forms;
-            //$location.url('/forms');
+                FormService.findAllFormsForUser($scope.user.userid).then(function(response){
+                    $scope.forms = response;
+                })
+            });
+            $scope.form.title = "";
         }
     }
 

@@ -1,20 +1,15 @@
-﻿(function () {
+(function () {
 
     angular
         .module("FormBuilderApp")
-        .factory("UserService", UserService);
-        
-
-    function UserService($rootScope,$http,$q) {
-
-        var users = [];
+        .factory("FieldService", FieldService);
 
 
-        //var i;
-        $rootScope.user = { userid:"", username: "", password: "" , email : "", firstname : "" , lastname :"" };
+    function FieldService($rootScope,$http,$q) {
+
         var service =
         {
-            getAllUsers: getAllUsers ,
+            getAllFields: getAllUsers ,
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
             findAllUsers: findAllUsers,
             createUser: createUser,
@@ -32,8 +27,7 @@
 
         function findAllUsers(cb_fn)
         {
-            return(null);
-            //cb_fn(users);
+            cb_fn(users);
         }
 
         function findUserByUsernameAndPassword(username , password )
@@ -44,7 +38,7 @@
 
                     deferred.resolve(response);
                 });
-           return deferred.promise;
+            return deferred.promise;
         }
 
         function createUser(user)
@@ -56,7 +50,7 @@
                 });
             return deferred.promise;
         }
-        
+
         function deleteUserById (userid,ca_fn)
         {
             for (var i=0;i<users.length;i++)

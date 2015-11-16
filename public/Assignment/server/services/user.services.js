@@ -27,6 +27,7 @@ module.exports = function (app) {
 
     function findByQueryString(req,res)
     {
+        //console.log("im here");
         if(req.query.password == null && req.query.username == null)
         {
             allUsers(req,res);
@@ -41,8 +42,8 @@ module.exports = function (app) {
         }
     }
 
-     function findByUsername(req, res) {
-         var username = req.query.username;
+    function findByUsername(req, res) {
+        var username = req.query.username;
         res.json(model.findUserByUsername(username));
     }
 

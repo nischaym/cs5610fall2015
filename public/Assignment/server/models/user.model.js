@@ -16,14 +16,25 @@ module.exports = function(app){
 
     return api;
 
-    function create(user){
+    function create(form){
 
-        var newUser = user;
-        newUser.lastname = "";
-        newUser.firstname = "";
-        newUser.userid = users.length + 1;
-        users.push(user);
-        return(user);
+        var send_forms=[];
+        var newForm = form;
+        newForm.id = forms.length + 1;
+        forms.push(newForm);
+        var j=0;
+        for (var i=0;i<forms.length;i++){
+
+            if(forms[i].userid == form.userid){
+                send_forms[j]=forms[i];
+                j++;
+            }
+            else
+            {
+
+            }
+        }
+        return(send_forms);
     }
 
     function findAll(){
@@ -85,7 +96,7 @@ module.exports = function(app){
         }
         //ca_fn(users);
         return(users);
-   }
+    }
 
 
     /* specific to User Object*/

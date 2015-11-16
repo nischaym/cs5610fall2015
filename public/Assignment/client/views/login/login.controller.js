@@ -15,6 +15,7 @@
             UserService.findUserByUsernameAndPassword(username, password).then(function(response){
 
                 user = response;
+                console.log(response);
                 console.log('back in contriller');
                 console.log(user);
                 if(user == null)
