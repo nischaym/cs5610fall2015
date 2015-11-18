@@ -8,194 +8,312 @@
 <div class="tab-content table-bordered">
     <div class="tab-pane active padding-10px">
         <form>
+            <!--&lt;!&ndash;<div ng-controller="ModalDemoCtrl">&ndash;&gt;-->
+                <!--&lt;!&ndash;<script type="text/ng-template" id="myModalContent.html">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<h3 class="modal-title">I'm a modal!</h3>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="modal-body">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li ng-repeat="item in items">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;Selected: <b>{{ selected.item }}</b>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<button type="button" class="btn btn-default" ng-click="open()">Open me!</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div ng-show="selected">Selection from a modal: {{ selected }}</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <button type="submit" ng-click="saveForm()">Save form</button>
             <table class="table no-top-border">
                 <!--form table-->
                 <thead>
-
+                <tr>
+                    <td>
+                        <p>Add New Field :</p>
+                        <select ng-model="fieldType" ng-options="field.type as field.label for field in availableFields" class="form-control">
+                        </select>
+                    </td>
+                        <td class="text-center table-content-center_25">
+                        <div>
+                            <button ng-click="addField(fieldType)" type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            First Name
-                            <input placeholder="First Name" type="text" class="form-control" />
-                        </td>
-                        <td class="text-center table-content-center_25">
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Last Name
-                            <input placeholder="Last Name" type="text" class="form-control" />
-                        </td>
-                        <td class="text-center table-content-center_25">
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Date Of Birth</p>
-                            <input type="date" class="form-control" />
-                        </td>
-                        <td class="text-center table-content-center_25">
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="rowlink">
-                        <td>
-                            <p>Gender</p>
-                            <select class="form-control">
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </td>
-                        <td class="text-center table-content-center_25">
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Right Align">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                            </button>
-                            <button type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Roles :</p>
-                            <div class="checkbox">
-                                <div>
-                                    <label>
-                                        <input type="checkbox"> Admin
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>
-                                        <input type="checkbox"> Student
-                                    </label>
-                                </div>
-                                <div>
-                                    <label>
-                                        <input type="checkbox"> User
-                                    </label>
-                                </div>
-                            </div>
-                        </td>
-                        <!--td class="text-center table-content-center" style="padding:40px"-->
-                        <td class="text-center table-content-center_40">
-                            <div>
-                                <button type="button" class="btn btn-default" aria-label="Right Align">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" aria-label="Right Align">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" aria-label="Right Align">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>License Agreement</p>
-                            <div>
-                                <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Yes
-                                </label>
-                            </div>
-                            <div>
-                                <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> No
-                                </label>
-                            </div>
-                        </td>
-                        <td class="text-center table-content-center_25">
-                            <div>
-                                <button type="button" class="btn btn-default" aria-label="Right Align">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" aria-label="Right Align">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" aria-label="Right Align">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                                </button>
-                                <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                    <tr><td>CURRENT FIELDS: {{currFields | json}}</td></tr>
+                    <tr><td>fill the details below</td></tr>
+                    <tr ng-repeat="field in currFields">
+                    <td ng-switch="field.type">
+                        <div ng-switch-when="TEXT">
+                            Create a label for your text
+                            <input type="text" ng-model="field.label">
+                            Create a placeholder for your text
+                            <input type="text" ng-model="field.placeholder">
+                        </div>
+                        <div ng-switch-when="TEXTAREA">
+                            Create a label for your textarea
+                            <input type="text" ng-model="field.label">
+                            Create a placeholder for your textarea
+                            <input type="text" ng-model="field.placeholder">
+                        </div>
+                        <div ng-switch-when="EMAIL">
+                            Create a label for your email field
+                            <input type="text" ng-model="field.label">
+                            Create a placeholder for your email field
+                            <input type="text" ng-model="field.placeholder">
+                        </div>
+
+                        <div ng-switch-when="DATE">
+                            Create a label for your DATE
+                            <input type="text" ng-model="field.label">
+
+                            <input type="date" ng-model="field.placeholder">
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                    <!--<tr ng-repeat="field in currFields">-->
+                        <!--<td ng-switch="field.type">-->
+                            <!--<div ng-switch-when="TEXT">-->
+                                <!--<label ng-bind="field.label">-->
+                                <!--<input type="text" ng-model="field.value" placeholder="{{field.placeholder}}">-->
+                                    <!--</label>-->
+
+                            <!--</div>-->
+                            <!--<div ng-switch-when="TEXTAREA">-->
+                                <!--<textarea ng-model="field.value" rows="3" cols="10" />-->
+                            <!--</div>-->
+                        <!--</td>-->
+
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--First Name-->
+                            <!--<input placeholder="First Name" type="text" class="form-control" />-->
+                        <!--</td>-->
+                        <!--<td class="text-center table-content-center_25">-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-remove" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                                <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--Last Name-->
+                            <!--<input placeholder="Last Name" type="text" class="form-control" />-->
+                        <!--</td>-->
+                        <!--<td class="text-center table-content-center_25">-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-remove" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                                <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--<p>Date Of Birth</p>-->
+                            <!--<input type="date" class="form-control" />-->
+                        <!--</td>-->
+                        <!--<td class="text-center table-content-center_25">-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-remove" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                                <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr class="rowlink">-->
+                        <!--<td>-->
+                            <!--<p>Gender</p>-->
+                            <!--<select class="form-control">-->
+                                <!--<option>Male</option>-->
+                                <!--<option>Female</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td class="text-center table-content-center_25">-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                <!--<span class="glyphicon glyphicon-remove" aria-hidden="false"></span>-->
+                            <!--</button>-->
+                            <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                                <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--<p>Roles :</p>-->
+                            <!--<div class="checkbox">-->
+                                <!--<div>-->
+                                    <!--<label>-->
+                                        <!--<input type="checkbox"> Admin-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                                <!--<div>-->
+                                    <!--<label>-->
+                                        <!--<input type="checkbox"> Student-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                                <!--<div>-->
+                                    <!--<label>-->
+                                        <!--<input type="checkbox"> User-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                        <!--&lt;!&ndash;td class="text-center table-content-center" style="padding:40px"&ndash;&gt;-->
+                        <!--<td class="text-center table-content-center_40">-->
+                            <!--<div>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                    <!--<span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                    <!--<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                    <!--<span class="glyphicon glyphicon-remove" aria-hidden="false"></span>-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                                    <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--<p>License Agreement</p>-->
+                            <!--<div>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Yes-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<div>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> No-->
+                                <!--</label>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                        <!--<td class="text-center table-content-center_25">-->
+                            <!--<div>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                    <!--<span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                    <!--<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Right Align">-->
+                                    <!--<span class="glyphicon glyphicon-remove" aria-hidden="false"></span>-->
+                                <!--</button>-->
+                                <!--<button type="button" class="btn btn-default" aria-label="Left Align">-->
+                                    <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
                     <tr>
                         <td colspan="2">
                             <hr style=" color:black; height:4px; background-color:black" />
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <p>Add New Field :</p>
-                            <select ng-model="model.fieldType" class="form-control">
-                                <option>Single Line Text</option>
-                                <option>Date</option>
-                                <option>Dropdown</option>
-                                <option>Checkbox</option>
-                                <option>Radio Buttons</option>
-                                <option>Paragraph Text</option>
-                            </select>
-                        </td>
-                        <td class="text-center table-content-center_25">
-                            <div>
-                                <button ng-model="model.addField()" type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
         </form>
 
+        <table>
+            <thead>
+            <tr>
+                <td>PREVIEW</td>
+            </tr>
+            </thead>
+            {{displayFields}}
+            <tbody class="table">
+                <tr ng-repeat="field in displayFields">
+                    <td ng-switch="field.type">
+                        <div ng-switch-when="TEXT">
+                            {{field.label}}
+                        <!--<label ng-bind="field.placeholder">-->
+                            <input type="text" placeholder="{{field.placeholder}}" class="form-control">
+                        <!--</label>-->
+                        </div>
+                        <div ng-switch-when="TEXTAREA">
+                            {{field.label}}
+                            <input type="text" placeholder="{{field.placeholder}}" class="form-control" >
 
+                        </div>
+
+                        <div ng-switch-when="EMAIL">
+                            EMAIL : {{field.label}}
+                            <input type="email" placeholder="{{field.placeholder}}" class="form-control" >
+                        </div>
+
+                        <div ng-switch-when="DATE">
+                            DATE :{{field.label}}
+                            <input type="date" placeholder="{{field.placeholder | date}}" class="form-control" >
+                        </div>
+
+
+                    </td>
+
+                    <td class="text-center table-content-center_25">
+                        <div>&nbsp;</div>
+                        <button type="button" class="btn btn-default" aria-label="Right Align">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
+                        </button>
+                    <button type="button" class="btn btn-default" aria-label="Right Align">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
+                    </button>
+                    <button type="button" class="btn btn-default" aria-label="Right Align">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
+                    </button>
+                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                    </button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

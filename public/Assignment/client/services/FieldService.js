@@ -7,75 +7,67 @@
 
     function FieldService($rootScope,$http,$q) {
 
-        var service =
+        var fieldservice =
         {
-            getAllFields: getAllUsers ,
-            findUserByUsernameAndPassword: findUserByUsernameAndPassword,
-            findAllUsers: findAllUsers,
-            createUser: createUser,
-            deleteUserById: deleteUserById,
-            updateUser: updateUser
-
+            createFieldForForm:createFieldForForm,
+            getFieldsForForm:getFieldsForForm,
+            getFieldForForm: getFieldForForm,
+            deleteFieldFromForm:deleteFieldFromForm,
+            updateField:updateField
         };
 
-        return service;
+        return fieldservice;
 
-        function getAllUsers()
-        {
-            return users;
-        }
 
-        function findAllUsers(cb_fn)
-        {
-            cb_fn(users);
-        }
-
-        function findUserByUsernameAndPassword(username , password )
+        function createFieldForForm(formid,field)
         {
             var deferred = $q.defer();
-            $http.get("/api/user?username="+username+"&password="+password)
-                .success(function(response){
-
-                    deferred.resolve(response);
-                });
-            return deferred.promise;
-        }
-
-        function createUser(user)
-        {
-            var deferred = $q.defer();
-            $http.post("/api/user",user)
+            $http.post("/api/form/"+formid+"/field",field)
                 .success(function(response){
                     deferred.resolve(response);
                 });
             return deferred.promise;
         }
 
-        function deleteUserById (userid,ca_fn)
+        function getFieldsForForm(formid)
         {
-            for (var i=0;i<users.length;i++)
-            {
-                if (users[i].userid == userid)
-                {
-                    users.splice(i, 1);
-                    break;
-                }
-            }
-            ca_fn(users);
-
-        }
-
-        function updateUser(userid , user)
-        {
-
             var deferred = $q.defer();
-            $http.put("/api/user/"+userid ,user)
+            $http.get("/api/form"+formid)
+                .success(function(response){
+
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+        function getFieldForForm(formid,fieldid)
+        {
+            var deferred = $q.defer();
+            $http.get("/api/form"+formid+"/field"+fieldid)
                 .success(function(response){
                     deferred.resolve(response);
                 });
             return deferred.promise;
-
         }
+
+        function deleteFieldFromForm (formid,fieldid)
+        {
+            var deferred = $q.defer();
+            $http.delete("/api/form"+formid+"/field"+fieldid)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
+        function updateField(formid , fieldid)
+        {
+            var deferred = $q.defer();
+            $http.put("/api/form"+formid+"/field"+fieldid)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+       }
 
     }
 

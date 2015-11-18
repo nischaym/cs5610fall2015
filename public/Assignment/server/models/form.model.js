@@ -11,7 +11,15 @@ module.exports = function(app){
         update: update,
         remove: remove,
         findFormByTitle: findFormByTitle,
-        findFormsByUserid: findFormsByUserid
+        findFormsByUserid: findFormsByUserid,
+
+        /* field model */
+        fieldsOfForm : fieldsOfForm,
+        fieldOfTheForm : fieldOfTheForm,
+        removeFieldFromForm:removeFieldFromForm,
+        createFieldForForm:createFieldForForm,
+        updateFieldOfForm:updateFieldOfForm
+
     };
 
     return api;
@@ -99,5 +107,97 @@ module.exports = function(app){
             }
         }
         return(forms);
+    }
+
+    /*Field Model */    function fieldsOfForm(id){
+
+        var fields=[];
+        for(var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                fields = forms[i].fields;
+                break;
+            }
+        }
+        return(fields);
+    }
+
+    function  fieldOfTheForm(id,fieldid){
+
+        var field;
+        for(var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                for (var j=0;j<fields.length;j++)
+                {
+                    if (fields[j].fieldid = fieldid)
+                    {
+                        field = fields[j];
+                        break;
+
+                    }
+                }
+            }
+        }
+        return(field);
+    }
+
+
+    function removeFieldFromForm(id,fieldid)
+    {
+        var success = false;
+        for(var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                for (var j=0;j<fields.length;j++)
+                {
+                    if (fields[j].fieldid = fieldid)
+                    {
+                        fields.splice(j,1);
+                        success = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return(success);
+    }
+
+    function createFieldForForm(id,field) {
+
+        var form;
+        for(var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                forms[i].fields.push(field);
+                var form = form[i];
+                break;
+            }
+        }
+       return(form);
+    }
+
+    function updateFieldOfForm(id,fieldid,field)
+    {
+        var success = false;
+        field.fieldid = fieldid;
+        for(var i=0;i<forms.length;i++)
+        {
+            if(forms[i].id == id)
+            {
+                for (var j=0;j<fields.length;j++)
+                {
+                    if (fields[j].fieldid = fieldid)
+                    {
+                        forms[i].fields[j] = field;
+                    }
+                }
+            }
+        }
+        return(success);
     }
 };

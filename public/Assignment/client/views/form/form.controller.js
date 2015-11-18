@@ -6,7 +6,8 @@
 
     function FormController($scope , FormService ,$location,$rootScope,$q)
     {
-        //$scope.form.title = "";
+        $scope.form = {};
+
         var user = $rootScope.user;
         $scope.user.userid = $rootScope.user.userid;
         $scope.addForm = addForm;
