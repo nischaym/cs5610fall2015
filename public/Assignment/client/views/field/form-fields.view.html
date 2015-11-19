@@ -8,28 +8,6 @@
 <div class="tab-content table-bordered">
     <div class="tab-pane active padding-10px">
         <form>
-            <!--&lt;!&ndash;<div ng-controller="ModalDemoCtrl">&ndash;&gt;-->
-                <!--&lt;!&ndash;<script type="text/ng-template" id="myModalContent.html">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<h3 class="modal-title">I'm a modal!</h3>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="modal-body">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<li ng-repeat="item in items">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</li>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-                        <!--&lt;!&ndash;Selected: <b>{{ selected.item }}</b>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                <!--&lt;!&ndash;</script>&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<button type="button" class="btn btn-default" ng-click="open()">Open me!</button>&ndash;&gt;-->
-                <!--&lt;!&ndash;<div ng-show="selected">Selection from a modal: {{ selected }}</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
             <button type="submit" ng-click="saveForm()">Save form</button>
             <button type="submit" ng-click="cancelField()">Cancel form</button>
             <table class="table no-top-border">
@@ -51,8 +29,8 @@
                 </tr>
                 </thead>
                 <tbody class="table">
-                    <tr><td>CURRENT FIELDS: {{currFields | json}}</td></tr>
-                    <tr><td>fill the details below</td></tr>
+                    <!--<tr><td>CURRENT FIELDS: {{currFields | json}}</td></tr>-->
+                    <!--<tr><td>fill the details below</td></tr>-->
 
                     <tr ng-repeat="field in currFields">
                     <td ng-switch="field.type">
@@ -309,9 +287,10 @@
             <thead>
             <tr>
                 <td>PREVIEW</td>
+                {{form.title}}
             </tr>
             </thead>
-            {{displayFields}}
+            <!--{{displayFields}}-->
             <tbody >
                 <tr ng-repeat="field in displayFields">
                     <td ng-switch="field.type">

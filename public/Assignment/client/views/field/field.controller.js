@@ -3,55 +3,8 @@
     angular
         .module("FormBuilderApp")
         .controller("FieldController", FieldController);
-    //    .controller("ModalDemoCtrl",ModalDemoCtrl)
-    //    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-    //
-    //    $scope.items = items;
-    //    $scope.selected = {
-    //        item: $scope.items[0]
-    //    };
-    //
-    //    $scope.ok = function () {
-    //        $uibModalInstance.close($scope.selected.item);
-    //    };
-    //
-    //    $scope.cancel = function () {
-    //        $uibModalInstance.dismiss('cancel');
-    //    };
-    //});
-    //
-    //function ModalDemoCtrl($scope, $uibModal, $log){
-    //    $scope.items = ['item1', 'item2', 'item3'];
-    //
-    //    $scope.animationsEnabled = true;
-    //
-    //    $scope.open = function () {
-    //
-    //        var modalInstance = $uibModal.open({
-    //            animation: $scope.animationsEnabled,
-    //            templateUrl: 'form-fields.view.html',
-    //            controller: 'ModalInstanceCtrl',
-    //            //size: size,
-    //            resolve: {
-    //                items: function () {
-    //                    return $scope.items;
-    //                }
-    //            }
-    //        });
-    //
-    //        modalInstance.result.then(function (selectedItem) {
-    //            $scope.selected = selectedItem;
-    //        }, function () {
-    //            $log.info('Modal dismissed at: ' + new Date());
-    //        });
-    //    };
-    //
-    //    $scope.toggleAnimation = function () {
-    //        $scope.animationsEnabled = !$scope.animationsEnabled;
-    //    };
-    //}
 
-    function FieldController($scope , FieldService ,$location,$rootScope,$routeParams)
+    function FieldController($scope , FieldService ,$location,$rootScope,$routeParams,FormService)
     {
         $scope.user = {};
         $scope.user.userid = $routeParams.userid;
@@ -59,7 +12,25 @@
         var user = $rootScope.user;
         $scope.currFields = [];
         $scope.displayFields = [];
+        $scope.form ={};
+        $scope.form.title = "";
+        $scope.forms = [];
 
+        FormService.findAllFormsForUser($scope.user.userid).then(function(response){
+            console.log(response);
+            console.log('asfadfadfdf');
+            $scope.forms = response;
+        });
+
+
+        for(var j =0;j< $scope.forms.length;j++)
+        {
+            if($scope.forms[j].id == $scope.formid)
+            {
+                $scope.form.title = $scope.forms[j].title;
+                break;
+            }
+        }
         /* fetching all the fields for this form */
         FieldService.getFieldsForForm($scope.formid).then(function(response)
         {
@@ -97,7 +68,7 @@
              $scope.currFields = [];
              $scope.fieldType = "";
 
-        };
+        }
 
         $scope.addOption = function(field){
 

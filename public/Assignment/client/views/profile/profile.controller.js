@@ -9,7 +9,7 @@
         var model = this;
         model.update = update;
 
-        model.user = {"username":"" ,"userid":"" , "password":"","email":"", "lastname":"",firstname:""};
+        model.user = {userid: "",username:"" ,userid:"" , password:"",email:"", lastname:"",firstname:""};
 
         var userid = $rootScope.user.userid;
         model.user.username = $rootScope.user.username;
@@ -37,7 +37,7 @@
                 model.user.email = newUser.email;
                 model.user.password = newUser.password;
                 model.user.firstname = newUser.firstname;
-                $rootScope.user = newUser;
+                $rootScope.user.userid = newUser.userid;
 
             });
             

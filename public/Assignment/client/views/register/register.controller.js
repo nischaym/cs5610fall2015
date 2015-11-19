@@ -18,7 +18,7 @@
                 password : model.password,
                 email: model.email
             };
-            //console.log(newUser);
+            console.log(newUser);
             //if (($scope.verifypassword != null) &&
             //    ($scope.username != null) &&
             //    ($scope.password != null) &&
@@ -30,6 +30,7 @@
                     $rootScope.user.username = newUser.username;
                     $rootScope.user.password = newUser.password;
                     $rootScope.user.email = newUser.email;
+                    $rootScope.user.userid = newUser.userid;
                     $location.url('/profile');
                     $rootScope.user.logged = true;
                     $rootScope.user.globalusername = newUser.username;
