@@ -50,6 +50,8 @@
 
         $scope.addField = addField;
         $scope.cancelField = cancelField;
+        $scope.removeField = removeField;
+
         function addField(fieldType){
             var id = $scope.displayFields.length + 1;
             if(fieldType == "OPTIONS" || fieldType == "RADIO" || fieldType == "CBOX")
@@ -91,6 +93,30 @@
 
         };
 
+        function removeField(index){
+
+            console.log(index);
+            var fieldid = $scope.displayFields[index].id;
+            console.log(fieldid);
+            console.log('remove');
+            FieldService.deleteFieldFromForm($scope.formid ,fieldid).then(function(response )
+            {
+                //$scope.displayFields = response;
+                if(response == true)
+                {
+                    FieldService.getFieldsForForm($scope.formid).then(function(response)
+                    {
+                        console.log('i have returned');
+                        console.log(response);
+                        $scope.displayFields = response;
+                    });
+
+                }
+
+
+            });
+
+        }
 
     }
 

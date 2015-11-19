@@ -38,6 +38,11 @@
                 model.user.password = newUser.password;
                 model.user.firstname = newUser.firstname;
                 $rootScope.user.userid = newUser.userid;
+                $rootScope.user.username = newUser.username;
+                $rootScope.user.firstname = newUser.firstname;
+                $rootScope.user.lastname = newUser.lastname;
+                $rootScope.user.email = newUser.email;
+                $rootScope.password = newUser.password;
 
             });
             

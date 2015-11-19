@@ -21,7 +21,7 @@ module.exports = function(app){
         var uuid1 = uuid.v1();
         var newUser = user;
         console.log(uuid1);
-        newUser.userid = users.length +1;
+        newUser.userid = uuid1;//users.length +1;
         users.push(newUser);
         return(newUser);
     }

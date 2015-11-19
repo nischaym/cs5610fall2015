@@ -19,11 +19,6 @@
                 email: model.email
             };
             console.log(newUser);
-            //if (($scope.verifypassword != null) &&
-            //    ($scope.username != null) &&
-            //    ($scope.password != null) &&
-            //    ($scope.password == $scope.verifypassword))
-            //{
                 UserService.createUser(newUser).then(function (response) {
 
                     newUser = response;
@@ -38,11 +33,6 @@
 
                 });
 
-            //}
-            //else
-            //{
-            //    alert("data is insufficient");
-            //}
         }
 
         function route_to_profile(user) {

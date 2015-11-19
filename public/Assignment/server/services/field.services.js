@@ -5,7 +5,7 @@ module.exports = function (app) {
 
     app.get('/api/form/:formid/field', allFieldsOfTheForm);
     app.get('/api/form/:formid/field/:fieldid', FieldOfTheForm);
-    app.delete('/api/form/:formid/field', RemoveFieldOfTheForm);
+    app.delete('/api/form/:formid/field/:fieldid', RemoveFieldOfTheForm);
     app.post('/api/form/:formid/field',CreateNewField);
     app.put('/api/form/:formid/field/:fieldid', updateField);
 
@@ -27,8 +27,13 @@ module.exports = function (app) {
     }
 
     function RemoveFieldOfTheForm(req, res) {
-        var id = req.params.id;
-        res.json(model.remove(id));
+
+        var id = req.params.formid;
+        var fieldid = req.params.fieldid;
+        console.log(id);
+        console.log(fieldid);
+        console.log('abfsobobob');
+        res.json(model.removeFieldFromForm(id ,fieldid));
     }
 
 
@@ -40,75 +45,10 @@ module.exports = function (app) {
     }
 
     function updateField(){
+        var id = req.params.formid;
+        var field = req.body;
+        res.json(model.updateField(id,field));
 
     }
 
-
-
-    //function CreateNewForm (req, res) {
-    //
-    //    //console.log('create');
-    //
-    //    var userid = req.params.userid;
-    //    var form = req.body;
-    //
-    //    console.log(req.params.userid);
-    //    console.log(req.body);
-    //    res.json(model.create(userid,form));
-    //}
-    //
-    //function  allFormsByUserId (req, res) {
-    //
-    //    var userid = req.params.userid;
-    //    res.json(model.findFormsByUserid(userid));
-    //}
-    //
-    //function allUsersById (req, res) {
-    //    var userid = req.params.id;
-    //    res.json(model.findById(userid));
-    //}
-    //
-    //function findByQueryString(req,res)
-    //{
-    //    if(req.query.password == null && req.query.username == null)
-    //    {
-    //        allUsers(req,res);
-    //    }
-    //    else if(req.query.password == null)
-    //    {
-    //        findByUsername(req,res);
-    //    }
-    //    else
-    //    {
-    //        findByCredentials(req,res);
-    //    }
-    //}
-    //
-    //function findByUsername(req, res) {
-    //    var username = req.query.username;
-    //    res.json(model.findUserByUsername(username));
-    //}
-    //
-    //function findByCredentials(req, res) {
-    //
-    //    var username = req.query.username;
-    //    var password = req.query.password;
-    //    res.json(model.findUserByCredentials(username , password));
-    //}
-    //
-    //function updateForm(req, res) {
-    //
-    //    console.log('im in update');
-    //    console.log(req.params.id);
-    //    console.log(req.body);
-    //
-    //    var id = req.params.id;
-    //    var form = req.body;
-    //    res.json(model.update(id ,form));
-    //}
-    //
-    //function removeForm(req, res) {
-    //    var id = req.params.id;
-    //    res.json(model.remove(id));
-    //}
 };

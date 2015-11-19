@@ -156,11 +156,13 @@ module.exports = function(app){
         {
             if(forms[i].id == id)
             {
-                for (var j=0;j<fields.length;j++)
+                for (var j=0;j< forms[i].fields.length;j++)
                 {
-                    if (fields[j].fieldid = fieldid)
+
+                    if (forms[i].fields[j].id == fieldid)
                     {
-                        fields.splice(j,1);
+
+                        forms[i].fields.splice(j,1);
                         success = true;
                         break;
                     }

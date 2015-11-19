@@ -55,7 +55,7 @@
         function deleteFieldFromForm (formid,fieldid)
         {
             var deferred = $q.defer();
-            $http.delete("/api/form"+formid+"/field"+fieldid)
+            $http.delete("/api/form/"+formid+"/field/"+fieldid)
                 .success(function(response){
                     deferred.resolve(response);
                 });
@@ -65,7 +65,7 @@
         function updateField(formid , fieldid)
         {
             var deferred = $q.defer();
-            $http.put("/api/form"+formid+"/field"+fieldid)
+            $http.put("/api/form"+formid+"/field/"+fieldid)
                 .success(function(response){
                     deferred.resolve(response);
                 });
