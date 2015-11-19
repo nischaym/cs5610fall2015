@@ -27,6 +27,7 @@ module.exports = function(app){
     function create(userid , form){
 
         var newForm = form;
+        newForm.fields=[];
         var temp = [];
         var j=0;
         newForm.id = forms.length + 1;
@@ -109,11 +110,14 @@ module.exports = function(app){
         return(forms);
     }
 
-    /*Field Model */    function fieldsOfForm(id){
+    /*Field Model */
+
+    function fieldsOfForm(id){
 
         var fields=[];
         for(var i=0;i<forms.length;i++)
         {
+            console.log(forms[i].id);
             if(forms[i].id == id)
             {
                 fields = forms[i].fields;
@@ -168,17 +172,20 @@ module.exports = function(app){
 
     function createFieldForForm(id,field) {
 
-        var form;
+        var fields=[];
         for(var i=0;i<forms.length;i++)
         {
             if(forms[i].id == id)
             {
-                forms[i].fields.push(field);
-                var form = form[i];
+                for (var j=0;j<field.length;j++)
+                {
+                    forms[i].fields.push(field[j]);
+                }
+                var fields = forms[i].fields;
                 break;
             }
         }
-       return(form);
+       return(fields);
     }
 
     function updateFieldOfForm(id,fieldid,field)

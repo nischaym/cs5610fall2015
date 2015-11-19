@@ -3,6 +3,7 @@
 
     require("./services/user.services.js")(app);
     require("./services/form.services.js")(app);
+    require("./services/field.services.js")(app);
     /*
     var users = [
         { userid: 1, username: "Nischay", password: "nischay", email: "nischay@neu.edu", firstname: "Nischaygowda", lastname: "m" },

@@ -51,14 +51,21 @@
     //    };
     //}
 
-    function FieldController($scope , FormService ,$location,$rootScope,$routeParams)
+    function FieldController($scope , FieldService ,$location,$rootScope,$routeParams)
     {
         $scope.user = {};
         $scope.user.userid = $routeParams.userid;
         $scope.formid = $routeParams.id;
-        //var user = $rootScope.user;
+        var user = $rootScope.user;
         $scope.currFields = [];
         $scope.displayFields = [];
+
+        /* fetching all the fields for this form */
+        FieldService.getFieldsForForm($scope.formid).then(function(response)
+        {
+            console.log(response);
+            $scope.displayFields = response;
+        });
 
         $scope.availableFields = [
             {label: "Single Line Text", type: "TEXT"},
@@ -71,82 +78,49 @@
 
 
         $scope.addField = addField;
-
+        $scope.cancelField = cancelField;
         function addField(fieldType){
-            var id = $scope.currFields.length;
-            $scope.currFields.push({id: id, type: fieldType});
+            var id = $scope.displayFields.length + 1;
+            if(fieldType == "OPTIONS" || fieldType == "RADIO" || fieldType == "CBOX")
+            {
+                $scope.currFields.push({id: id, type: fieldType,options:[]});
+            }
+            else
+            {
+                $scope.currFields.push({id: id, type: fieldType});
+            }
+
         }
+
+         function cancelField(){
+
+             $scope.currFields = [];
+             $scope.fieldType = "";
+
+        };
+
+        $scope.addOption = function(field){
+
+            field.options.push({label: "", value: ""});
+
+        };
 
         $scope.saveForm = function(){
 
-            $scope.displayFields = $scope.displayFields.concat($scope.currFields);
+            FieldService.createFieldForForm($scope.formid,$scope.currFields).then(function(response)
+            {
+                console.log(response);
+                $scope.displayFields = response;
+            });
+
+            //$scope.displayFields = $scope.displayFields.concat($scope.currFields);
             console.log(JSON.stringify($scope.currFields));
-            $scope.fieldType = ""
+            $scope.fieldType = "";
             $scope.currFields=[];
+
         };
 
-        //FormService.findAllFormsForUser(user.userid, update_forms);
 
-        //function addField()
-        //{
-        //    var newform = {
-        //        formid: (FormService.allForms() + 1),
-        //        //formid: $scope.forms.length + 1,
-        //        userid: user.userid,
-        //        formname: $scope.form.formname
-        //    };
-        //
-        //    //form.userid = 1;//$rootScope.user.userid;
-        //    //form.formid = $scope.forms.length + 1;
-        //    //form.formname = $scope.form.formname;
-        //    FormService.createFormForUser(user.userid, newform, update_forms);
-        //    $scope.form.formname = "";
-        //}
-        //
-        //function removeField(index)
-        //{
-        //    console.log($scope.form);
-        //    var newform = {
-        //        formid: $scope.forms[index].formid,
-        //        userid: "",
-        //        formname: $scope.form.formname
-        //    };
-        //
-        //    //form.formid = ;
-        //    FormService.deleteFormById(newform.formid, update_forms);
-        //}
-
-/*        function selectForm(index) {
-            
-            $scope.selectedFormIndex = index;
-            $scope.newForm = {
-                formid: $scope.forms[index].formid,
-                userid: $scope.forms[index].userid,
-                formname: $scope.forms[index].formname
-            };
-            $scope.form.formname = $scope.forms[index].formname;
-            
-        }
-
-        function updateForm()
-        {
-            $scope.newForm.formname = $scope.form.formname;
-            //$scope.forms[$scope.selectedFormIndex].formname = form.formname;
-            //$scope.forms[$scope.selectedFormIndex].formid = form.formid;
-            //$scope.forms[$scope.selectedFormIndex].userid = form.userid;
-            console.log("controller");
-            console.log($scope.newForm);
-            FormService.updateFormById($scope.newForm.userid, $scope.newForm, update_forms);
-            $scope.form.formname = "";
-        }
-
-        /* Call Back Functions*
-
-        function update_forms(forms) {
-            $scope.forms = forms;
-            //$location.url('/forms');
-        }
-*/
     }
 
 })(); 

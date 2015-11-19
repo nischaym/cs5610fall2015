@@ -21,6 +21,9 @@
 
         function createFieldForForm(formid,field)
         {
+            console.log('create a field');
+            console.log(field);
+            console.log('end of cliend service');
             var deferred = $q.defer();
             $http.post("/api/form/"+formid+"/field",field)
                 .success(function(response){
@@ -32,7 +35,7 @@
         function getFieldsForForm(formid)
         {
             var deferred = $q.defer();
-            $http.get("/api/form"+formid)
+            $http.get("/api/form/"+formid+"/field")
                 .success(function(response){
 
                     deferred.resolve(response);

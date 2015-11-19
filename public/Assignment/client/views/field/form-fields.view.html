@@ -31,6 +31,7 @@
                 <!--&lt;!&ndash;<div ng-show="selected">Selection from a modal: {{ selected }}</div>&ndash;&gt;-->
             <!--&lt;!&ndash;</div>&ndash;&gt;-->
             <button type="submit" ng-click="saveForm()">Save form</button>
+            <button type="submit" ng-click="cancelField()">Cancel form</button>
             <table class="table no-top-border">
                 <!--form table-->
                 <thead>
@@ -49,9 +50,10 @@
                     </td>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="table">
                     <tr><td>CURRENT FIELDS: {{currFields | json}}</td></tr>
                     <tr><td>fill the details below</td></tr>
+
                     <tr ng-repeat="field in currFields">
                     <td ng-switch="field.type">
                         <div ng-switch-when="TEXT">
@@ -78,6 +80,48 @@
                             <input type="text" ng-model="field.label">
 
                             <input type="date" ng-model="field.placeholder">
+                        </div>
+
+                        <div ng-switch-when="OPTIONS">
+                            Create a label for your DropDown
+                            <input type="text" ng-model="field.label">
+                            <ul>
+                                <li style="padding: 10px" ng-repeat="option in field.options">
+                                option name
+                                <input type="text" ng-model="option.label">
+                                optionvalue
+                                <input type="text" ng-model="option.value">
+                                </li>
+                            </ul>
+                            <button type="button" ng-click="addOption(field)" class="btn-default"> add options </button>
+                        </div>
+
+                        <div ng-switch-when="CBOX">
+                            Create a label for CheckBox
+                            <input type="text" ng-model="field.label">
+                            <ul>
+                                <li style="padding:10px" ng-repeat="option in field.options">
+                                    option name
+                                    <input type="text" ng-model="option.label">
+                                    option value
+                                    <input type="text" ng-model="option.value">
+                                </li>
+                            </ul>
+                            <button type="button" ng-click="addOption(field)" class="btn-default"> add options </button>
+                        </div>
+
+                        <div ng-switch-when="RADIO">
+                            Create a label for Radio
+                            <input type="text" ng-model="field.label">
+                            <ul>
+                                <li style="padding:10px" ng-repeat="option in field.options">
+                                    option name
+                                    <input type="text" ng-model="option.label">
+                                    option value
+                                    <input type="text" ng-model="option.value">
+                                </li>
+                            </ul>
+                            <button type="button" ng-click="addOption(field)" class="btn-default"> add options </button>
                         </div>
 
                     </td>
@@ -261,14 +305,14 @@
             </table>
         </form>
 
-        <table>
+        <table class="table">
             <thead>
             <tr>
                 <td>PREVIEW</td>
             </tr>
             </thead>
             {{displayFields}}
-            <tbody class="table">
+            <tbody >
                 <tr ng-repeat="field in displayFields">
                     <td ng-switch="field.type">
                         <div ng-switch-when="TEXT">
@@ -284,7 +328,7 @@
                         </div>
 
                         <div ng-switch-when="EMAIL">
-                            EMAIL : {{field.label}}
+                            {{field.label}}
                             <input type="email" placeholder="{{field.placeholder}}" class="form-control" >
                         </div>
 
@@ -293,25 +337,47 @@
                             <input type="date" placeholder="{{field.placeholder | date}}" class="form-control" >
                         </div>
 
-
+                        <div ng-switch-when="OPTIONS">
+                            {{field.label}}
+                            <select class="form-control">
+                                <option>&nbsp;</option>
+                                <option ng-repeat="option in field.options">{{option.label}}</option>
+                            </select>
+                        </div>
+                        <div ng-switch-when="RADIO">
+                            {{field.label}}
+                            <div ng-repeat="option in field.options">
+                                <label class="radio-inline">
+                                    <input  type="radio" name="{{field.label}}" value="{{option.value}}">
+                                    {{option.label}}
+                                </label>
+                            </div>
+                        </div>
+                        <div ng-switch-when="CBOX"  class="checkbox">
+                            {{field.label}}
+                            <div ng-repeat="option in field.options">
+                                <label>
+                                    <input  type="checkbox" value="{{option.value}}">
+                                    {{option.label}}
+                                </label>
+                            </div>
+                        </div>
                     </td>
-
                     <td class="text-center table-content-center_25">
                         <div>&nbsp;</div>
                         <button type="button" class="btn btn-default" aria-label="Right Align">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
                         </button>
-                    <button type="button" class="btn btn-default" aria-label="Right Align">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
-                    </button>
-                    <button type="button" class="btn btn-default" aria-label="Right Align">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
-                    </button>
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-                    </button>
+                        <button type="button" class="btn btn-default" aria-label="Right Align">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="false"></span>
+                        </button>
+                        <button type="button" class="btn btn-default" aria-label="Right Align">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="false"></span>
+                        </button>
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        </button>
                     </td>
-
                 </tr>
             </tbody>
         </table>
