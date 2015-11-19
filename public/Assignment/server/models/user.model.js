@@ -1,6 +1,6 @@
 ﻿
 var users = require("./user.mock.json");
-
+var uuid = require('uuid');
 module.exports = function(app){
 
     var api;
@@ -18,7 +18,9 @@ module.exports = function(app){
 
     function create(user){
 
+        var uuid1 = uuid.v1();
         var newUser = user;
+        console.log(uuid1);
         newUser.userid = users.length +1;
         users.push(newUser);
         return(newUser);

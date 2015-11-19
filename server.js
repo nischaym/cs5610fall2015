@@ -16,4 +16,4 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 require("./public/Assignment/server/app.js")(app);
 
-app.listen(port,address)
+app.listen(port,address);
