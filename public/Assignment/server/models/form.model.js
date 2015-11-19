@@ -1,5 +1,6 @@
 ﻿
 var forms = require("./form.mock.json");
+var uuid = require('uuid');
 
 module.exports = function(app){
 
@@ -30,7 +31,8 @@ module.exports = function(app){
         newForm.fields=[];
         var temp = [];
         var j=0;
-        newForm.id = forms.length + 1;
+        var uuid1 = uuid.v1();
+        newForm.id = uuid1;//forms.length + 1;
         forms.push(newForm);
 
         for (var i=0;i<forms.length;i++)
