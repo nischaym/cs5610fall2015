@@ -1,0 +1,31 @@
+[
+    {"id": "0", "title": "Contacts", "userid": 1,
+        "fields": [
+            {"id": "0", "label": "First Name", "type": "TEXT", "placeholder": "First Name"},
+            {"id": "1", "label": "Last Name", "type": "TEXT", "placeholder": "Last Name"},
+            {"id": "2", "label": "Address", "type": "TEXT", "placeholder": "Address"},
+            {"id": "3", "label": "State", "type": "OPTIONS", "options": [
+                {"label": "Massachussets", "value": "MA"},
+                {"label": "New Hampshire", "value": "NH"}
+            ]},
+            {"id": "4", "label": "ZIP", "type": "TEXT", "placeholder": "ZIP"},
+            {"id": "5", "label": "Email", "type": "EMAIL", "placeholder": "Email"},
+            {"id": "7", "label": "Pets", "type": "RADIO", "options": [
+                {"label": "1", "value": "1"},
+                {"label": "2", "value": "2"}
+
+            ]},
+            {"id": "8", "label": "Subjects", "type": "CBOX", "options": [
+                {"label": "Web", "value": "Web"},
+                {"label": "DB", "value": "DB"}
+            ]}
+        ]
+    },
+    {"id": "1", "title": "ToDo", "userid": 234,
+        "fields": [
+            {"id": "777", "label": "Title", "type": "TEXT", "placeholder": "Title"},
+            {"id": "888", "label": "Description", "type": "TEXTAREA", "placeholder": "Title"},
+            {"id": "999", "label": "Due Date", "type": "DATE"}
+        ]
+    }
+]

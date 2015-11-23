@@ -1,8 +1,11 @@
-var express = require('express')
-var app = express()
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
- 
- app.use(express.static(__dirname + '/public'));
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+
+app.use(express.static(__dirname + '/public'));
  
 var address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port    = process.env.OPENSHIFT_NODEJS_PORT || 3000;
