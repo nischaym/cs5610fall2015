@@ -31,7 +31,7 @@
 
             UserService.updateUser(userid, newUser).then(function(response){
 
-                var newUser = response;
+                var newUser = response[0];
                 model.user.username = newUser.username;
                 model.user.lastname = newUser.lastname;
                 model.user.email = newUser.email;

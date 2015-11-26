@@ -22,7 +22,7 @@
             controller : "LoginController as model"
         })
         .when("/admin", {
-            templateUrl: "admin/admin.view.html"
+            templateUrl: "views/admin/admin.view.html"
         })
         .when("/forms", {
             templateUrl: "views/form/form.view.html",

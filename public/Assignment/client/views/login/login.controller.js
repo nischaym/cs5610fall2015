@@ -14,7 +14,7 @@
             var user;
             UserService.findUserByUsernameAndPassword(username, password).then(function(response){
 
-                user = response;
+                user = response[0];
                 console.log(response);
                 console.log('back in contriller');
                 console.log(user);
