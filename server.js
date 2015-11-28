@@ -2,9 +2,21 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test');
-var db = mongoose.connection;
+//mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test');
+//var db = mongoose.connection;
 
+
+var connectionString = 'mongodb://127.0.0.1:27017/test';
+
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+        process.env.OPENSHIFT_APP_NAME;
+}
+
+var db = mongoose.connect(connectionString);
 
 app.use(express.static(__dirname + '/public'));
  
