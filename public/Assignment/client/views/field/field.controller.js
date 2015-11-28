@@ -34,8 +34,8 @@
         /* fetching all the fields for this form */
         FieldService.getFieldsForForm($scope.formid).then(function(response)
         {
-            console.log(response);
-            $scope.displayFields = response;
+            console.log(response[0].fields);
+            $scope.displayFields = response[0].fields;
         });
 
         $scope.availableFields = [
@@ -80,10 +80,21 @@
 
         $scope.saveForm = function(){
 
+            console.log('data before saving');
+            console.log($scope.currFields);
+            $scope.currFields.fieldtype = $scope.currFields.type;
+            console.log('data before saving but having');
+            console.log($scope.currFields);
             FieldService.createFieldForForm($scope.formid,$scope.currFields).then(function(response)
             {
-                console.log(response);
-                $scope.displayFields = response;
+                //console.log(response);
+                //console.log(response);
+                FieldService.getFieldsForForm($scope.formid).then(function(response)
+                {
+
+                    $scope.displayFields = response[0].fields;
+                });
+
             });
 
             //$scope.displayFields = $scope.displayFields.concat($scope.currFields);
@@ -101,19 +112,12 @@
             console.log('remove');
             FieldService.deleteFieldFromForm($scope.formid ,fieldid).then(function(response )
             {
-                //$scope.displayFields = response;
-                if(response == true)
-                {
                     FieldService.getFieldsForForm($scope.formid).then(function(response)
                     {
-                        console.log('i have returned');
-                        console.log(response);
-                        $scope.displayFields = response;
+                        console.log('i have returned after removing');
+                        console.log(response[0].fields);
+                        $scope.displayFields = response[0].fields;
                     });
-
-                }
-
-
             });
 
         }

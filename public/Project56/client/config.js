@@ -6,14 +6,14 @@
 
     function configure($routeProvider) {
         $routeProvider
-        .when("/home", {
+            .when("/home", {
             templateUrl: "views/home/home.view.html"
         })
-        .when("/register", {
+            .when("/register", {
             templateUrl: "views/register/register.view.html",
             controller : "RegisterController as model"
         })
-        .when("/profile", {
+            .when("/profile", {
             templateUrl: "views/profile/profile.view.html"
             //controller: "ProfileController as model"
         })
@@ -23,23 +23,18 @@
             //})
 
 
-        .when("/login", {
+            .when("/login", {
             templateUrl: "views/login/login.view.html",
             controller : "LoginController as model"
         })
 
-        .when("/search", {
+            .when("/search", {
             templateUrl: "views/search/search.view.html"
         })
-        //.when("/forms", {
-        //    templateUrl: "views/form/form.view.html",
-        //    controller : "FormController"
-        //})
-        //
-        //.when("/form/:userid/:id", {
-        //    templateUrl: "views/field/form-fields.view.html",
-        //    controller: "FieldController"
-        //})
+            .when("/details", {
+                templateUrl: "views/details/details.view.html"
+            })
+
         .otherwise({
             redirectTo: "/home"
         });

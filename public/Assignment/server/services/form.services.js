@@ -1,6 +1,6 @@
-var model = require("../models/form.model.js")();
+//var model = require("../models/form.model.js")();
 
-module.exports = function (app) {
+module.exports = function (app,model) {
 
 
     app.post('/api/form/:userid/form',CreateNewForm);
@@ -17,15 +17,27 @@ module.exports = function (app) {
         var userid = req.params.userid;
         var form = req.body;
 
-        console.log(req.params.userid);
-        console.log(req.body);
-        res.json(model.create(userid,form));
+        model
+            .create(userid,form)
+            .then(function(newform){
+                res.json(newform);
+            });
+
+        //console.log(req.params.userid);
+        //console.log(req.body);
+        //res.json(model.create(userid,form));
     }
 
     function  allFormsByUserId (req, res) {
 
         var userid = req.params.userid;
-        res.json(model.findFormsByUserid(userid));
+        model
+            .findFormsByUserid(userid)
+            .then(function(forms){
+                res.json(forms);
+            });
+
+        //res.json(model.findFormsByUserid(userid));
     }
 
     function allUsersById (req, res) {
@@ -63,13 +75,19 @@ module.exports = function (app) {
 
     function updateForm(req, res) {
 
-        console.log('im in update');
-        console.log(req.params.id);
-        console.log(req.body);
+        //console.log('im in update');
+        //console.log(req.params.id);
+        //console.log(req.body);
 
         var id = req.params.id;
         var form = req.body;
-        res.json(model.update(id ,form));
+        model
+            .update(id,form)
+            .then(function(forms){
+                res.json(forms);
+            });
+
+        //res.json(model.update(id ,form));
     }
 
     function removeForm(req, res) {

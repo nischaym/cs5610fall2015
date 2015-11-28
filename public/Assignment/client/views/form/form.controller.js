@@ -30,7 +30,9 @@
             console.log(newform);
             FormService.createFormForUser(newform.userid, newform).then(function(response){
 
-                $scope.forms = response;
+                FormService.findAllFormsForUser($scope.user.userid).then(function(response){
+                    $scope.forms = response;
+                });
             });
 
             $scope.form.title = "";

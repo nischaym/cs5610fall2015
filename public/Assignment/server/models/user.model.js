@@ -37,11 +37,11 @@ module.exports = function(app,mongoose,db,UserSchema){
 
     function create(user){
 
-        console.log('before adding');
-        console.log(user);
+        //console.log('before adding');
+        //console.log(user);
         var uuid1 = uuid.v1();
         var newUser = user;
-        console.log(uuid1);
+        //console.log(uuid1);
         newUser.userid = uuid1;//users.length +1;
 
         var deferred = q.defer();
