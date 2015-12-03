@@ -12,8 +12,8 @@
         var tripservices =
         {
             createTripForUser: createTripForUser,
-            findAllTripsByUserId:findAllTripsByUserId
-            //findAllTrips:findAllTrips,
+            findAllTripsByUserId:findAllTripsByUserId,
+            getTripById:getTripById,
             //findTripsforUserId:findTripsforUserId,
             //deleteFormById: deleteFormById,
             //updateFormById: updateFormById,
@@ -44,27 +44,38 @@
             return deferred.promise;
         }
 
-        function deleteFormById (id)
+        function getTripById(tripid)
         {
             var deferred = $q.defer();
-            $http.delete("/api/form/"+id)
+            $http.get("/api/trip/"+tripid+"/tripid")
                 .success(function(response){
                     deferred.resolve(response);
                 });
             return deferred.promise;
+
         }
 
-
-        function updateFormById(id ,newForm )
-        {
-            console.log('im in update');
-            console.log(newForm);
-            var deferred = $q.defer();
-            $http.put("/api/form/"+id,newForm)
-                .success(function(response){
-                    deferred.resolve(response);
-                });
-            return deferred.promise;
-         }
+        //function deleteFormById (id)
+        //{
+        //    var deferred = $q.defer();
+        //    $http.delete("/api/form/"+id)
+        //        .success(function(response){
+        //            deferred.resolve(response);
+        //        });
+        //    return deferred.promise;
+        //}
+        //
+        //
+        //function updateFormById(id ,newForm )
+        //{
+        //    console.log('im in update');
+        //    console.log(newForm);
+        //    var deferred = $q.defer();
+        //    $http.put("/api/form/"+id,newForm)
+        //        .success(function(response){
+        //            deferred.resolve(response);
+        //        });
+        //    return deferred.promise;
+        // }
     }
 })();

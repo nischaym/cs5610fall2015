@@ -37,7 +37,8 @@
             })
 
             .when("/trip/:tripid", {
-                templateUrl: "views/details/details.view.html"
+                templateUrl: "views/details/details.view.html",
+                controller:"DetailsController"
             })
 
             .otherwise({

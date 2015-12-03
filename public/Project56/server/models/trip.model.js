@@ -14,7 +14,8 @@ module.exports = function(app,mongoose,db,TripSchema){
         //update: update,
         //remove: remove,
         //findFormByTitle: findFormByTitle,
-        findAllTripsByUser: findAllTripsByUser
+        findAllTripsByUser: findAllTripsByUser,
+        findtrip:findtrip
 
         ///* field model */
         //fieldsOfForm : fieldsOfForm,
@@ -37,22 +38,6 @@ module.exports = function(app,mongoose,db,TripSchema){
         return deferred.promise;
     }
 
-    /* specific to User Object*/
-
-    function findFormByTitle( title){
-
-        var form = null;
-        for(var i =0;i<forms.length;i++)
-        {
-            if (forms[i].title == title)
-            {
-                form = forms[i];
-                break;
-            }
-        }
-        return(form);
-    }
-
     function findAllTripsByUser(userid){
 
         var deferred = q.defer();
@@ -63,6 +48,14 @@ module.exports = function(app,mongoose,db,TripSchema){
      }
 
 
+    function findtrip(tripid){
+
+        var deferred = q.defer();
+        TripModel.findById(tripid,function(err , trip){
+            deferred.resolve(trip);
+        });
+        return deferred.promise;
+    }
     function remove(id){
 
         var deferred = q.defer();

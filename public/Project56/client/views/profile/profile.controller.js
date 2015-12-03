@@ -23,7 +23,7 @@
         $scope.addTrip = addTrip;
         $scope.saveTrip = saveTrip;
 
-        TripService.findAllTripsByUserId("565df5e192dc17582ca1b40f").then(function(response){
+        TripService.findAllTripsByUserId($scope.user._id).then(function(response){
 
             console.log('adasbfosasfnanfkn');
             console.log(response);
@@ -62,7 +62,8 @@
         function saveTrip(newtitle,newsummary,newcontent)
         {
             var newTrip =
-            {   userid : "565df5e192dc17582ca1b40f",
+            {   userid : $scope.user._id,
+                username:$scope.user.username,
                 title :newtitle,
                 summary :newsummary,
                 content:newcontent
@@ -70,9 +71,13 @@
             console.log(newTrip);
             TripService.createTripForUser(newTrip).then(function(response){
 
-                console.log('----------------------');
-                console.log(response);
+                TripService.findAllTripsByUserId($scope.user._id).then(function(response){
 
+                    $scope.trips = response;
+                    addTrip();
+                    $scope.title="";
+
+                });
             });
         }
 
