@@ -36,7 +36,11 @@
                 templateUrl: "views/details/details.view.html"
             })
 
-        .otherwise({
+            .when("/trip/:tripid", {
+                templateUrl: "views/details/details.view.html"
+            })
+
+            .otherwise({
             redirectTo: "/home"
         });
     }

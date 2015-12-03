@@ -3,36 +3,33 @@
 module.exports = function (app,model) {
 
 
-    app.post('/api/form/:userid/form',CreateNewForm);
+    app.post('/api/trip/:userid/trip',CreateNewTrip);
     //app.get('/api/user?',findByQueryString); /* for login */
-    app.get('/api/form/:userid/form', allFormsByUserId);
-    app.put('/api/form/:id',updateForm);
-    app.delete('/api/form/:id',removeForm);
+    app.get('/api/trip/:userid/trip', findAllTripsByUserId);
+    //app.put('/api/form/:id',updateForm);
+    //app.delete('/api/form/:id',removeForm);
 
 
-    function CreateNewForm (req, res) {
+    function CreateNewTrip (req, res) {
 
         console.log('create');
 
         var userid = req.params.userid;
-        var form = req.body;
+        var trip = req.body;
 
         model
-            .create(userid,form)
-            .then(function(newform){
-                res.json(newform);
+            .create(trip)
+            .then(function(newtrip){
+                res.json(newtrip);
             });
 
-        //console.log(req.params.userid);
-        //console.log(req.body);
-        //res.json(model.create(userid,form));
     }
 
-    function  allFormsByUserId (req, res) {
+    function  findAllTripsByUserId (req, res) {
 
         var userid = req.params.userid;
         model
-            .findFormsByUserid(userid)
+            .findAllTripsByUser(userid)
             .then(function(forms){
                 res.json(forms);
             });

@@ -3,7 +3,7 @@
         .module("TripTorque")
         .controller("ProfileController", ProfileController);
 
-        function ProfileController($scope , $rootScope, $location,UserService)
+        function ProfileController($scope , $rootScope, $location,UserService,TripService)
     {
 
         //$scope.user = {username:"",firstname:"",lastname:""};
@@ -12,7 +12,7 @@
         $scope.isCollapsedtrips = true;
         $scope.isCollapsedfollowers = true;
         $scope.isCollapsedfollowing = true;
-
+        $scope.addNewTrip = false;
 
         //$scope.user.title = "Jobless";
 
@@ -20,6 +20,15 @@
         $scope.userEdit = userEdit;
         $scope.cancelEdit=cancelEdit;
         $scope.saveUserEdit = saveUserEdit;
+        $scope.addTrip = addTrip;
+        $scope.saveTrip = saveTrip;
+
+        TripService.findAllTripsByUserId("565df5e192dc17582ca1b40f").then(function(response){
+
+            console.log('adasbfosasfnanfkn');
+            console.log(response);
+            $scope.trips = response;
+        });
 
         function userEdit(){
             $scope.userdetailsedit = true;
@@ -39,6 +48,30 @@
                 $rootScope.user.logged = true;
                 $rootScope.user.globalusername = user.username;
                 $scope.userdetailsedit = false;
+
+            });
+        }
+
+
+        function addTrip(){
+            $scope.addNewTrip = !$scope.addNewTrip;
+        }
+
+
+
+        function saveTrip(newtitle,newsummary,newcontent)
+        {
+            var newTrip =
+            {   userid : "565df5e192dc17582ca1b40f",
+                title :newtitle,
+                summary :newsummary,
+                content:newcontent
+            };
+            console.log(newTrip);
+            TripService.createTripForUser(newTrip).then(function(response){
+
+                console.log('----------------------');
+                console.log(response);
 
             });
         }

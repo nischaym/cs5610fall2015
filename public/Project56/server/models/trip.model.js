@@ -1,45 +1,38 @@
 ﻿
-var uuid = require('uuid');
+//var uuid = require('uuid');
 var q = require("q");
 
-module.exports = function(app,mongoose,db,FormSchema){
+module.exports = function(app,mongoose,db,TripSchema){
 
     var api;
-    var FormModel = mongoose.model("FormModel" , FormSchema);
+    var TripModel = mongoose.model("TripModel" , TripSchema);
 
     api = {
         create: create,
         //findAll: findAll,
         //findById: findById,
-        update: update,
-        remove: remove,
-        findFormByTitle: findFormByTitle,
-        findFormsByUserid: findFormsByUserid,
+        //update: update,
+        //remove: remove,
+        //findFormByTitle: findFormByTitle,
+        findAllTripsByUser: findAllTripsByUser
 
-        /* field model */
-        fieldsOfForm : fieldsOfForm,
-        fieldOfTheForm : fieldOfTheForm,
-        removeFieldFromForm:removeFieldFromForm,
-        createFieldForForm:createFieldForForm,
-        updateFieldOfForm:updateFieldOfForm
+        ///* field model */
+        //fieldsOfForm : fieldsOfForm,
+        //fieldOfTheForm : fieldOfTheForm,
+        //removeFieldFromForm:removeFieldFromForm,
+        //createFieldForForm:createFieldForForm,
+        //updateFieldOfForm:updateFieldOfForm
 
     };
 
     return api;
 
 
-    function create(userid , form){
-
-        var newForm = form;
-        newForm.fields=[];
-        var temp = [];
-        var j=0;
-        var uuid1 = uuid.v1();
-        newForm.id = uuid1;//forms.length + 1;
+    function create(newtrip){
 
         var deferred = q.defer();
-        FormModel.create(newForm,function(err , form){
-            deferred.resolve(form);
+        TripModel.create(newtrip,function(err , trip){
+            deferred.resolve(trip);
         });
         return deferred.promise;
     }
@@ -60,30 +53,13 @@ module.exports = function(app,mongoose,db,FormSchema){
         return(form);
     }
 
-    function findFormsByUserid(userid){
-
-        var temp = [];
-        var j=0;
+    function findAllTripsByUser(userid){
 
         var deferred = q.defer();
-        console.log(userid);
-        console.log('inside find by userid');
-        FormModel.find({userid:userid},function(err , forms){
-            console.log('response feom db');
-            console.log(forms);
-            deferred.resolve(forms);
+        TripModel.find({userid:userid},function(err , trip){
+            deferred.resolve(trip);
         });
         return deferred.promise;
-
-        //for (var i=0;i<forms.length;i++)
-        //{
-        //    if(forms[i].userid == userid)
-        //    {
-        //        temp[j] = forms[i];
-        //        j++;
-        //    }
-        //}
-        //return(temp);
      }
 
 

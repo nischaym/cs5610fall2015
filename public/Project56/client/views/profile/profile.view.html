@@ -77,20 +77,65 @@
                     <div class="well well-lg">
                         <tr>
                             <button ng-click="addTrip()" type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon" aria-hidden="true"></span> Add New Trip
+                                <span class="glyphicon" aria-hidden="true"></span> New Trip
                             </button>
 
-                            <button ng-click="addTrip()" type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon" aria-hidden="true"></span> Delete Selected Trip
-                            </button>
                         </tr>
-                        <div ng-repeat="trip in trips">
+                        <div ng-if="addNewTrip">
+                            <tr>
+                                <div>
+                                    <label for="title">Title:</label>
+                                    <input ng-model="newtitle" type="text" class="form-control" id="title">
+                                </div>
+
+                            </tr>
+                            <tr>
+                                <div>
+                                    <label for="usr">Summary:</label>
+                                    <input ng-model="newsummary" type="text" class="form-control" id="usr">
+                                </div>
+
+                            </tr>
+                            <tr>
+                                <div>
+                                    <label for="comment">Experience:</label>
+                                    <textarea ng-model="newcontent" class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </tr>
+                            <tr class="col-sm-1">
+                                <button ng-click="saveTrip(newtitle,newsummary,newcontent)" type="button" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon" aria-hidden="true"></span> Save New Trip
+                                </button>
+
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="2">
+                                    <hr style=" color:black; height:4px; background-color:black" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h4>Your Trips</h4>
+                                </th>
+                            </tr>
+
+
+                        </div>
+                        <div>
                             <table class="table table-bordered">
-                                <thead></thead>
+                                <thead>
+                                </thead>
                                 <tbody>
-                                <tr>
-                                    <td>{{trip.title}}</td>
-                                    <td>{{trip.content}}</td>
+                                <tr ng-repeat="trip in trips">
+                                    <td><a href="#/trip/{{trips[$index]._id}}">{{trip.title}}</a></td>
+                                    <td>{{trip.summary}}</td>
+                                    <td style="padding-left: 85px">
+                                        <button ng-click="deleteTrip($index)" type="button" class="btn btn-default centered">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

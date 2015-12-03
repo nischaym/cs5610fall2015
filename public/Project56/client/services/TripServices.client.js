@@ -2,7 +2,7 @@
 
     angular
         .module("TripTorque")
-        .factory("TripService", TripService)
+        .factory("TripService", TripService);
 
     function TripService ($http , $q)
     {
@@ -12,18 +12,20 @@
         var tripservices =
         {
             createTripForUser: createTripForUser,
-            findAllTrips:findAllTrips,
-            findTripsforUserId:findTripsforUserId,
-            deleteFormById: deleteFormById,
-            updateFormById: updateFormById,
+            findAllTripsByUserId:findAllTripsByUserId
+            //findAllTrips:findAllTrips,
+            //findTripsforUserId:findTripsforUserId,
+            //deleteFormById: deleteFormById,
+            //updateFormById: updateFormById,
         };
 
         return tripservices;
 
-        function createFormForUser(userid, form)
+        function createTripForUser(newtrip)
         {
             var deferred = $q.defer();
-            $http.post("/api/form/"+userid+"/form",form)
+            console.log('reached trip services');
+            $http.post("/api/trip/"+newtrip.userid+"/trip",newtrip)
                 .success(function(response){
 
                     deferred.resolve(response);
@@ -32,10 +34,10 @@
        }
 
 
-        function findAllFormsForUser (userid)
+        function findAllTripsByUserId (userid)
         {
             var deferred = $q.defer();
-            $http.get("/api/form/"+userid+"/form")
+            $http.get("/api/trip/"+userid+"/trip")
                 .success(function(response){
                     deferred.resolve(response);
                 });
