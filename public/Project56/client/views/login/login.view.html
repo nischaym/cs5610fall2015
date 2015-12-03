@@ -1,28 +1,6 @@
+
+
 <nav class="navbar navbar-ct-transparent navbar-fixed-top" role="navigation-demo" id="register-navbar">
-    <!--<div class="container">-->
-    <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-    <!--<div class="navbar-header">-->
-    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">-->
-    <!--<span class="sr-only">Toggle navigation</span>-->
-    <!--<span class="icon-bar"></span>-->
-    <!--<span class="icon-bar"></span>-->
-    <!--<span class="icon-bar"></span>-->
-    <!--</button>-->
-    <!--<a class="navbar-brand" href="www.creative-tim.com">Creative Tim</a>-->
-    <!--</div>-->
-
-    <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
-    <!--<div class="collapse navbar-collapse" id="navigation-example-2">-->
-    <!--<ul class="nav navbar-nav navbar-right">-->
-    <!--<a href="#" class="btn btn-simple">Components</a>-->
-    <!--<a href="#" class="btn btn-simple">Tutorial</a>-->
-    <!--<a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>-->
-    <!--<a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-facebook"></i></a>-->
-    <!--</ul>-->
-    <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-    <!--</div>&lt;!&ndash; /.container&ndash;&gt;-->
-
-
     <div ng-include src="'/project56/client/views/header/header.view.html'">
 
     </div>
@@ -39,18 +17,17 @@
                         <h3 class="title">Welcome</h3>
                         <form class="register-form">
                             <label>Email/Username</label>
-                            <input ng-model="model.username" type="text" class="form-control" placeholder="Email">
+                            <input ng-model="user.username" type="text" class="form-control" placeholder="Email">
 
                             <label>Password</label>
-                            <input ng-model="model.password" type="password" class="form-control" placeholder="Password">
+                            <input ng-model="user.password" type="password" class="form-control" placeholder="Password">
 
-                            <button ng-click="login(model.username , model.password)" class="btn btn-danger btn-block">Login</button>
+                            <button ng-click="login(user.username , user.password)" class="btn btn-danger btn-block">Login</button>
                         </form>
                         <div class="forgot">
-                        <a href="#/forgot-pwd" class="btn btn-simple btn-danger">Forgot password?</a>
-                            <a href="#/forgot-un    " class="btn btn-simple btn-danger" style="margin: 0px">Forgot username?</a>
+                        <a href="#/register" class="btn btn-simple btn-danger">Forgot password?</a>
+                            <a href="#/register" class="btn btn-simple btn-danger" style="margin: 0px">Forgot username?</a>
                         </div>
-
                     </div>
                 </div>
             </div>

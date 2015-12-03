@@ -1,23 +1,14 @@
-﻿module.exports = function (app) {
+﻿module.exports = function (app,mongoose,db) {
 
+    console.log('i reached app');
 
-    require("./services/user.services.js")(app);
-    require("./services/form.services.js")(app);
-    require("./services/field.services.js")(app);
-    /*
-    var users = [
-        { userid: 1, username: "Nischay", password: "nischay", email: "nischay@neu.edu", firstname: "Nischaygowda", lastname: "m" },
-        { userid: 2, username: "Gavrav", password: "gavrav", email: "gavrav@neu.edu", firstname: "Ga", lastname: "G" }
-    ];
+    var schema = require("./models/user.schema.js")(mongoose,db);
+    var model = require("./models/user.model.js")(app,mongoose,db,schema);
+    require("./services/user.services.js")(app,model);
 
-    app.get('/api/user', function (req, res) {
-
-        res.json(users);
-    });
-
-    app.get('/api/user/:id', function (req, res) {
-        var index = req.params.id;
-        res.json(users[index]);
-    });*/
+    //var FormSchema = require("./models/form.schema.js")(mongoose,db);
+    //var model = require("./models/form.model.js")(app,mongoose,db,FormSchema);
+    //require("./services/form.services.js")(app,model);
+    //require("./services/field.services.js")(app,model);
 
 };

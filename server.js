@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 //var db = mongoose.connection;
 
 
-var connectionString = 'mongodb://127.0.0.1:27017/test';
+var connectionString = 'mongodb://127.0.0.1:27017/cs5610-triptorque';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
@@ -45,6 +45,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 ////    console.log(result);
 //});
 
-require("./public/Assignment/server/app.js")(app,mongoose,db);
+//require("./public/Assignment/server/app.js")(app,mongoose,db);
+require("./public/Project56/server/app.js")(app,mongoose,db);
 
 app.listen(port,address);

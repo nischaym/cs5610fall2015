@@ -1,41 +1,37 @@
 ﻿(function () {
     angular
         .module("TripTorque")
-        .controller("RegisterController", RegisterController)
+        .controller("RegisterController", RegisterController);
 
-    function RegisterController($scope, $location, $rootScope)
+    function RegisterController($scope, $location, $rootScope,UserService)
     {
 
-        var model = this;
-        model.register = register;
-
+        $scope.register = register;
+        $rootScope.user ;//= {username:"",password:"",email:"",userid:"",logged:false,globalusername:""};
         function register()
         {
-
             var newUser =
             {
-                username : model.username,
-                password : model.password,
-                email: model.email
+                username : $scope.user.username,
+                password : $scope.user.password,
+                email: $scope.user.email
             };
             console.log(newUser);
-                //UserService.createUser(newUser).then(function (response) {
-                //
-                //    newUser = response;
-                //    $rootScope.user.username = newUser.username;
-                //    $rootScope.user.password = newUser.password;
-                //    $rootScope.user.email = newUser.email;
-                //    $rootScope.user.userid = newUser.userid;
-                //    $location.url('/profile');
-                //    $rootScope.user.logged = true;
-                //    $rootScope.user.globalusername = newUser.username;
-                //    console.log($rootScope.user.globalusername);
-                //
-                //});
+                UserService.createUser(newUser).then(function (response) {
 
+                    newUser = response;
+                    console.log(newUser);
+                    console.log('-----------------');
+                    console.log(response);
+                    $rootScope.user = newUser;
+                    //$rootScope.user.password = newUser.password;
+                    //$rootScope.user.email = newUser.email;
+                    //$rootScope.user.userid = newUser._id;
+                    $rootScope.user.logged = true;
+                    $rootScope.user.globalusername = newUser.username;
+                    $location.url('/profile');
+                });
         }
-
-
     };
 })();
 

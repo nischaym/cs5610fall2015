@@ -1,6 +1,6 @@
-var model = require("../models/form.model.js")();
+//var model = require("../models/form.model.js")();
 
-module.exports = function (app) {
+module.exports = function(app,model) {
 
 
     app.get('/api/form/:formid/field', allFieldsOfTheForm);
@@ -16,7 +16,13 @@ module.exports = function (app) {
 
         var id = req.params.formid;
         console.log(id);
-        res.json(model.fieldsOfForm(id));
+        model
+            .fieldsOfForm(id)
+            .then(function(fields){
+                res.json(fields);
+            });
+
+        //res.json(model.fieldsOfForm(id));
     }
 
     function FieldOfTheForm(req,res)
@@ -33,7 +39,14 @@ module.exports = function (app) {
         console.log(id);
         console.log(fieldid);
         console.log('abfsobobob');
-        res.json(model.removeFieldFromForm(id ,fieldid));
+        //res.json(model.removeFieldFromForm(id ,fieldid));
+        model
+            .removeFieldFromForm(id,fieldid)
+            .then(function(fields){
+                res.json(fields);
+            });
+
+
     }
 
 
@@ -41,7 +54,15 @@ module.exports = function (app) {
 
         var id = req.params.formid;
         var field = req.body;
-        res.json(model.createFieldForForm(id,field));
+        console.log(id);
+        console.log(field);
+        model
+            .createFieldForForm(id,field)
+            .then(function(fields){
+                res.json(fields);
+            });
+
+        //res.json(model.createFieldForForm(id,field));
     }
 
     function updateField(){

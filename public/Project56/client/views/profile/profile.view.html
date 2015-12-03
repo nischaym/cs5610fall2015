@@ -1,34 +1,9 @@
-
-
 <nav class="navbar navbar-relative rnavbar-ct-transparent" role="navigation-demo" id="register-navbar">
-    <!--<div class="container">-->
-        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-        <!--<div class="navbar-header">-->
-            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">-->
-                <!--<span class="sr-only">Toggle navigation</span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-            <!--</button>-->
-            <!--<a class="navbar-brand" href="www.creative-tim.com">Creative Tim</a>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
-        <!--<div class="collapse navbar-collapse" id="navigation-example-2">-->
-            <!--<ul class="nav navbar-nav navbar-right">-->
-                <!--<a href="#" class="btn btn-simple">Components</a>-->
-                <!--<a href="#" class="btn btn-simple">Tutorial</a>-->
-                <!--<a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>-->
-                <!--<a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-facebook"></i></a>-->
-            <!--</ul>-->
-        <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-    <!--</div>&lt;!&ndash; /.container&ndash;&gt;-->
     <div ng-include src="'/project56/client/views/header/header.view.html'">
 
     </div>
 
 </nav>
-
 <div class="wrapper">
     <div class="profile-background">
         <div class="filter-black"></div>
@@ -41,77 +16,102 @@
                         <img src="/project56/client/views/assets/paper_img/chet_faker_2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
-                        <h4>Chet Faker<br /><small>Music Producer</small></h4>
+                        <h4>{{user.username}}<br/>
+                            <small>{{user.firstname}}</small><small>&nbsp;</small><small>{{user.lastname}}</small></h4>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                    <p>{{user.aboutme}}</p>
                     <br />
-                    <btn class="btn"><i class="fa fa-cog"></i> Settings</btn>
+                    <btn ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit</btn>
+
+                    <div ng-if="userdetailsedit">
+                        <br>
+                            <table class="table table-bordered">
+                                <thead>
+
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>First Name</td>
+
+                                    <td>
+                                        <input type="text"  class="form-control" ng-model="user.firstname">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>last Name</td>
+                                    <td>
+                                        <input type="text" class="form-control" ng-model="user.lastname">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <button ng-click="saveUserEdit(user)" type="button" class="btn btn-default" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        </button>
+
+                                        <button ng-click="cancelEdit()" type="button" class="btn btn-default" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    </div>
                 </div>
             </div>
-            <div class="profile-tabs">
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                            <li class="active"><a href="#follows" data-toggle="tab">Follows</a></li>
-                            <li><a href="#/following" data-toggle="tab">Following</a></li>
-                            <!--                                 <li><a href="#following" data-toggle="tab">Following</a></li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div id="my-tab-content" class="tab-content">
-                    <div class="tab-pane active" id="follows">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <ul class="list-unstyled follows">
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
-                                                <img src="/project56/client/views/assets/paper_img/flume.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                            </div>
-                                            <div class="col-md-7 col-xs-4">
-                                                <h6>Flume<br /><small>Musical Producer</small></h6>
-                                            </div>
-                                            <div class="col-md-3 col-xs-2">
-                                                <div class="unfollow" rel="tooltip" title="Unfollow">
-                                                    <label class="checkbox" for="checkbox1" >
-                                                        <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox" checked>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr />
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-2 col-md-offset-0 col-xs-3 col-xs-offset-2">
-                                                <img src="/project56/client/views/assets/paper_img/banks.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                            </div>
-                                            <div class="col-md-7 col-xs-4">
-                                                <h6>Banks<br /><small>Singer</small></h6>
-                                            </div>
-                                            <div class="col-md-3 col-xs-2">
-                                                <div class="unfollow" rel="tooltip" title="Unfollow">
-                                                    <label class="checkbox" for="checkbox1" >
-                                                        <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox" checked>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+            <br>
+            <br>
+            <div>
+                <button type="button" class="btn btn-default" ng-click="isCollapsedtrips = !isCollapsedtrips">My Trips</button>
+                <hr>
+                <div uib-collapse="isCollapsedtrips">
+                    <div class="well well-lg">
+                        <tr>
+                            <button ng-click="addTrip()" type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon" aria-hidden="true"></span> Add New Trip
+                            </button>
+
+                            <button ng-click="addTrip()" type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon" aria-hidden="true"></span> Delete Selected Trip
+                            </button>
+                        </tr>
+                        <div ng-repeat="trip in trips">
+                            <table class="table table-bordered">
+                                <thead></thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{trip.title}}</td>
+                                    <td>{{trip.content}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
-                    <div class="tab-pane text-center" id="#/following">
-                        <h3 class="text-muted">Not following anyone yet :(</h3>
-                        <btn class="btn btn-warning btn-fill">Find artists</btn>
-                    </div>
                 </div>
-
+            </div>
+            <div>
+                <button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">Followers</button>
+                <hr>
+                <div uib-collapse="isCollapsedfollowers">
+                    <div class="well well-lg">All Followers</div>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-default" ng-click="isCollapsedfollowing = !isCollapsedfollowing">Following</button>
+                <hr>
+                <div uib-collapse="isCollapsedfollowing">
+                    <div class="well well-lg">All Following</div>
+                </div>
             </div>
         </div>
     </div>

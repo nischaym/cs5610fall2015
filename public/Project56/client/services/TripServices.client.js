@@ -1,25 +1,24 @@
 ﻿(function () {
 
     angular
-        .module("FormBuilderApp")
-        .factory("FormService", FormService)
+        .module("TripTorque")
+        .factory("TripService", TripService)
 
-    function FormService ($http , $q)
+    function TripService ($http , $q)
     {
 
         var form_temp = [];
 
-        var formservice =
+        var tripservices =
         {
-            createFormForUser: createFormForUser,
-            findAllFormsForUser:findAllFormsForUser,
+            createTripForUser: createTripForUser,
+            findAllTrips:findAllTrips,
+            findTripsforUserId:findTripsforUserId,
             deleteFormById: deleteFormById,
             updateFormById: updateFormById,
-            //allForms : allForms
+        };
 
-        }
-
-        return formservice;
+        return tripservices;
 
         function createFormForUser(userid, form)
         {
@@ -64,8 +63,6 @@
                     deferred.resolve(response);
                 });
             return deferred.promise;
-
-        }
-
+         }
     }
 })();

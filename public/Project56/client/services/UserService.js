@@ -1,7 +1,7 @@
 ﻿(function () {
 
     angular
-        .module("FormBuilderApp")
+        .module("TripTorque")
         .factory("UserService", UserService);
         
 
@@ -11,7 +11,7 @@
 
 
         //var i;
-        $rootScope.user = { userid:"", username: "", password: "" , email : "", firstname : "" , lastname :"" };
+        //$rootScope.user = { userid:"", username: "", password: "" , email : "", firstname : "" , lastname :"" };
         var service =
         {
             getAllUsers: getAllUsers ,
@@ -19,7 +19,8 @@
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser
+            updateUser: updateUser,
+            //updateUserDetails:updateUserDetails
 
         };
 
@@ -71,17 +72,28 @@
 
         }
 
-        function updateUser(userid , user)
+        function updateUser(user)
         {
 
             var deferred = $q.defer();
-            $http.put("/api/user/"+userid ,user)
+            $http.put("/api/user/"+user.id ,user)
                 .success(function(response){
                     deferred.resolve(response);
                 });
             return deferred.promise;
 
         }
+
+        //function updateUserDetails(userid,title,aboutme)
+        //{
+        //    var deferred = $q.defer();
+        //    $http.put("/api/user/"+userid ,user)
+        //        .success(function(response){
+        //            deferred.resolve(response);
+        //        });
+        //    return deferred.promise;
+        //
+        //}
 
     }
 

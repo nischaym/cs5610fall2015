@@ -1,6 +1,6 @@
-var model = require("../models/user.model.js")();
+//var model = require("../models/user.model.js")();
 
-module.exports = function (app) {
+module.exports = function (app,model) {
 
     app.post('/api/user',CreateNewUser);
     app.get('/api/user?',findByQueryString); /* for login */
@@ -11,9 +11,13 @@ module.exports = function (app) {
 
     function CreateNewUser (req, res) {
 
+        console.log('i reached create');
         var user = req.body;
-
-        res.json(model.create(user));
+        model
+            .create(user)
+            .then(function(newuser){
+                res.json(newuser);
+            });
     }
 
     function  allUsers (req, res) {
@@ -27,7 +31,7 @@ module.exports = function (app) {
 
     function findByQueryString(req,res)
     {
-        //console.log("im here");
+        console.log('findbyquerystring');
         if(req.query.password == null && req.query.username == null)
         {
             allUsers(req,res);
@@ -51,7 +55,12 @@ module.exports = function (app) {
 
         var username = req.query.username;
         var password = req.query.password;
-        res.json(model.findUserByCredentials(username , password));
+        model
+            .findUserByCredentials(username,password)
+            .then(function(user){
+                res.json(user);
+            });
+
     }
 
     function updateUser(req, res) {
@@ -61,7 +70,11 @@ module.exports = function (app) {
         var user = req.body;
         console.log(userid);
         console.log(user);
-        res.json(model.update(userid ,user));
+        model
+            .update(user._id,user)
+            .then(function(user){
+                res.json(user);
+            });
     }
 
     function removeUser(req, res) {

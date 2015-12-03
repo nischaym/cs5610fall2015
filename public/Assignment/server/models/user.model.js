@@ -154,17 +154,6 @@ module.exports = function(app,mongoose,db,UserSchema){
         });
         return deferred.promise;
 
-        //var user = null;
-        //var user = UserModel.find();
-        //for(var i =0;i<users.length;i++)
-        //{
-        //    if (users[i].username == username)
-        //    {
-        //        user = users[i];
-        //        break;
-        //    }
-        //}
-        //return(user);
     }
 
 
@@ -179,17 +168,6 @@ module.exports = function(app,mongoose,db,UserSchema){
             deferred.resolve(user);
         });
         return deferred.promise;
-
-        //var user = null;
-        //for(var i =0;i<users.length;i++)
-        //{
-        //    if (users[i].username == username && users[i].password == password)
-        //    {
-        //        user = users[i];
-        //        break;
-        //    }
-        //}
-        //return(user);
     }
 
 };
