@@ -16,7 +16,7 @@
             getTripById:getTripById,
             //findTripsforUserId:findTripsforUserId,
             //deleteFormById: deleteFormById,
-            //updateFormById: updateFormById,
+            updateTripById: updateTripById
         };
 
         return tripservices;
@@ -66,16 +66,14 @@
         //}
         //
         //
-        //function updateFormById(id ,newForm )
-        //{
-        //    console.log('im in update');
-        //    console.log(newForm);
-        //    var deferred = $q.defer();
-        //    $http.put("/api/form/"+id,newForm)
-        //        .success(function(response){
-        //            deferred.resolve(response);
-        //        });
-        //    return deferred.promise;
-        // }
+        function updateTripById(trip)
+        {
+            var deferred = $q.defer();
+            $http.put("/api/trip/"+trip._id,trip)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+         }
     }
 })();

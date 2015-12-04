@@ -11,7 +11,7 @@ module.exports = function(app,mongoose,db,TripSchema){
         create: create,
         //findAll: findAll,
         //findById: findById,
-        //update: update,
+        update: update,
         //remove: remove,
         //findFormByTitle: findFormByTitle,
         findAllTripsByUser: findAllTripsByUser,
@@ -76,31 +76,15 @@ module.exports = function(app,mongoose,db,TripSchema){
         //return(0);
     }
 
-    function update(id,form){
+    function update(trip){
 
         console.log('model');
-        //console.log(id);
-        //console.log(form);
         var deferred = q.defer();
-        FormModel.update({id:id},{$set:{title:form.title}},function(err , form){
-            FormModel.find({id:id},function(err ,forms){
-                deferred.resolve(forms);
-            });
+        TripModel.findByIdAndUpdate(trip._id,{$set:{summary:trip.summary,content:trip.content}},function(err , form){
+                console.log(trip);
+                deferred.resolve(trip);
         });
         return deferred.promise;
-
-        //for (var i=0;i<forms.length;i++)
-        //{
-        //    if(forms[i].id == id)
-        //    {
-        //        console.log('inside if');
-        //        console.log(forms[i]);
-        //        forms[i].title = form.title;
-        //        console.log(forms[i]);
-        //        break;
-        //    }
-        //}
-        //return(forms);
     }
 
     /*Field Model */

@@ -6,7 +6,7 @@
     function HeaderController ($scope , $location,$rootScope)
     {
         $scope.eraseUser = eraseUser;
-        console.log($rootScope.user)
+        console.log($rootScope.user);
         //if ($rootScope.user == null)
         //{
         //    $scope.username = "user name";

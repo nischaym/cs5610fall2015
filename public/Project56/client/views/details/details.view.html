@@ -14,44 +14,44 @@
             <h2>{{trip.title}}</h2>
             <div class="container">
                 <div>
-                    <div class="pull-left">
-                        <div class="team-player pull-left">
+                    <div>
+                        <div class="team-player">
                             <img src="../client/views/assets/paper_img/chet_faker_2.jpg" alt="Thumbnail Image" class="img-circle img-responsive">
-                            <h5>{{trip.username}}<br /><small class="text-muted">Title</small></h5>
-                            <p class="text-justify">{{trip.content}}</p>
+                            <h5>{{trip.username}}<br /><small class="text-muted">{{trip.summary}}</small></h5>
+                            <p class="text-center text-justify">{{trip.content}}</p>
+                            <!--<p ng-bind="trip.content"></p>-->
+                            <!--{{trip.content}}-->
 
                         </div>
                     </div>
 
                 </div>
-                <!--<div class="col-md-3">-->
-                <!--<div class="team-player">-->
-                <!--<img src="../client/views/assets/paper_img/chet_faker_2.jpg" alt="Thumbnail Image" class="img-circle img-responsive">-->
-                <!--<h5>Tampa bay <br /><small class="text-muted">Trekking</small></h5>-->
-                <!--<p>You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-md-3">-->
-                    <!--<div class="team-player">-->
-                        <!--<img src="../client/views/assets/paper_img/flume.jpg" alt="Thumbnail Image" class="img-circle img-responsive">-->
-                        <!--<h5>New Hampshire <br /><small class="text-muted">Fall</small></h5>-->
-                        <!--<p>You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-md-3">-->
-                    <!--<div class="team-player">-->
-                        <!--<img src="../client/views/assets/paper_img/banks.jpg" alt="Thumbnail Image" class="img-circle img-circle img-responsive">-->
-                        <!--<h5>Mount batuta <br /><small class="text-muted">Hiking</small></h5>-->
-                        <!--<p>You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-md-3">-->
-                    <!--<div class="team-player">-->
-                        <!--<img src="../client/views/assets/paper_img/chet_faker_2.jpg" alt="Thumbnail Image" class="img-circle img-responsive">-->
-                        <!--<h5>Rhode Island <br /><small class="text-muted">Skiing</small></h5>-->
-                        <!--<p>You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div>
+                    <button ng-click="editTrip()" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon" aria-hidden="true"></span> Edit
+                    </button>
+                </div>
+                <div ng-if="editTripIsTrue">
+                    <tr>
+                        <label for="summary" class="pull-left">Edit Summary Here:</label>
+                        <input ng-model="newsummary" class="form-control" rows="5" id="summary" placeholder="{{trip.summary}}">
+                    </tr>
+                    <br>
+                    <tr>
+                        <label for="comment" class="pull-left">Edit Content Here:</label>
+                        <textarea ng-model="newcontent" class="form-control" rows="5" id="comment" placeholder="{{trip.content}}"></textarea>
+                    </tr>
+                    <br>
+                    <tr>
+                    <button ng-click="saveTrip(newsummary,newcontent)" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon" aria-hidden="true"></span> Save
+                    </button>
+                    <button ng-click="editTrip()" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon" aria-hidden="true"></span> Cancel
+                    </button>
+                    </tr>
+
+                </div>
 
             </div>
         </div>

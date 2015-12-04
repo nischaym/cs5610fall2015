@@ -6,6 +6,8 @@
     function NavbarController($scope , $rootScope, $location) {// UserService,
 
         //var profile = this;
+        $scope.toggle = true;
+
     }
 
 

@@ -8,7 +8,7 @@ module.exports = function (app,model) {
     app.get('/api/trip/:userid/trip', findAllTripsByUserId);
     app.get('/api/trip/:tripid/tripid', findTripById);
 
-    //app.put('/api/form/:id',updateForm);
+    app.put('/api/trip/:tripid',updateTrip);
     //app.delete('/api/form/:id',removeForm);
 
 
@@ -82,22 +82,17 @@ module.exports = function (app,model) {
     //    res.json(model.findUserByCredentials(username , password));
     //}
     //
-    //function updateForm(req, res) {
-    //
-    //    //console.log('im in update');
-    //    //console.log(req.params.id);
-    //    //console.log(req.body);
-    //
-    //    var id = req.params.id;
-    //    var form = req.body;
-    //    model
-    //        .update(id,form)
-    //        .then(function(forms){
-    //            res.json(forms);
-    //        });
-    //
-    //    //res.json(model.update(id ,form));
-    //}
+    function updateTrip(req, res) {
+
+        console.log('in update');
+        //var id = req.params.id;
+        var trip = req.body;
+        model
+            .update(trip)
+            .then(function(trip){
+                res.json(trip);
+            });
+    }
     //
     //function removeForm(req, res) {
     //    var id = req.params.id;
