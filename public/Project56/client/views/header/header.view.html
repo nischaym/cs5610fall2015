@@ -1,7 +1,8 @@
 <div class="container-fluid">
 <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-1">-->
+        <!--<button ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar navbar-toggle">-->
+        <!--<button type="button" class="navbar-toggle" data-toggle="collapse" id="test-navbar" data-target="#navigation-example-1">-->
         <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
 
         <span class="sr-only">Toggle navigation</span>
@@ -13,14 +14,17 @@
     </div>
 
 <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" collapse="navbarCollapsed">
-        <ul class="nav navbar-nav navbar-right">
-            <a href="#/home" class="btn btn-simple">Home</a>
+
+    <div class="collapse navbar-collapse" uib-collapse="navbarCollapsed">
+    <!--<div class="collapse navbar-collapse" id="navigation-example-1">-->
+
+    <ul class="nav navbar-nav navbar-right">
+            <!--<a href="#/home" class="btn btn-simple">Home 123</a>-->
             <a href="#/register" class="btn btn-simple">Register</a>
             <a href="#/login" class="btn btn-simple">Login</a>
-            <a href="#/profile" class="btn btn-simple">Profile</a>
-            <a href="http://www.facebook.com" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>
-            <a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-facebook"></i></a>
+            <!--<a href="#/profile" class="btn btn-simple">Profile</a>-->
+            <!--&lt;!&ndash;<a href="http://www.facebook.com" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>&ndash;&gt;-->
+            <!--<a href="#" target="_blank" class="btn btn-simple"><i class="fa fa-facebook"></i></a>-->
         </ul>
     </div><!-- /.navbar-collapse -->
 </div><!-- /.container-->

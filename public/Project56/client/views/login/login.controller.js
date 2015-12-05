@@ -24,7 +24,7 @@
                     $rootScope.user = user[0];
                     $rootScope.user.logged = true;
                     $rootScope.user.globalusername = $scope.user.username;
-                    $location.url('/profile');
+                    $location.url('/profile/'+$rootScope.user._id);
                 }
             });
         }

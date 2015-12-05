@@ -1,5 +1,4 @@
-
-<nav class="navbar navbar-default" role="navigation-demo" id="demo-navbar">
+<nav class="navbar navbar-default" role="navigation-demo" id="demo-navbar" xmlns="http://www.w3.org/1999/html">
     <div ng-include src="'../client/views/header/header.view.html'">
 
     </div>
@@ -10,14 +9,14 @@
 </div>
 <div class="wrapper">
     <div class="main">
-        <div class="section section-dark text-center landing-section    " style="padding-top: 50px">
-            <h2>{{trip.title}}</h2>
+        <div class="section section-dark landing-section    " style="padding-top: 50px">
+            <h2 class="text-center">{{trip.title}}</h2>
             <div class="container">
                 <div>
                     <div>
                         <div class="team-player">
                             <img src="../client/views/assets/paper_img/chet_faker_2.jpg" alt="Thumbnail Image" class="img-circle img-responsive">
-                            <h5>{{trip.username}}<br /><small class="text-muted">{{trip.summary}}</small></h5>
+                            <h5 class="text-center" >{{trip.username}}<br /><small class="text-muted">{{trip.summary}}</small></h5>
                             <p class="text-center text-justify">{{trip.content}}</p>
                             <!--<p ng-bind="trip.content"></p>-->
                             <!--{{trip.content}}-->
@@ -27,7 +26,7 @@
 
                 </div>
                 <div>
-                    <button ng-click="editTrip()" type="button" class="btn btn-default" aria-label="Left Align">
+                    <button ng-if="user.logged" ng-click="editTrip()" type="button" class="btn btn-default" aria-label="Left Align">
                         <span class="glyphicon" aria-hidden="true"></span> Edit
                     </button>
                 </div>
@@ -52,8 +51,78 @@
                     </tr>
 
                 </div>
+                </br>
+                <div>
+                    <button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">comments</button>
+                    <hr>
+                    <div uib-collapse="isCollapsedfollowers">
+                        <div class="well well-lg">
+
+                            <tr>
+                                <button ng-click="addComment()" type="button" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon" aria-hidden="true"></span> New Comment
+                                </button>
+
+                            </tr>
+                            <div ng-if="addNewComment">
+                                <tr>
+                                    <div>
+                                        <label>Comment:</label>
+                                        <textarea ng-model="newcomment" class="form-control" rows="2"></textarea>
+                                    </div>
+                                </tr>
+                                <tr class="col-sm-1">
+                                    <button ng-click="saveComment(newcomment)" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <span class="glyphicon" aria-hidden="true"></span>Save
+                                    </button>
+
+                                    <button ng-click="cancelComment()" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <span class="glyphicon" aria-hidden="true"></span>Cancel
+                                    </button>
+
+                                </tr>
+                            </div>
+                            <tr>
+                                <td colspan="2">
+                                    <hr style=" color:black; height:4px; background-color:black" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h4>Comments</h4>
+                                </th>
+                            </tr>
+
+
+                            <div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="comment in comments">
+                                        <td><a href="#/profile/{{comments[$index].userid}}">{{comment.username}}</a>
+                                            <br>{{comment.content}}</td>
+                                        <!--<td style="padding-left: 85px">-->
+                                            <!--<button ng-click="deleteTrip($index)" type="button" class="btn btn-default centered">-->
+                                                <!--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>-->
+                                            <!--</button>-->
+                                        <!--</td>-->
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
 
             </div>
+
         </div>
 
         <div class="section landing-section">

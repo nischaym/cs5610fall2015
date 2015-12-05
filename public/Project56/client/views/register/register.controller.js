@@ -29,7 +29,7 @@
                     //$rootScope.user.userid = newUser._id;
                     $rootScope.user.logged = true;
                     $rootScope.user.globalusername = newUser.username;
-                    $location.url('/profile');
+                    $location.url('/profile/'+newUser._id);
                 });
         }
     };

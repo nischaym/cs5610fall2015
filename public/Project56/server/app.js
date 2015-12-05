@@ -11,4 +11,8 @@
     require("./services/trip.services.js")(app,model);
     //require("./services/field.services.js")(app,model);
 
+    var CommentSchema = require("./models/comment.schema.js")(mongoose,db);
+    var model = require("./models/comment.model.js")(app,mongoose,db,CommentSchema);
+    require("./services/comment.services.js")(app,model);
+
 };

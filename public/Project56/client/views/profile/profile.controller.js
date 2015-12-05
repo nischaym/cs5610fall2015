@@ -3,7 +3,7 @@
         .module("TripTorque")
         .controller("ProfileController", ProfileController);
 
-        function ProfileController($scope , $rootScope, $location,UserService,TripService)
+        function ProfileController($scope , $rootScope, $location,UserService,TripService,$routeParams)
     {
 
         //$scope.user = {username:"",firstname:"",lastname:""};
@@ -14,16 +14,14 @@
         $scope.isCollapsedfollowing = true;
         $scope.addNewTrip = false;
 
-        //$scope.user.title = "Jobless";
-
-
+        $scope.currentLoadId = $routeParams.userid;
         $scope.userEdit = userEdit;
         $scope.cancelEdit=cancelEdit;
         $scope.saveUserEdit = saveUserEdit;
         $scope.addTrip = addTrip;
         $scope.saveTrip = saveTrip;
 
-        TripService.findAllTripsByUserId($scope.user._id).then(function(response){
+        TripService.findAllTripsByUserId($scope.currentLoadId).then(function(response){
 
             console.log('adasbfosasfnanfkn');
             console.log(response);
