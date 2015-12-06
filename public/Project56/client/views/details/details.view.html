@@ -55,11 +55,11 @@
                 <div>
                     <button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">comments</button>
                     <hr>
-                    <div uib-collapse="isCollapsedfollowers">
-                        <div class="well well-lg">
+                    <div ng-if="isCollapsedfollowers">
+                        <div >
 
                             <tr>
-                                <button ng-click="addComment()" type="button" class="btn btn-default" aria-label="Left Align">
+                                <button ng-if="user.logged" ng-click="addComment()" type="button" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon" aria-hidden="true"></span> New Comment
                                 </button>
 

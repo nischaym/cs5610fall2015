@@ -1,11 +1,22 @@
 (function () {
     angular
         .module("TripTorque")
-        .controller("headerController", headerController);
+        .controller("HeaderController", HeaderController);
 
-    function headerController($scope , $rootScope, $location,UserService,TripService,$routeParams) {
+    function HeaderController($scope , $rootScope,$location,UserService,TripService,$routeParams) {
 
-        $scope.navbarCollapsed = true;
+        //$scope.navbarCollapsed = false;
+
+        $scope.logout = logout;
+
+        console.log('in header');
+        function logout(){
+
+            console.log($rootScope.user.logged);
+            $scope.user.logged = false;
+            $location.url('#/home');
+
+        }
 
     }
 })();

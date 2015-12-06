@@ -23,7 +23,7 @@
     <!--</div>&lt;!&ndash; /.container&ndash;&gt;-->
 
 
-    <div ng-include src="'/project56/client/views/header/header.view.html'">
+    <div ng-controller="HeaderController" ng-include src="'/project56/client/views/header/header.view.html'">
 
     </div>
 
@@ -39,10 +39,22 @@
                         <h3 class="title">Welcome</h3>
                         <form class="register-form">
                             <label>Email</label>
-                            <input ng-model="user.email" type="text" class="form-control" placeholder="Email">
+                            <input ng-model="user.email" type="email" class="form-control" placeholder="Email">
 
                             <label>Username</label>
                             <input ng-model="user.username" type="text" class="form-control" placeholder="Username">
+
+                            <label>Firstname</label>
+                            <input ng-model="user.firstname" type="text" class="form-control" placeholder="Firstname">
+
+                            <label>Lastname</label>
+                            <input ng-model="user.lastname" type="text" class="form-control" placeholder="Lastname">
+
+                            <label>City</label>
+                            <input ng-model="user.city" type="text" class="form-control" placeholder="city">
+
+                            <label>State</label>
+                            <input ng-model="user.state" type="text" class="form-control" placeholder="state">
 
                             <label>Password</label>
                             <input ng-model="user.password" type="password" class="form-control" placeholder="Password">

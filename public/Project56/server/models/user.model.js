@@ -80,7 +80,7 @@ module.exports = function(app,mongoose,db,UserSchema){
         //    });
         //});
 
-        UserModel.findByIdAndUpdate(userid,{$set:{firstname:user.firstname,lastname:user.lastname}},function(err , user){
+        UserModel.findByIdAndUpdate(userid,{$set:{firstname:user.firstname,lastname:user.lastname,email:user.email,city:user.city,state:user.state}},function(err , user){
            UserModel.findById(userid,function(err , user){
                 console.log('after update');
                 console.log(user);

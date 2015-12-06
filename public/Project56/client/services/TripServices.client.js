@@ -7,6 +7,7 @@
     function TripService ($http , $q)
     {
 
+
         var form_temp = [];
 
         var tripservices =
@@ -15,8 +16,9 @@
             findAllTripsByUserId:findAllTripsByUserId,
             getTripById:getTripById,
             //findTripsforUserId:findTripsforUserId,
-            //deleteFormById: deleteFormById,
-            updateTripById: updateTripById
+            removeTripById: removeTripById,
+            updateTripById: updateTripById,
+            findAllTrips:findAllTrips
         };
 
         return tripservices;
@@ -55,17 +57,17 @@
 
         }
 
-        //function deleteFormById (id)
-        //{
-        //    var deferred = $q.defer();
-        //    $http.delete("/api/form/"+id)
-        //        .success(function(response){
-        //            deferred.resolve(response);
-        //        });
-        //    return deferred.promise;
-        //}
-        //
-        //
+        function removeTripById (tripid)
+        {
+            var deferred = $q.defer();
+            $http.delete("/api/trip/"+tripid)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+        }
+
+
         function updateTripById(trip)
         {
             var deferred = $q.defer();
@@ -75,5 +77,17 @@
                 });
             return deferred.promise;
          }
+
+        function findAllTrips(){
+
+            console.log('finding all');
+            var deferred = $q.defer();
+            $http.get("/api/home/trip")
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
+        }
     }
 })();

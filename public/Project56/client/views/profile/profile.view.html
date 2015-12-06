@@ -1,5 +1,5 @@
 <nav class="navbar navbar-relative rnavbar-ct-transparent" role="navigation-demo" id="register-navbar">
-    <div ng-include src="'/project56/client/views/header/header.view.html'">
+    <div ng-controller="HeaderController" ng-include src="'/project56/client/views/header/header.view.html'">
 
     </div>
 
@@ -16,17 +16,89 @@
                         <img src="/Project56/client/views/assets/paper_img/chet_faker_2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name text-center" >
-                        <h4>{{user.username}}<br/></h4>
-                        <h5>{{user.firstname}}
-                            {{user.lastname}}</h5>
+                        <h4>{{user.username}}</h4>
+                        <!--<h4 class="text-center">-->
+                            <!--{{user.firstname}}-->
+                            <!--{{user.lastname}}-->
+                            <!--{{user.email}}-->
+                            <!--{{user.city}}-->
+                            <!--{{user.state}}-->
+                        <!--</h4>-->
+
                     </div>
                 </div>
+
             </div>
+            <!--<div class="row">-->
+                <!--<table>-->
+                    <!--<thead>-->
+
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--Username: sdaskdbakskjbdkjs-->
+                    <!--</tr>-->
+                    <!--<td>-->
+                        <!--sdas s l-->
+                        <!--{{user.username}}-->
+                    <!--</td>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
-                    <p>{{user.aboutme}}</p>
+                    <!--<p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>-->
+                    <!--<p>{{user.aboutme}}</p>-->
                     <br />
+                    <table class="table">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="border-top: none">
+                                FirstName
+                            </td>
+                            <td style="border-top: none">
+                                {{user.firstname}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top: none">
+                                Lastname
+                            </td>
+                            <td style="border-top: none">
+                                {{user.lastname}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top: none">
+                                Email
+                            </td>
+                            <td style="border-top: none">
+                                {{user.email}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top: none">
+                                City:
+                            </td>
+                            <td style="border-top: none">
+                                {{user.city}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top: none">
+                                State:
+                            </td>
+                            <td style="border-top: none">
+                                {{user.state}}
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
                     <btn ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit</btn>
 
                     <div ng-if="userdetailsedit">
@@ -37,25 +109,45 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>First Name</td>
+                                    <td style="padding-top: 18px">First Name</td>
 
                                     <td>
-                                        <input type="text"  class="form-control" ng-model="user.firstname">
+                                        <input type="text"  class="form-control" ng-model="newfirstname">
                                     </td>
 
                                 </tr>
                                 <tr>
-                                    <td>last Name</td>
+                                    <td style="padding-top: 18px">last Name</td>
                                     <td>
-                                        <input type="text" class="form-control" ng-model="user.lastname">
+                                        <input type="text" class="form-control" ng-model="newlastname">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td style="padding-top: 18px">Email</td>
+                                    <td>
+                                        <input type="text" class="form-control" ng-model="newemail">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top: 18px">City</td>
+                                    <td>
+                                        <input type="text" class="form-control" ng-model="newcity">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-top: 18px">state</td>
+                                    <td>
+                                        <input type="text" class="form-control" ng-model="newstate">
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <td>
 
                                     </td>
                                     <td>
-                                        <button ng-click="saveUserEdit(user)" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <button ng-click="saveUserEdit(newlastname,newfirstname,newemail,newcity,newstate)" type="button" class="btn btn-default" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                         </button>
 
@@ -74,17 +166,19 @@
             <div>
                 <button type="button" class="btn btn-default" ng-click="isCollapsedtrips = !isCollapsedtrips">My Trips</button>
                 <hr>
-                <div uib-collapse="isCollapsedtrips">
-                    <div class="well well-lg">
+                <div ng-if="isCollapsedtrips">
+                    <div>
                         <tr>
                             <button ng-click="addTrip()" type="button" class="btn btn-default" aria-label="Left Align">
                                 <span class="glyphicon" aria-hidden="true"></span> New Trip
                             </button>
 
                         </tr>
+                        <br>
                         <div ng-if="addNewTrip">
                             <tr>
                                 <div>
+                                    <br>
                                     <label for="title">Title:</label>
                                     <input ng-model="newtitle" type="text" class="form-control" id="title">
                                 </div>
@@ -111,6 +205,10 @@
                             </tr>
 
 
+
+
+                        </div>
+                        <div>
                             <tr>
                                 <td colspan="2">
                                     <hr style=" color:black; height:4px; background-color:black" />
@@ -122,18 +220,15 @@
                                 </th>
                             </tr>
 
-
-                        </div>
-                        <div>
                             <table class="table table-bordered">
                                 <thead>
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="trip in trips">
-                                    <td><a href="#/trip/{{trips[$index]._id}}">{{trip.title}}</a></td>
-                                    <td>{{trip.summary}}</td>
-                                    <td style="padding-left: 85px">
-                                        <button ng-click="deleteTrip($index)" type="button" class="btn btn-default centered">
+                                    <td style="padding-top: 18px"><a href="#/trip/{{trips[$index]._id}}">{{trip.title}}</a></td>
+                                    <td style="padding-top: 18px">{{trip.summary}}</td>
+                                    <td class="text-center">
+                                        <button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">
                                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                         </button>
                                     </td>
@@ -145,20 +240,20 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">Followers</button>
-                <hr>
-                <div uib-collapse="isCollapsedfollowers">
-                    <div class="well well-lg">All Followers</div>
-                </div>
-            </div>
-            <div>
-                <button type="button" class="btn btn-default" ng-click="isCollapsedfollowing = !isCollapsedfollowing">Following</button>
-                <hr>
-                <div uib-collapse="isCollapsedfollowing">
-                    <div class="well well-lg">All Following</div>
-                </div>
-            </div>
+            <!--<div>-->
+                <!--<button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">Followers</button>-->
+                <!--<hr>-->
+                <!--<div uib-collapse="isCollapsedfollowers">-->
+                    <!--<div class="well well-lg">All Followers</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<button type="button" class="btn btn-default" ng-click="isCollapsedfollowing = !isCollapsedfollowing">Following</button>-->
+                <!--<hr>-->
+                <!--<div uib-collapse="isCollapsedfollowing">-->
+                    <!--<div class="well well-lg">All Following</div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -191,4 +286,8 @@
 
     </div>
 </div>
+<div  ng-include src="'./views/footer/footer.view.html'">
+
+</div>
+
 

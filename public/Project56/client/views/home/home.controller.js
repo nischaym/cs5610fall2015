@@ -3,8 +3,17 @@
         .module("TripTorque")
         .controller("HomeController", HomeController);
 
-    function HomeController($scope , $rootScope, $location) {// UserService,
+    function HomeController($scope , $rootScope, $location,TripService) {// UserService,
 
-        var home = this;
+
+        console.log('i am in controller');
+        TripService.findAllTrips().then(function(response){
+
+            $scope.trips = response;
+
+            console.log(response);
+
+        });
+
     }
 })();

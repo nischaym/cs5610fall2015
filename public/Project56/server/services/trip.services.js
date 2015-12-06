@@ -9,7 +9,8 @@ module.exports = function (app,model) {
     app.get('/api/trip/:tripid/tripid', findTripById);
 
     app.put('/api/trip/:tripid',updateTrip);
-    //app.delete('/api/form/:id',removeForm);
+    app.delete('/api/trip/:tripid',removeTripById);
+    app.get('/api/home/trip',getAllTrips);
 
 
     function CreateNewTrip (req, res) {
@@ -49,39 +50,6 @@ module.exports = function (app,model) {
             });
 
     }
-    //function allUsersById (req, res) {
-    //    var userid = req.params.id;
-    //    res.json(model.findById(userid));
-    //}
-    //
-    //function findByQueryString(req,res)
-    //{
-    //    if(req.query.password == null && req.query.username == null)
-    //    {
-    //        allUsers(req,res);
-    //    }
-    //    else if(req.query.password == null)
-    //    {
-    //        findByUsername(req,res);
-    //    }
-    //    else
-    //    {
-    //        findByCredentials(req,res);
-    //    }
-    //}
-    //
-    // function findByUsername(req, res) {
-    //     var username = req.query.username;
-    //    res.json(model.findUserByUsername(username));
-    //}
-    //
-    //function findByCredentials(req, res) {
-    //
-    //    var username = req.query.username;
-    //    var password = req.query.password;
-    //    res.json(model.findUserByCredentials(username , password));
-    //}
-    //
     function updateTrip(req, res) {
 
         console.log('in update');
@@ -93,9 +61,22 @@ module.exports = function (app,model) {
                 res.json(trip);
             });
     }
-    //
-    //function removeForm(req, res) {
-    //    var id = req.params.id;
-    //    res.json(model.remove(id));
-    //}
+
+    function getAllTrips(req, res) {
+        //var id = req.params.id;
+        model
+            .getAlltrips()
+            .then(function(trips){
+                res.json(trips);
+            });
+    }
+
+    function removeTripById(req,res){
+        var tripid = req.params.tripid;
+        model
+            .removeTrip(tripid)
+            .then(function(trips){
+                res.json(trips);
+            });
+    }
 };

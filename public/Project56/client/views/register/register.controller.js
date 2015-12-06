@@ -14,7 +14,11 @@
             {
                 username : $scope.user.username,
                 password : $scope.user.password,
-                email: $scope.user.email
+                email: $scope.user.email,
+                city:$scope.user.city,
+                state:$scope.user.state,
+                firstname:$scope.user.firstname,
+                lastname:$scope.user.lastname
             };
             console.log(newUser);
                 UserService.createUser(newUser).then(function (response) {

@@ -13,13 +13,17 @@
         $scope.isCollapsedfollowers = true;
         $scope.isCollapsedfollowing = true;
         $scope.addNewTrip = false;
-
+        $scope.isCollapsedtrips = true;
         $scope.currentLoadId = $routeParams.userid;
+
+
+
         $scope.userEdit = userEdit;
         $scope.cancelEdit=cancelEdit;
         $scope.saveUserEdit = saveUserEdit;
         $scope.addTrip = addTrip;
         $scope.saveTrip = saveTrip;
+        $scope.removeTrip = removeTrip;
 
         TripService.findAllTripsByUserId($scope.currentLoadId).then(function(response){
 
@@ -30,15 +34,38 @@
 
         function userEdit(){
             $scope.userdetailsedit = true;
+            $scope.newlastname=$scope.user.lastname;
+            $scope.newfirstname=$scope.user.firstname;
+            $scope.newemail =$scope.user.email;
+            $scope.newcity =$scope.user.city;
+            $scope.newstate =$scope.user.state;
         }
 
         function cancelEdit(){
             $scope.userdetailsedit = false;
         }
 
-        function saveUserEdit(){
+        function saveUserEdit(newlastname,newfirstname,newemail,newcity,newstate){
 
-            UserService.updateUser($scope.user).then(function(response){
+            var newuser = $scope.user;
+            if(newlastname != null){
+                newuser.lastname = newlastname;
+            }
+            if(newfirstname != null){
+                newuser.firstname = newfirstname;
+            }
+            if(newemail!= null){
+                newuser.email = newemail;
+            }
+            if(newcity!= null){
+                newuser.city = newcity;
+            }
+            if(newstate!= null){
+                newuser.state = newstate;
+            }
+            console.log(newuser);
+
+            UserService.updateUser(newuser).then(function(response){
                 console.log('in profile controller');
                 console.log(response);
                 var user = response;
@@ -79,6 +106,19 @@
             });
         }
 
+        function removeTrip(index){
+
+            var tripid = $scope.trips[index]._id;
+            console.log(index);
+            TripService.removeTripById(tripid).then(function(response){
+
+                TripService.findAllTripsByUserId($routeParams.userid).then(function(response){
+
+                    $scope.trips = response;
+
+                });
+            });
+        }
     }
 
 
