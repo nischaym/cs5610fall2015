@@ -234,7 +234,7 @@
                                 <tr ng-repeat="trip in trips">
                                     <td style="padding-top: 13px"><a href="#/trip/{{trips[$index]._id}}">{{trip.title}}</a></td>
                                     <td style="padding-top: 13px">{{trip.summary}}</td>
-                                    <td ng-if="user.logged" class="text-center">
+                                    <td ng-if="user._id == displayuser._id" class="text-center">
                                         <button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">
                                             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
                                         </button>
