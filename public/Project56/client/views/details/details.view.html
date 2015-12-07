@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" role="navigation-demo" id="demo-navbar" xmlns="http://www.w3.org/1999/html">
-    <div ng-include src="'../client/views/header/header.view.html'">
+    <div ng-controller="HeaderController" ng-include src="'../client/views/header/header.view.html'">
 
     </div>
 </nav>
@@ -7,6 +7,7 @@
 
 
 <!--</div>-->
+
 <div class="wrapper">
     <div class="main">
         <div class="section section-dark landing-section    " style="padding-top: 50px">
@@ -15,8 +16,9 @@
                 <div>
                     <div>
                         <div class="team-player">
-                            <img src="../client/views/assets/paper_img/chet_faker_2.jpg" alt="Thumbnail Image" class="img-circle img-responsive">
-                            <h5 class="text-center" >{{trip.username}}<br /><small class="text-muted">{{trip.summary}}</small></h5>
+                            <img src="../client/views/assets/paper_img/unnamed.png" alt="Thumbnail Image" class="img-circle img-responsive">
+                            <h5 class="text-center"><a href="#/profile/{{trip.userid}}">{{trip.username}}</a><br />
+                                <small class="text-muted">{{trip.summary}}</small></h5>
                             <p class="text-center text-justify">{{trip.content}}</p>
                             <!--<p ng-bind="trip.content"></p>-->
                             <!--{{trip.content}}-->
@@ -26,7 +28,7 @@
 
                 </div>
                 <div>
-                    <button ng-if="user.logged" ng-click="editTrip()" type="button" class="btn btn-default" aria-label="Left Align">
+                    <button ng-if="user._id == trip.userid" ng-click="editTrip()" type="button" class="btn btn-default" aria-label="Left Align">
                         <span class="glyphicon" aria-hidden="true"></span> Edit
                     </button>
                 </div>
@@ -54,10 +56,10 @@
                 </br>
                 <div>
                     <button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">comments</button>
-                    <hr>
+                    <br>
                     <div ng-if="isCollapsedfollowers">
                         <div >
-
+                            <br>
                             <tr>
                                 <button ng-if="user.logged" ng-click="addComment()" type="button" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon" aria-hidden="true"></span> New Comment
@@ -72,6 +74,7 @@
                                     </div>
                                 </tr>
                                 <tr class="col-sm-1">
+                                    <br>
                                     <button ng-click="saveComment(newcomment)" type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon" aria-hidden="true"></span>Save
                                     </button>

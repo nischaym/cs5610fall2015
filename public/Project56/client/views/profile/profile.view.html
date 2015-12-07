@@ -10,13 +10,16 @@
     </div>
     <div class="profile-content section-nude">
         <div class="container">
-            <div class="row owner">
+            <div class="row owner" style="padding-top: 10px">
+                <btn ng-if="user.username == displayuser.username" ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit </btn>
+
                 <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center">
-                    <div class="avatar">
-                        <img src="/Project56/client/views/assets/paper_img/chet_faker_2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    <div class="avatar pull-left">
+                        <img src="/Project56/client/views/assets/paper_img/icon-user-default.png" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+
                     </div>
                     <div class="name text-center" >
-                        <h4>{{user.username}}</h4>
+                        <h4>{{displayuser.username}}</h4>
                         <!--<h4 class="text-center">-->
                             <!--{{user.firstname}}-->
                             <!--{{user.lastname}}-->
@@ -56,50 +59,50 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td style="border-top: none">
+                            <td style="border-top: none;padding-left: 100px">
                                 FirstName
                             </td>
-                            <td style="border-top: none">
-                                {{user.firstname}}
+                            <td style="border-top: none;padding-right: 50px">
+                                {{displayuser.firstname}}
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none">
+                            <td style="border-top: none;padding-left: 100px">
                                 Lastname
                             </td>
-                            <td style="border-top: none">
-                                {{user.lastname}}
+                            <td style="border-top: none;padding-right: 50px">
+                                {{displayuser.lastname}}
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none">
+                            <td style="border-top: none;padding-left: 100px">
                                 Email
                             </td>
-                            <td style="border-top: none">
-                                {{user.email}}
+                            <td style="border-top: none;padding-right: 50px">
+                                {{displayuser.email}}
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none">
+                            <td style="border-top: none;padding-left: 100px">
                                 City:
                             </td>
-                            <td style="border-top: none">
-                                {{user.city}}
+                            <td style="border-top: none;padding-right: 50px">
+                                {{displayuser.city}}
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none">
+                            <td style="border-top: none;padding-left: 100px">
                                 State:
                             </td>
-                            <td style="border-top: none">
-                                {{user.state}}
+                            <td style="border-top: none;padding-right: 50px">
+                                {{displayuser.state}}
                             </td>
                         </tr>
 
                         </tbody>
                     </table>
 
-                    <btn ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit</btn>
+                    <!--<btn ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit</btn>-->
 
                     <div ng-if="userdetailsedit">
                         <br>
@@ -111,8 +114,8 @@
                                 <tr>
                                     <td style="padding-top: 18px">First Name</td>
 
-                                    <td>
-                                        <input type="text"  class="form-control" ng-model="newfirstname">
+                                    <td class="text-center">
+                                        <input style="border:1px " type="text"  class="form-control" ng-model="newfirstname">
                                     </td>
 
                                 </tr>
@@ -148,11 +151,12 @@
                                     </td>
                                     <td>
                                         <button ng-click="saveUserEdit(newlastname,newfirstname,newemail,newcity,newstate)" type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                            <!--<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>-->
+                                            save
                                         </button>
 
                                         <button ng-click="cancelEdit()" type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            cancel<!--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>-->
                                         </button>
                                     </td>
                                 </tr>
@@ -165,15 +169,18 @@
             <br>
             <div>
                 <button type="button" class="btn btn-default" ng-click="isCollapsedtrips = !isCollapsedtrips">My Trips</button>
-                <hr>
+
                 <div ng-if="isCollapsedtrips">
                     <div>
-                        <tr>
+                        <div ng-if="user.username == displayuser.username">
+                            <hr>
+                        <tr >
                             <button ng-click="addTrip()" type="button" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon" aria-hidden="true"></span> New Trip
+                                <span class="glyphicon" aria-hidden="true"></span>Add New Trip
                             </button>
 
                         </tr>
+                        </div>
                         <br>
                         <div ng-if="addNewTrip">
                             <tr>
@@ -225,11 +232,11 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="trip in trips">
-                                    <td style="padding-top: 18px"><a href="#/trip/{{trips[$index]._id}}">{{trip.title}}</a></td>
-                                    <td style="padding-top: 18px">{{trip.summary}}</td>
-                                    <td class="text-center">
+                                    <td style="padding-top: 13px"><a href="#/trip/{{trips[$index]._id}}">{{trip.title}}</a></td>
+                                    <td style="padding-top: 13px">{{trip.summary}}</td>
+                                    <td ng-if="user.logged" class="text-center">
                                         <button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">
-                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
                                         </button>
                                     </td>
                                 </tr>
@@ -238,6 +245,9 @@
 
                         </div>
                     </div>
+                </div>
+                <div ng-if="!isCollapsedtrips">
+                    <br>
                 </div>
             </div>
             <!--<div>-->

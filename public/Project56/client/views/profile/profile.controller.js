@@ -14,8 +14,8 @@
         $scope.isCollapsedfollowing = true;
         $scope.addNewTrip = false;
         $scope.isCollapsedtrips = true;
-        $scope.currentLoadId = $routeParams.userid;
-
+        $scope.currentviewId = $routeParams.userid;
+        var currentuser =
 
 
         $scope.userEdit = userEdit;
@@ -25,11 +25,16 @@
         $scope.saveTrip = saveTrip;
         $scope.removeTrip = removeTrip;
 
-        TripService.findAllTripsByUserId($scope.currentLoadId).then(function(response){
+        TripService.findAllTripsByUserId($scope.currentviewId).then(function(response){
 
-            console.log('adasbfosasfnanfkn');
+            console.log('find trips');
             console.log(response);
             $scope.trips = response;
+        });
+
+        UserService.findUserByUserId($scope.currentviewId).then(function(response){
+
+            $scope.displayuser = response;
         });
 
         function userEdit(){
@@ -73,6 +78,7 @@
                 $rootScope.user.logged = true;
                 $rootScope.user.globalusername = user.username;
                 $scope.userdetailsedit = false;
+                $scope.displayuser = response;
 
             });
         }

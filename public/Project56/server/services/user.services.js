@@ -4,7 +4,7 @@ module.exports = function (app,model) {
 
     app.post('/api/user',CreateNewUser);
     app.get('/api/user?',findByQueryString); /* for login */
-    app.get('/api/user/:id', allUsersById);
+    app.get('/api/user/:id', findUserByUserId);
     app.put('/api/user/:id',updateUser);
     app.delete('/api/user/:id',removeUser);
 
@@ -24,9 +24,14 @@ module.exports = function (app,model) {
         res.json(model.findAll());
     }
 
-    function allUsersById (req, res) {
+    function findUserByUserId (req, res) {
+        console.log('inside find by ID');
         var userid = req.params.id;
-        res.json(model.findById(userid));
+        model
+            .findUserByUserId(userid)
+            .then(function(user){
+                res.json(user);
+            });
     }
 
     function findByQueryString(req,res)

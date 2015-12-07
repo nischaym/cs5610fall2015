@@ -6,12 +6,13 @@ module.exports = function(app,mongoose,db,UserSchema){
     var api;
     api = {
         create: create,
-        findAll: findAll,
+        //findAll: findAll,
         findById: findById,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
         update: update,
-        remove: remove
+        remove: remove,
+        findUserByUserId:findUserByUserId
     };
 
     return api;
@@ -29,11 +30,11 @@ module.exports = function(app,mongoose,db,UserSchema){
         return deferred.promise;
     }
 
-    function findAll(){
+    function findUserByUserId(userid){
 
         var deferred = q.defer();
-        UserModel.find(function(err , result){
-            deferred.resolve(0);
+        UserModel.findById(userid,function(err , user){
+            deferred.resolve(user);
         });
         return deferred.promise;
     }

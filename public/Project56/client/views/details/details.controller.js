@@ -9,6 +9,7 @@
         $scope.user = $rootScope.user;
         console.log('user data');
         console.log($scope.user);
+        $scope.isCollapsedfollowers = true;
 
         TripService.getTripById($routeParams.tripid).then(function(response){
 
@@ -19,6 +20,7 @@
         CommentService.getCommentsForTrip($routeParams.tripid).then(function(response){
 
             console.log(response);
+            console.log('jfbdsjifbsdjibgisdgvsdbvubvubib')
             $scope.comments = response;
         });
 
@@ -74,20 +76,23 @@
 
         function saveComment(newcomment){
 
-            console.log(newcomment);
-            var comment = {
-                userid : $scope.user.userid,
+            console.log($scope.user);
+            var user1 = $scope.user;
+            console.log(user1);
+            var nischay = {
                 username : $scope.user.username,
                 tripid: $routeParams.tripid,
-                content:newcomment
+                content:newcomment,
+                userid :user1._id
             };
-            console.log(comment);
+            console.log(nischay);
 
-            CommentService.createCommentForTrip(comment).then(function(response){
+            CommentService.createCommentForTrip(nischay).then(function(response){
 
                 CommentService.getCommentsForTrip($routeParams.tripid).then(function(response){
 
                     console.log(response);
+                    console.log('commasbifsabifbsfbifbipba');
                     $scope.comments = response;
                     cancelComment();
 
