@@ -82,7 +82,7 @@
             <!--<a href="#/home" class="btn btn-simple">Home 123</a>-->
             <a ng-if="!user.logged" href="#/register" class="btn btn-simple">Register</a>
             <a ng-if="!user.logged" href="#/login" class="btn btn-simple">Login</a>
-            <a ng-if="user.logged" href="#/profile/user._id" class="btn btn-simple">Profile</a>
+            <a ng-if="user.logged" href="#/profile/{{user._id}}" class="btn btn-simple">Profile</a>
             <a ng-if="user.logged" ng-click="logout()" href="#/home" class="btn btn-simple">Logout</a>
 
             <!--<a href="#/profile" class="btn btn-simple">Profile</a>-->

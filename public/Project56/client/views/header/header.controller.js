@@ -8,6 +8,7 @@
         //$scope.navbarCollapsed = false;
 
         $scope.logout = logout;
+        $scope.user = $rootScope.user;
 
         console.log('in header');
         function logout(){

@@ -75,6 +75,7 @@
                 console.log(response);
                 var user = response;
                 $scope.user = user;
+                $scope.user.logged = true;
                 $rootScope.user.logged = true;
                 $rootScope.user.globalusername = user.username;
                 $scope.userdetailsedit = false;
