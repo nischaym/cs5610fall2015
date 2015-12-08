@@ -93,7 +93,7 @@
 
         function saveTrip(newtitle,newsummary,newcontent)
         {
-            if(newtitle != "" && newsummary == "" && newcontent == "")
+            if(newtitle != "" && newsummary != "" && newcontent != "")
             {
                 var newTrip =
                 {   userid : $scope.user._id,
