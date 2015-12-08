@@ -32,15 +32,18 @@
 
                 function validateUsername()
                 {
+                    var result;
                     UserService.findUserByUsername($scope.user.username).then(function(response){
 
-                        if (response.length == 0)
-                        {
-                            return (true);
-                        }
-                        alert('USERNAME ALREADY TAKEN');
-                        return (false);
+                        result = response;
                     });
+                    if (result.length == 0)
+                    {
+                        return (true);
+                    }
+                    alert('USERNAME ALREADY TAKEN');
+                    return (false);
+
                 }
 
                 function ValidatePassword (){
@@ -56,9 +59,9 @@
                     }
                 }
                 var emailvalid = ValidateEmail($scope.user.email);
-                var duplicateusername = validateUsername($scope.user.username);
+                //var duplicateusername = validateUsername($scope.user.username);
                 var passwordvalid = ValidatePassword; //$scope.user.password == $scope.user.verify_password;
-                if (emailvalid && duplicateusername && passwordvalid)
+                if (emailvalid && passwordvalid)
                 {
                     var newUser =
                     {

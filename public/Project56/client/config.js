@@ -41,6 +41,11 @@
                 controller:"DetailsController"
             })
 
+            .when("/admin", {
+                templateUrl: "views/admin/admin.view.html",
+                controller:"DetailsController"
+            })
+
             .otherwise({
             redirectTo: "/home"
         });
