@@ -59,7 +59,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td style="border-top: none;padding-left: 100px">
+                            <td style="border-top: none;padding-left: 80px">
                                 FirstName
                             </td>
                             <td style="border-top: none;padding-right: 50px">
@@ -67,7 +67,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none;padding-left: 100px">
+                            <td style="border-top: none;padding-left: 80px">
                                 Lastname
                             </td>
                             <td style="border-top: none;padding-right: 50px">
@@ -75,7 +75,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none;padding-left: 100px">
+                            <td style="border-top: none;padding-left: 80px">
                                 Email
                             </td>
                             <td style="border-top: none;padding-right: 50px">
@@ -83,7 +83,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none;padding-left: 100px">
+                            <td style="border-top: none;padding-left: 80px">
                                 City:
                             </td>
                             <td style="border-top: none;padding-right: 50px">
@@ -91,7 +91,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-top: none;padding-left: 100px">
+                            <td style="border-top: none;padding-left: 80px">
                                 State:
                             </td>
                             <td style="border-top: none;padding-right: 50px">
@@ -168,9 +168,9 @@
             <br>
             <br>
             <div>
-                <button type="button" class="btn btn-default" ng-click="isCollapsedtrips = !isCollapsedtrips">My Trips</button>
+                <!--<button type="button" class="btn btn-default" ng-click="isCollapsedtrips = !isCollapsedtrips">My Trips</button>-->
 
-                <div ng-if="isCollapsedtrips">
+                <div>
                     <div>
                         <div ng-if="user.username == displayuser.username">
                             <hr>
@@ -187,23 +187,25 @@
                                 <div>
                                     <br>
                                     <label for="title">Title:</label>
-                                    <input ng-model="newtitle" type="text" class="form-control" id="title">
+                                    <input ng-model="newtitle" type="text" class="form-control" id="title" style="border: 1px solid;">
                                 </div>
 
                             </tr>
                             <tr>
                                 <div>
                                     <label for="usr">Summary:</label>
-                                    <input ng-model="newsummary" type="text" class="form-control" id="usr">
+                                    <input ng-model="newsummary" type="text" class="form-control" id="usr" style="border: 1px solid;">
                                 </div>
 
                             </tr>
                             <tr>
                                 <div>
                                     <label for="comment">Experience:</label>
-                                    <textarea ng-model="newcontent" class="form-control" rows="5" id="comment"></textarea>
+                                    <textarea ng-model="newcontent" class="form-control" rows="5" id="comment" style="border: 1px solid;"></textarea>
                                 </div>
                             </tr>
+                            <br>
+
                             <tr class="col-sm-1">
                                 <button ng-click="saveTrip(newtitle,newsummary,newcontent)" type="button" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon" aria-hidden="true"></span> Save New Trip
@@ -223,7 +225,8 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <h4>Your Trips</h4>
+                                    <h4 ng-if="user.username == displayuser.username">Your Trips</h4>
+                                    <h4 ng-if="user.username != displayuser.username">{{displayuser.username}} Trips</h4>
                                 </th>
                             </tr>
 

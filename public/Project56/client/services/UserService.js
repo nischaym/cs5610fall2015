@@ -14,12 +14,12 @@
         //$rootScope.user = { userid:"", username: "", password: "" , email : "", firstname : "" , lastname :"" };
         var service =
         {
-            //getAllUsers: getAllUsers ,
+            findUserByUsername: findUserByUsername ,
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
             findUserByUserId: findUserByUserId,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser,
+            updateUser: updateUser
 
             //updateUserDetails:updateUserDetails
 
@@ -27,9 +27,15 @@
 
         return service;
 
-        function getAllUsers()
+        function findUserByUsername(username)
         {
-            return users;
+            var deferred = $q.defer();
+            $http.get("/api/user?username="+username)
+                .success(function(response){
+
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
         }
 
         function findUserByUserId(userid)

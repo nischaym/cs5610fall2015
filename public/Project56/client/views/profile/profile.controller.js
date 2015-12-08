@@ -53,19 +53,19 @@
         function saveUserEdit(newlastname,newfirstname,newemail,newcity,newstate){
 
             var newuser = $scope.user;
-            if(newlastname != null){
+            if(newlastname != ""){
                 newuser.lastname = newlastname;
             }
-            if(newfirstname != null){
+            if(newfirstname != ""){
                 newuser.firstname = newfirstname;
             }
-            if(newemail!= null){
+            if(newemail!= ""){
                 newuser.email = newemail;
             }
-            if(newcity!= null){
+            if(newcity!= ""){
                 newuser.city = newcity;
             }
-            if(newstate!= null){
+            if(newstate!= ""){
                 newuser.state = newstate;
             }
             console.log(newuser);
@@ -93,24 +93,32 @@
 
         function saveTrip(newtitle,newsummary,newcontent)
         {
-            var newTrip =
-            {   userid : $scope.user._id,
-                username:$scope.user.username,
-                title :newtitle,
-                summary :newsummary,
-                content:newcontent
-            };
-            console.log(newTrip);
-            TripService.createTripForUser(newTrip).then(function(response){
+            if(newtitle != "" && newsummary == "" && newcontent == "")
+            {
+                var newTrip =
+                {   userid : $scope.user._id,
+                    username:$scope.user.username,
+                    title :newtitle,
+                    summary :newsummary,
+                    content:newcontent
+                };
+                console.log(newTrip);
+                TripService.createTripForUser(newTrip).then(function(response){
 
-                TripService.findAllTripsByUserId($scope.user._id).then(function(response){
+                    TripService.findAllTripsByUserId($scope.user._id).then(function(response){
 
-                    $scope.trips = response;
-                    addTrip();
-                    $scope.title="";
+                        $scope.trips = response;
+                        addTrip();
+                        $scope.title="";
 
+                    });
                 });
-            });
+
+            }
+            else
+            {
+                alert('PLEASE ENTER ALL THE DETAILS OF TRIP');
+            }
         }
 
         function removeTrip(index){

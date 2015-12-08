@@ -20,7 +20,7 @@
         CommentService.getCommentsForTrip($routeParams.tripid).then(function(response){
 
             console.log(response);
-            console.log('jfbdsjifbsdjibgisdgvsdbvubvubib')
+            console.log('jfbdsjifbsdjibgisdgvsdbvubvubib');
             $scope.comments = response;
         });
 
@@ -44,7 +44,7 @@
 
         function saveTrip(newsummary,newcontent){
 
-            if(newsummary == null && newcontent == null )
+            if(newsummary == "" || newcontent == "" )
             {
                 alert('you deleted everthing..!!!!');
             }
@@ -58,7 +58,6 @@
                 {
                     $scope.trip.content = newcontent;
                 }
-
                 TripService.updateTripById($scope.trip).then(function(response){
                     $scope.trip = response;
                     $scope.editTripIsTrue = false;
@@ -76,29 +75,31 @@
 
         function saveComment(newcomment){
 
-            console.log($scope.user);
-            var user1 = $scope.user;
-            console.log(user1);
-            var nischay = {
-                username : $scope.user.username,
-                tripid: $routeParams.tripid,
-                content:newcomment,
-                userid :user1._id
-            };
-            console.log(nischay);
+            if(newcomment == null)
+            {
+                alert('ENTER COMMENT');
+            }
+            else
+            {
+                console.log($scope.user);
+                var user1 = $scope.user;
+                console.log(user1);
+                var nischay = {
+                    username : $scope.user.username,
+                    tripid: $routeParams.tripid,
+                    content:newcomment,
+                    userid :user1._id
+                };
+                console.log(nischay);
 
-            CommentService.createCommentForTrip(nischay).then(function(response){
+                CommentService.createCommentForTrip(nischay).then(function(response){
 
-                CommentService.getCommentsForTrip($routeParams.tripid).then(function(response){
-
-                    console.log(response);
-                    console.log('commasbifsabifbsfbifbipba');
-                    $scope.comments = response;
-                    cancelComment();
-
+                    CommentService.getCommentsForTrip($routeParams.tripid).then(function(response){
+                        $scope.comments = response;
+                        cancelComment();
+                    });
                 });
-
-            });
+            }
         }
     }
 })();

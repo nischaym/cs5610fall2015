@@ -39,7 +39,7 @@ module.exports = function (app,model) {
         console.log('findbyquerystring');
         if(req.query.password == null && req.query.username == null)
         {
-            allUsers(req,res);
+            //allUsers(req,res);
         }
         else if(req.query.password == null)
         {
@@ -53,7 +53,11 @@ module.exports = function (app,model) {
 
     function findByUsername(req, res) {
         var username = req.query.username;
-        res.json(model.findUserByUsername(username));
+        model
+            .findUserByUsername(username)
+            .then(function(result){
+                res.json(result);
+            });
     }
 
     function findByCredentials(req, res) {

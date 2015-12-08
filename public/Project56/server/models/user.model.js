@@ -135,22 +135,11 @@ module.exports = function(app,mongoose,db,UserSchema){
 
 
         var deferred = q.defer();
-        UserModel.find({username:username},function(err , user){
-            deferred.resolve(user);
+        UserModel.find({username:username},function(err , result){
+            deferred.resolve(result);
         });
         return deferred.promise;
 
-        //var user = null;
-        //var user = UserModel.find();
-        //for(var i =0;i<users.length;i++)
-        //{
-        //    if (users[i].username == username)
-        //    {
-        //        user = users[i];
-        //        break;
-        //    }
-        //}
-        //return(user);
     }
 
 
