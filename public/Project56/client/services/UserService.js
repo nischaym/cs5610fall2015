@@ -19,14 +19,26 @@
             findUserByUserId: findUserByUserId,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser
-
+            updateUser: updateUser,
+            getAllUsers : getAllUsers
             //updateUserDetails:updateUserDetails
 
         };
 
         return service;
 
+        function getAllUsers(){
+
+            var deferred = $q.defer();
+            $http.get("/api/users/admin")
+                .success(function(response){
+
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
+
+        }
         function findUserByUsername(username)
         {
             var deferred = $q.defer();

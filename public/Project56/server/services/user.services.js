@@ -7,7 +7,17 @@ module.exports = function (app,model) {
     app.get('/api/user/:id', findUserByUserId);
     app.put('/api/user/:id',updateUser);
     app.delete('/api/user/:id',removeUser);
+    app.get('/api/users/admin',getAllUsers);
 
+
+    function getAllUsers(req , res){
+
+        model
+            .getAllUsers()
+            .then(function(result){
+                res.json(result);
+            });
+    }
 
     function CreateNewUser (req, res) {
 

@@ -6,7 +6,7 @@ module.exports = function(app,mongoose,db,UserSchema){
     var api;
     api = {
         create: create,
-        //findAll: findAll,
+        getAllUsers: getAllUsers,
         findById: findById,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
@@ -154,4 +154,13 @@ module.exports = function(app,mongoose,db,UserSchema){
         return deferred.promise;
     }
 
+    function getAllUsers(){
+
+        var deferred = q.defer();
+        UserModel.find(function(err , results){
+            deferred.resolve(results);
+        });
+        return deferred.promise;
+
+    }
 };

@@ -43,7 +43,7 @@
 
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.html",
-                controller:"DetailsController"
+                controller:"AdminController"
             })
 
             .otherwise({
