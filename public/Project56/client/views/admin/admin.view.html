@@ -73,17 +73,17 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="user in users">
-                                    <td>
+                                    <td style="padding-top: 18px">
                                         {{user.username}}
                                     </td>
-                                    <td>
+                                    <td style="padding-top: 18px">
                                         {{user._id}}
                                     </td>
-                                    <td>
+                                    <td style="padding-top: 18px">
                                         {{user.password}}
                                     </td>
                                     <td>
-                                        <button class="btn btn-default btn-block">
+                                        <button ng-click="removeuser($index)" class="btn btn-default btn-block">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </td>
@@ -103,10 +103,10 @@
                                     Username
                                 </th>
                                 <th class="text-center">
-                                    userid
+                                    TripTitle
                                 </th>
                                 <th class="text-center">
-                                    TripTitle
+                                    TripSummary
                                 </th>
                                 <th class="text-center">
                                     Action
@@ -114,18 +114,61 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="user in users">
-                                <td>
-                                    {{user.username}}
+                            <tr ng-repeat="trip in trips">
+                                <td style="padding-top: 18px">
+                                    {{trip.username}}
+                                </td>
+                                <td style="padding-top: 18px">
+                                    {{trip.title}}
+                                </td>
+                                <td style="padding-top: 18px">
+                                    {{trip.summary}}
                                 </td>
                                 <td>
-                                    {{user._id}}
+                                    <button ng-click="removeTrip($index)" class="btn btn-default btn-block">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--start of Comments-->
+                    <div>
+                        <h3>
+                            Comments
+                        </h3>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr >
+                                <th class="text-center">
+                                    Username
+                                </th>
+                                <th class="text-center">
+                                    TripTitle
+                                </th>
+                                <th class="text-center">
+                                    Comment
+                                </th>
+                                <th class="text-center">
+                                    Action
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="comment in comments">
+                                <td style="padding-top: 18px">
+                                    {{comment.username}}
+                                </td>
+                                <td style="padding-top: 18px">
+                                    {{comment.tripid}}
+                                </td>
+                                <td style="padding-top: 18px">
+                                    {{comment.content}}
                                 </td>
                                 <td>
-                                    {{user.password}}
-                                </td>
-                                <td>
-                                    <button class="btn btn-default btn-block">
+                                    <button ng-click="removeComment($index)" class="btn btn-default btn-block">
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </button>
                                 </td>

@@ -7,7 +7,9 @@ module.exports = function(app,mongoose,db,CommentSchema){
 
     api = {
         create: create,
-        findAllCommentsForTrip:findAllCommentsForTrip
+        findAllCommentsForTrip:findAllCommentsForTrip,
+        getAllComments:getAllComments,
+        remove:remove
     };
 
     return api;
@@ -38,6 +40,16 @@ module.exports = function(app,mongoose,db,CommentSchema){
             deferred.resolve(result);
         });
         return deferred.promise;
+    }
+
+    function getAllComments(){
+
+        var deferred = q.defer();
+        CommentModel.find(function(err , comments){
+            deferred.resolve(comments);
+        });
+        return deferred.promise;
+
     }
 
 };

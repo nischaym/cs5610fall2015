@@ -6,7 +6,7 @@ module.exports = function (app,model) {
     app.get('/api/user?',findByQueryString); /* for login */
     app.get('/api/user/:id', findUserByUserId);
     app.put('/api/user/:id',updateUser);
-    app.delete('/api/user/:id',removeUser);
+    app.delete('/api/user/:id',removeUserById);
     app.get('/api/users/admin',getAllUsers);
 
 
@@ -96,8 +96,12 @@ module.exports = function (app,model) {
             });
     }
 
-    function removeUser(req, res) {
+    function removeUserById(req, res) {
         var userid = req.params.id;
-        res.json(model.remove(userid));
+        model
+            .removeUserById(userid)
+            .then(function(user){
+                res.json(user);
+            });
     }
 };

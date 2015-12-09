@@ -5,10 +5,8 @@ module.exports = function(app,model) {
 
     app.get('/api/trip/:tripid/comments', allCommentsOfTrip);
     app.post('/api/trip/:tripid/comment', createCommentForTrip);
-    //app.get('/api/form/:formid/field/:fieldid', FieldOfTheForm);
-    //app.delete('/api/form/:formid/field/:fieldid', RemoveFieldOfTheForm);
-    //app.post('/api/form/:formid/field',CreateNewField);
-    //app.put('/api/form/:formid/field/:fieldid', updateField);
+    app.get('/api/trip/comments/', getAllComments);
+    app.delete('/api/trip/comments/:commentid', removeCommentById);
 
 
 
@@ -43,25 +41,22 @@ module.exports = function(app,model) {
     }
 
 
-    function CreateNewField(req,res){
+    function getAllComments(req,res){
 
-        var id = req.params.formid;
-        var field = req.body;
-        console.log(id);
-        console.log(field);
         model
-            .createFieldForForm(id,field)
-            .then(function(fields){
-                res.json(fields);
+            .getAllComments()
+            .then(function(comments){
+                res.json(comments);
             });
-
-        //res.json(model.createFieldForForm(id,field));
     }
 
-    function updateField(){
-        var id = req.params.formid;
-        var field = req.body;
-        res.json(model.updateField(id,field));
+    function removeCommentById(req,res){
+        var id = req.params.commentid;
+        model
+            .remove(id)
+            .then(function(comments){
+                res.json(comments);
+            });
 
     }
 

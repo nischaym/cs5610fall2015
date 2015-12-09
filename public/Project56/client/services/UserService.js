@@ -18,7 +18,7 @@
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
             findUserByUserId: findUserByUserId,
             createUser: createUser,
-            deleteUserById: deleteUserById,
+            removeUserById: removeUserById,
             updateUser: updateUser,
             getAllUsers : getAllUsers
             //updateUserDetails:updateUserDetails
@@ -82,17 +82,15 @@
             return deferred.promise;
         }
         
-        function deleteUserById (userid,ca_fn)
+        function removeUserById (userid)
         {
-            for (var i=0;i<users.length;i++)
-            {
-                if (users[i].userid == userid)
-                {
-                    users.splice(i, 1);
-                    break;
-                }
-            }
-            ca_fn(users);
+
+            var deferred = $q.defer();
+            $http.delete("/api/user/"+userid)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
 
         }
 

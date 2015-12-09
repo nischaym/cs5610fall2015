@@ -10,9 +10,9 @@
         var commentservice =
         {
             createCommentForTrip:createCommentForTrip,
-            getCommentsForTrip:getCommentsForTrip
-            //getFieldForForm: getFieldForForm,
-            //deleteFieldFromForm:deleteFieldFromForm,
+            getCommentsForTrip:getCommentsForTrip,
+            findAllComments: findAllComments,
+            removeCommentById:removeCommentById,
             //updateField:updateField
         };
 
@@ -38,6 +38,29 @@
                     deferred.resolve(response);
                 });
             return deferred.promise;
+        }
+
+        function findAllComments(){
+
+            var deferred = $q.defer();
+            $http.get("/api/trip/comments/")
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
+        }
+
+        function removeCommentById(commentid){
+
+            var deferred = $q.defer();
+            $http.delete("/api/trip/comments/"+commentid)
+                .success(function(response){
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
+
         }
     }
 

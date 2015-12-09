@@ -11,7 +11,7 @@ module.exports = function(app,mongoose,db,UserSchema){
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
         update: update,
-        remove: remove,
+        removeUserById: removeUserById,
         findUserByUserId:findUserByUserId
     };
 
@@ -114,18 +114,13 @@ module.exports = function(app,mongoose,db,UserSchema){
         //return(user);
     }
 
-    function remove(userid){
+    function removeUserById(userid){
 
-        for (var i=0;i<users.length;i++)
-        {
-            if (users[i].userid == userid)
-            {
-                users.splice(i, 1);
-                break;
-            }
-        }
-        //ca_fn(users);
-        return(users);
+        var deferred = q.defer();
+        UserModel.remove({_id:userid},function(err , result){
+            deferred.resolve(result);
+        });
+        return deferred.promise;
     }
 
 
