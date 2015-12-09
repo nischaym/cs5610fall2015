@@ -58,6 +58,7 @@
                 }
                 TripService.updateTripById($scope.trip).then(function(response){
                     $scope.trip = response;
+                    $scope.displaycontent = $scope.trip.content.replace(/\n|\r\n|\r/g, '<br>');
                     $scope.editTripIsTrue = false;
                 });
             }
