@@ -15,6 +15,9 @@
         $scope.addNewTrip = false;
         $scope.isCollapsedtrips = true;
         $scope.currentviewId = $routeParams.userid;
+        $scope.newsummary = "";
+        $scope.newcontent = "";
+        $scope.newtitle = "";
         var currentuser =
 
 

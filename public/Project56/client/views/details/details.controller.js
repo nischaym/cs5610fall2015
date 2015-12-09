@@ -12,15 +12,12 @@
         $scope.isCollapsedfollowers = true;
 
         TripService.getTripById($routeParams.tripid).then(function(response){
-
             console.log(response);
             $scope.trip=response;
+            $scope.trip.content = $scope.trip.content.replace(/\n|\r\n|\r/g, '<br/>');
         });
 
         CommentService.getCommentsForTrip($routeParams.tripid).then(function(response){
-
-            console.log(response);
-            console.log('jfbdsjifbsdjibgisdgvsdbvubvubib');
             $scope.comments = response;
         });
 

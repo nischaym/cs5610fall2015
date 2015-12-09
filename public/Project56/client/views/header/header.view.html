@@ -66,24 +66,24 @@
 <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-1">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-123">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#/home">TripTorque</a>
+        <a class="navbar-brand" href="#/home">TripTorque !!!!!</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-   <div class="collapse navbar-collapse" id="navigation-example-1">
+   <div class="collapse navbar-collapse" id="navigation-example-123">
 
         <ul class="nav navbar-nav navbar-right">
             <!--<a href="#/home" class="btn btn-simple">Home 123</a>-->
-            <a ng-if="!user.logged" href="#/register" class="btn btn-simple">Register</a>
-            <a ng-if="!user.logged" href="#/login" class="btn btn-simple">Login</a>
-            <a ng-if="user.logged" href="#/profile/{{user._id}}" class="btn btn-simple">Profile</a>
-            <a ng-if="user.logged" ng-click="logout()" href="#/home" class="btn btn-simple">Logout</a>
+            <li><a ng-if="!user.logged" href="#/register" class="btn btn-simple">Register</a></li>
+            <li><a ng-if="!user.logged" href="#/login" class="btn btn-simple">Login</a></li>
+            <li><a ng-if="user.logged" href="#/profile/{{user._id}}" class="btn btn-simple">Profile</a></li>
+            <li><a ng-if="user.logged" ng-click="logout()" href="#/home" class="btn btn-simple">Logout</a></li>
 
             <!--<a href="#/profile" class="btn btn-simple">Profile</a>-->
             <!--&lt;!&ndash;<a href="http://www.facebook.com" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>&ndash;&gt;-->
