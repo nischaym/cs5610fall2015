@@ -105,20 +105,21 @@
     background-image: url('../paper_img/lamp.jpg');
     background-position: center center;
     background-size: cover;
-    height: 300px;
+    height: 400px;
     position: relative;
-    margin-top: -110px;
+    /*margin-top: -110px;*/
 }
 .profile-background .filter-black::after{
     background-color: rgba(0, 0, 0, 0.5);
     content: "";
     display: block;
-    height: 300px;
+    height: 400px;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 1;
+    /*margin-top: 100px;*/
 }
 .profile-content{
     position: relative;
