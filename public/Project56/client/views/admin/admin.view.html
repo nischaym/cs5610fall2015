@@ -50,27 +50,70 @@
             <div class="container-fluid">
                 <h2>Here is the List of Everything</h2>
                 <div class="container">
-                    <h3>
-                        User Data
-                    </h3>
-                    <table class="table table-bordered">
-                        <thead>
+                    <div>
+                        <h3>
+                            User Data
+                        </h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr >
+                                    <th class="text-center">
+                                        Username
+                                    </th>
+                                    <th class="text-center">
+                                        id
+                                    </th>
+                                    <th class="text-center">
+                                        Password
+                                    </th>
+                                    <th class="text-center">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="user in users">
+                                    <td>
+                                        {{user.username}}
+                                    </td>
+                                    <td>
+                                        {{user._id}}
+                                    </td>
+                                    <td>
+                                        {{user.password}}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-default btn-block">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--start of trips-->
+                    <div>
+                        <h3>
+                            Trip Data
+                        </h3>
+                        <table class="table table-bordered">
+                            <thead>
                             <tr >
                                 <th class="text-center">
                                     Username
                                 </th>
                                 <th class="text-center">
-                                    id
+                                    userid
                                 </th>
                                 <th class="text-center">
-                                    Password
+                                    TripTitle
                                 </th>
                                 <th class="text-center">
                                     Action
                                 </th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             <tr ng-repeat="user in users">
                                 <td>
                                     {{user.username}}
@@ -87,8 +130,10 @@
                                     </button>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
