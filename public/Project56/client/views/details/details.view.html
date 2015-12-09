@@ -19,7 +19,8 @@
                             <img src="../client/views/assets/paper_img/unnamed.png" alt="Thumbnail Image" class="img-circle img-responsive">
                             <h5 class="text-center"><a href="#/profile/{{trip.userid}}">{{trip.username}}</a><br />
                                 <small class="text-muted">{{trip.summary}}</small></h5>
-                            <p class="text-center text-justify">{{trip.content}}</p>
+                            <!--<pre class="text-center text-justify">{{trip.content}}</pre>-->
+                            <p class="text-center text-justify" ng-bind-html=displaycontent></p>
                             <!--<p ng-bind="trip.content"></p>-->
                             <!--{{trip.content}}-->
 
@@ -159,5 +160,8 @@
         </div>
     </div>
 </div>
+
+</div>
+<div  ng-include src="'./views/footer/footer.view.html'">
 
 </div>

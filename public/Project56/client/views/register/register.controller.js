@@ -94,6 +94,8 @@
                             $rootScope.user = newUser;
                             $rootScope.user.logged = true;
                             $rootScope.user.globalusername = newUser.username;
+                            var rootscopeuser = $rootScope.user;
+                            $rootScope.$broadcast('auth', rootscopeuser);
                             $scope.user = {username:"",password:"",city:"",state:"",firstname:"",lastname:"",verify_password : ""};
                             $location.url('/profile/'+newUser._id);
                         });

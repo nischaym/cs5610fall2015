@@ -1,6 +1,6 @@
 ﻿(function(){
 
     angular
-        .module("TripTorque", ["ngRoute"/*, 'ui.bootstrap'*/])
+        .module("TripTorque", ["ngRoute"/*, 'ui.bootstrap'*/,'ngSanitize'])
  
 })();

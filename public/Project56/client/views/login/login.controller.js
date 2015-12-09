@@ -31,6 +31,8 @@
                         $rootScope.user = user[0];
                         $rootScope.user.logged = true;
                         $rootScope.user.globalusername = $scope.user.username;
+                        var rootscopeuser = $rootScope.user;
+                        $rootScope.$broadcast('auth', rootscopeuser);
                         $scope.user.username = "";
                         $scope.user.password = "";
                         $location.url('/profile/'+$rootScope.user._id);
