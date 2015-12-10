@@ -11,6 +11,7 @@ module.exports = function (app,model) {
     app.put('/api/trip/:tripid',updateTrip);
     app.delete('/api/trip/:tripid',removeTripById);
     app.get('/api/home/trip',getAllTrips);
+    //app.get('/api/search/trip/:placename',searchByKeyword);
 
 
     function CreateNewTrip (req, res) {
@@ -79,4 +80,15 @@ module.exports = function (app,model) {
                 res.json(trips);
             });
     }
+
+    //function searchByKeyword(req,res){
+    //    var placename = req.params.placename;
+    //    model
+    //        .searchByKeyword(placename)
+    //        .then(function(trips){
+    //            res.json(trips);
+    //        });
+    //
+    //
+    //}
 };

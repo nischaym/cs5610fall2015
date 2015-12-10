@@ -17,7 +17,8 @@ module.exports = function(app,mongoose,db,TripSchema){
         findAllTripsByUser: findAllTripsByUser,
         findtrip:findtrip,
         getAlltrips:getAlltrips,
-        removeTrip:removeTrip
+        removeTrip:removeTrip,
+        //searchByKeyword:searchByKeyword
 
         ///* field model */
         //fieldsOfForm : fieldsOfForm,
@@ -110,4 +111,21 @@ module.exports = function(app,mongoose,db,TripSchema){
         return deferred.promise;
 
     }
+
+    //function searchByKeyword(placename){
+    //
+    //    var deferred = q.defer();
+    //
+    //    //TripModel.ensureIndex( {content: "text"},function (err, trips) {
+    //    //    console.log(trips);
+    //    //    TripModel.find({ $text: { $search: "lorem" } }, function(err , trips) {
+    //            TripModel.find({ $search: "lorem" }, function(err , trips) {
+    //                console.log(err);
+    //                console.log(trips);
+    //            deferred.resolve(trips);
+    //        });
+    //    //});
+    //    return deferred.promise;
+    //
+    //}
 };

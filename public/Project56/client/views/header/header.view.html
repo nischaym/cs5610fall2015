@@ -68,7 +68,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-123">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-       <div class="collapse navbar-collapse" id="navigation-example-123">
+       <div class="collapse navbar-collapse">
 
             <ul class="nav navbar-nav navbar-right">
                 <!--<a href="#/home" class="btn btn-simple">Home 123</a>-->
@@ -87,6 +87,15 @@
                 <li><a ng-if="user.logged" href="#/profile/{{user._id}}" class="btn btn-simple">Profile</a></li>
                 <li><a ng-if="user.logged" ng-click="logout()" href="#/home" class="btn btn-simple">Logout</a></li>
                 <li><a href="#/documentation" class="btn btn-simple">Documentation</a></li>
+                <li><a href="#/search" class="btn btn-simple">How to Reach</a></li>
+
+                <!--<li><input ng-model="searchstring" type="text" placeholder="search" style="border: solid 1px;margin-top:10px " class="form-control"></li>-->
+                <!--<li><button class="btn btn-simple glyphicon glyphicon-search" ng-click="search(searchstring)"></span></button></li>-->
+                <!--<li>-->
+                    <!--<p class="navbar-btn">-->
+                        <!--<a ng-click="search(searchstring)" class="btn btn-default">I'm a link button!</a>-->
+                    <!--</p>-->
+                <!--</li>-->
 
                 <!--<a href="#/profile" class="btn btn-simple">Profile</a>-->
                 <!--&lt;!&ndash;<a href="http://www.facebook.com" target="_blank" class="btn btn-simple"><i class="fa fa-twitter"></i></a>&ndash;&gt;-->

@@ -29,9 +29,15 @@
             controller : "LoginController"
         })
 
+        //    .when("/search/:searchstring", {
+        //    templateUrl: "views/search/search.view.html",
+        //        controller : "SearchController"
+        //})
             .when("/search", {
-            templateUrl: "views/search/search.view.html"
-        })
+                templateUrl: "views/search/search.view.html",
+                controller : "SearchController"
+            })
+
             .when("/details", {
                 templateUrl: "views/details/details.view.html"
             })

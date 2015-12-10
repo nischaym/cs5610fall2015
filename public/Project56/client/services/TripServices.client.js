@@ -18,10 +18,25 @@
             //findTripsforUserId:findTripsforUserId,
             removeTripById: removeTripById,
             updateTripById: updateTripById,
-            findAllTrips:findAllTrips
+            findAllTrips:findAllTrips,
+            searchByKeyword:searchByKeyword
         };
 
         return tripservices;
+
+        function searchByKeyword(placename){
+
+            var deferred = $q.defer();
+            console.log('reached trip search');
+            $http.get("/api/search/trip/"+placename)
+                .success(function(response){
+
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
+
+        }
 
         function createTripForUser(newtrip)
         {
