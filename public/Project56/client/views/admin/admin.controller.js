@@ -5,6 +5,12 @@
 
     function AdminController($scope , $rootScope, $location,UserService,TripService,$routeParams,CommentService) {
 
+        navbar_initialized = false;
+
+        if($(window).width() < 768){
+            console.log('in admin');
+            gsdk.initRightMenu();
+        }
 
         $scope.removeuser = removeuser;
         $scope.removeTrip = removeTrip;

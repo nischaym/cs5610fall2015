@@ -95,6 +95,7 @@ gsdk = {
     misc:{
         navbar_menu_visible: 0
     },
+
     initRightMenu: function(){  
          if(!navbar_initialized){
              $navbar = $('nav').find('.navbar-collapse').first().clone(true);

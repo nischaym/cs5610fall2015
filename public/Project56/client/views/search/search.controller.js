@@ -9,6 +9,14 @@
         //$scope.searchstring = $rootScope.searchstring;
         //console.log($rootScope.searchstring);
 
+        navbar_initialized = false;
+
+        if($(window).width() < 768){
+            console.log('in in seraaf');
+            gsdk.initRightMenu();
+
+        }
+
         $scope.search = search;
         $scope.origin ="";
         $scope.destination="";

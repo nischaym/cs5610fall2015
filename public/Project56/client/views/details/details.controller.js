@@ -5,6 +5,12 @@
 
     function DetailsController($scope , $rootScope, $location,UserService,TripService,$routeParams,CommentService) {
 
+        navbar_initialized = false;
+
+        if($(window).width() < 768){
+            console.log('in details');
+            gsdk.initRightMenu();
+        }
         console.log($routeParams);
         $scope.user = $rootScope.user;
         console.log('user data');
@@ -12,7 +18,7 @@
         $scope.isCollapsedfollowers = true;
 
         TripService.getTripById($routeParams.tripid).then(function(response){
-            console.log(response);
+            //console.log(response);
             $scope.trip=response;
             $scope.displaycontent = $scope.trip.content.replace(/\n|\r\n|\r/g, '<br>');
 
