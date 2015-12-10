@@ -12,6 +12,7 @@
         $scope.search = search;
         $scope.origin ="";
         $scope.destination="";
+        $scope.results = false;
 
         //if($rootScope.searchstring != "")
         //{
@@ -53,6 +54,8 @@
                      $scope.routes = response.routes;
                     //$scope.segments = route1.segments;
                     //console.log($scope.routes);
+                    $scope.results = true;
+
                 });
 
         }
