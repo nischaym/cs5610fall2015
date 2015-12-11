@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8b2addd-869d-4a71-9937-372fc842d3b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css" afterPath="$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/details/details.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/details/details.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/header/header.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/header/header.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/header/header.view.html" afterPath="$PROJECT_DIR$/public/Project56/client/views/header/header.view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/home/home.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/home/home.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/login/login.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/login/login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/profile/profile.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/profile/profile.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/register/register.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/register/register.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/search/search.controller.js" afterPath="$PROJECT_DIR$/public/Project56/client/views/search/search.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/home/home.view.html" afterPath="$PROJECT_DIR$/public/Project56/client/views/home/home.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html" afterPath="$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html" />
     </list>
     <ignored path="cs5610fall2015.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,12 +35,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Project56/client/views/home/home.controller.js">
+      <file leaf-file-name="home.view.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/Project56/client/views/home/home.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.56">
+              <caret line="33" column="88" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.870968">
+              <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <marker date="1449805121708" expanded="true" signature="12660:14076" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,8 +70,8 @@
       <file leaf-file-name="ct-paper.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.967742">
-              <caret line="2616" column="0" selection-start-line="2615" selection-start-column="0" selection-end-line="2616" selection-end-column="0" />
+            <state vertical-scroll-proportion="-12.064516">
+              <caret line="2429" column="16" selection-start-line="2429" selection-start-column="16" selection-end-line="2429" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -102,24 +117,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.view.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.view.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Project56/client/views/header/header.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3989071">
+            <state vertical-scroll-proportion="-7.064516">
               <caret line="111" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Project56/client/views/header/header.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -180,10 +185,8 @@
         <option value="$PROJECT_DIR$/public/Project56/client/views/search/searchController.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/config.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/services/TripServices.client.js" />
-        <option value="$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/details/details.view.html" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/documentation/documentation.view.html" />
-        <option value="$PROJECT_DIR$/public/Project56/client/views/home/home.view.html" />
         <option value="$PROJECT_DIR$/public/Project56/server/models/trip.model.js" />
         <option value="$PROJECT_DIR$/public/Project56/server/services/trip.services.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/search/search.view.html" />
@@ -195,12 +198,14 @@
         <option value="$PROJECT_DIR$/public/Project56/client/views/header/header.controller.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/home/home.controller.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/login/login.controller.js" />
-        <option value="$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/profile/profile.controller.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/register/register.controller.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/search/search.controller.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/details/details.controller.js" />
         <option value="$PROJECT_DIR$/public/Project56/client/views/header/header.view.html" />
+        <option value="$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html" />
+        <option value="$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css" />
+        <option value="$PROJECT_DIR$/public/Project56/client/views/home/home.view.html" />
       </list>
     </option>
   </component>
@@ -892,7 +897,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.20655045" sideWeight="0.5039459" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1159,16 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.354838">
-          <caret line="282" column="35" selection-start-line="282" selection-start-column="35" selection-end-line="282" selection-end-column="35" />
-          <folding>
-            <marker date="1449725351627" expanded="true" signature="12882:14298" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Project56/server/models/trip.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1199,14 +1194,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.387096">
           <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Project56/client/views/home/home.view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.032259">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1307,14 +1294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.967742">
-          <caret line="2616" column="0" selection-start-line="2615" selection-start-column="0" selection-end-line="2616" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Project56/client/views/register/register.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1357,11 +1336,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Project56/client/views/header/header.view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3989071">
+        <state vertical-scroll-proportion="-7.064516">
           <caret line="111" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.870968">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1449805121708" expanded="true" signature="12660:14076" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Project56/client/views/assets/css/ct-paper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.064516">
+          <caret line="2429" column="16" selection-start-line="2429" selection-start-column="16" selection-end-line="2429" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Project56/client/views/home/home.view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56">
+          <caret line="33" column="88" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
+          <folding />
         </state>
       </provider>
     </entry>
