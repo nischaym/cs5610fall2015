@@ -6,12 +6,12 @@
         function ProfileController($scope , $rootScope, $location,UserService,TripService,$routeParams,$window)
     {
 
-        navbar_initialized = false;
-
-        if($(window).width() < 768){
-            console.log('navbar in profile');
-            gsdk.initRightMenu();
-        }
+        //navbar_initialized = false;
+        //
+        //if($(window).width() < 768){
+        //    console.log('navbar in profile');
+        //    gsdk.initRightMenu();
+        //}
         //$scope.user = {username:"",firstname:"",lastname:""};
         $scope.user = $rootScope.user;
         $scope.userdetailsedit = false;

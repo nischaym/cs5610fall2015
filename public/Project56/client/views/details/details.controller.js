@@ -5,12 +5,12 @@
 
     function DetailsController($scope , $rootScope, $location,UserService,TripService,$routeParams,CommentService) {
 
-        navbar_initialized = false;
-
-        if($(window).width() < 768){
-            console.log('in details');
-            gsdk.initRightMenu();
-        }
+        //navbar_initialized = false;
+        //
+        //if($(window).width() < 768){
+        //    console.log('in details');
+        //    gsdk.initRightMenu();
+        //}
         console.log($routeParams);
         $scope.user = $rootScope.user;
         console.log('user data');

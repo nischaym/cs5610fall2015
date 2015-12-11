@@ -5,12 +5,12 @@
 
     function LoginController($scope , $rootScope, $location,UserService) {
 
-        navbar_initialized = false;
-
-        if($(window).width() < 768){
-            console.log('in login')
-            gsdk.initRightMenu();
-        }
+        //navbar_initialized = false;
+        //
+        //if($(window).width() < 768){
+        //    console.log('in login')
+        //    gsdk.initRightMenu();
+        //}
 
         $rootScope.user;
         $scope.user = {username:"",password:""};

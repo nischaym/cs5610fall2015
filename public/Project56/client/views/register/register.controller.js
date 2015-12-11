@@ -6,12 +6,12 @@
     function RegisterController($scope, $location, $rootScope,UserService,$q)
     {
 
-        navbar_initialized = false;
-
-        if($(window).width() < 768){
-            console.log('in reg');
-            gsdk.initRightMenu();
-        }
+        //navbar_initialized = false;
+        //
+        //if($(window).width() < 768){
+        //    console.log('in reg');
+        //    gsdk.initRightMenu();
+        //}
         $scope.register = register;
         $rootScope.user ;//= {username:"",password:"",email:"",userid:"",logged:false,globalusername:""};
         $scope.user = {username:"",password:"",city:"",state:"",firstname:"",lastname:"",verify_password : ""};

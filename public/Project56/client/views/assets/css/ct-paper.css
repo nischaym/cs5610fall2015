@@ -2613,7 +2613,7 @@ textarea.form-control {
   .navbar .navbar-collapse.collapse,
   .navbar .navbar-collapse.collapse.in,
   .navbar .navbar-collapse.collapsing {
-    display: none !important;
+    /*display: none !important;*/
   }
 
   body > .navbar-collapse {
