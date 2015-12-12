@@ -279,8 +279,8 @@ input.ct-red + span + label + span.switch-right {
 .navbar .navbar-nav > li > a.btn:active,
 .navbar .navbar-nav > li > a.btn.active, .open >
 .navbar .navbar-nav > li > a.btn.dropdown-toggle {
-  background-color: #66615B;
-  color: rgba(255, 255, 255, 0.7);
+  background-color: #fffcf5;
+  /*color: rgba(255, 255, 255, 0.7);*/
   border-color: #66615B;
 }
 .btn:hover .caret, .btn:focus .caret, .btn:active .caret, .btn.active .caret, .open > .btn.dropdown-toggle .caret,

@@ -86,7 +86,7 @@ $(document).ready(function(){
 
 // activate collapse right menu when the windows is resized 
 $(window).resize(function(){
-    if($(window).width() < 768){
+    if($(window).width() < 0){
         gsdk.initRightMenu();   
     }
 });
