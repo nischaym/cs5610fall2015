@@ -190,7 +190,7 @@ module.exports = function(app,mongoose,db,UserSchema){
                         console.log(result);
 
                         UserModel.find({_id:userid},function(err,user){
-
+                            console.log(user);
                             deferred.resolve(user);
                         })
 

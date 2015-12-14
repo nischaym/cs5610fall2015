@@ -168,9 +168,10 @@
                     following:$scope.displayuser.username
                 };
 
-                UserService.addFollower($scope.displayuser._id,follower).then(function (response) {
+                UserService.addFollower($scope.displayuser._id,follower).then(function(response) {
+                    console.log('after following');
                     console.log(response);
-                    $scope.displayuser = response;
+                    $scope.displayuser = response[0];
                 })
             }
             else
