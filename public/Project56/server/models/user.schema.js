@@ -14,8 +14,10 @@ module.exports = function (mongoose,db) {
         //aboutme:String,
         profileimage:String,
         //roles:String,
-        followers:[{userid:String}],
-        following:[{userid:String}],
+        followers:[{userid:String,
+        username:String}],
+        following:[{userid:String,
+            username:String}],
         state:String,
         city:String,
         profileimage:String

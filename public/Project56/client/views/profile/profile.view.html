@@ -20,7 +20,7 @@
                     </div>
                     <div class="name text-center" >
                         <h4>{{displayuser.username}}</h4>
-                        <!--<btn ng-click="followUser()" class="btn"> Follow </btn>-->
+                        <btn ng-if="user.logged" ng-click="followUser()" class="btn"> Follow </btn>
 
                         <!--<h4 class="text-center">-->
                             <!--{{user.firstname}}-->
@@ -244,28 +244,49 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <!--<tr>-->
-                                <!--<th>-->
-                                    <!--<h4 ng-if="user.username == displayuser.username">Your Followers</h4>-->
-                                    <!--<h4 ng-if="user.username != displayuser.username">{{displayuser.username}} Followers</h4>-->
-                                <!--</th>-->
-                            <!--</tr>-->
-                            <!--<table class="table table-bordered">-->
-                                <!--<thead>-->
-                                <!--</thead>-->
-                                <!--<tbody>-->
-                                <!--<tr ng-repeat="follower in followers">-->
-                                    <!--<td style="padding-top: 13px"><a href="#/trip/{{trips[$index]._id}}">{{follower.username}}</a></td>-->
-                                    <!--&lt;!&ndash;<td style="padding-top: 13px">{{trip.summary}}</td>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<td ng-if="user._id == displayuser._id" class="text-center">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
-                                <!--</tr>-->
-                                <!--</tbody>-->
-                            <!--</table>-->
+                            <tr>
+                                <th>
+                                    <h4 ng-if="user.username == displayuser.username">Your Followers</h4>
+                                    <h4 ng-if="user.username != displayuser.username">{{displayuser.username}} Followers</h4>
+                                </th>
+                            </tr>
+                            <table class="table table-bordered">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="follower in displayuser.followers">
+                                    <td style="padding-top: 13px"><a href="#/profile/{{follower.userid}}">{{follower.username}}</a></td>
+                                    <!--<td style="padding-top: 13px">{{trip.summary}}</td>-->
+                                    <!--<td ng-if="user._id == displayuser._id" class="text-center">-->
+                                        <!--<button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">-->
+                                            <!--<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>-->
+                                        <!--</button>-->
+                                    <!--</td>-->
+                                </tr>
+                                </tbody>
+                            </table>
 
+                            <tr>
+                                <th>
+                                    <h4 ng-if="user.username == displayuser.username">You are Following</h4>
+                                    <h4 ng-if="user.username != displayuser.username">{{displayuser.username}} is Following</h4>
+                                </th>
+                            </tr>
+                            <table class="table table-bordered">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="follow in displayuser.following">
+                                    <td style="padding-top: 13px"><a href="#/profile/{{follow.userid}}">{{follow.username}}</a></td>
+                                    <!--<td style="padding-top: 13px">{{trip.summary}}</td>-->
+                                    <!--<td ng-if="user._id == displayuser._id" class="text-center">-->
+                                    <!--<button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">-->
+                                    <!--<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>-->
+                                    <!--</button>-->
+                                    <!--</td>-->
+                                </tr>
+                                </tbody>
+                            </table>
 
 
                         </div>

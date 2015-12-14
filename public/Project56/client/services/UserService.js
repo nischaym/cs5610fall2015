@@ -20,7 +20,8 @@
             createUser: createUser,
             removeUserById: removeUserById,
             updateUser: updateUser,
-            getAllUsers : getAllUsers
+            getAllUsers : getAllUsers,
+            addFollower:addFollower
             //updateUserDetails:updateUserDetails
 
         };
@@ -103,6 +104,19 @@
                     deferred.resolve(response);
                 });
             return deferred.promise;
+
+        }
+
+        function addFollower(userid,follower)
+        {
+            var deferred = $q.defer();
+            $http.put("/api/user/"+userid+"/follower",follower)
+                .success(function(response){
+
+                    deferred.resolve(response);
+                });
+            return deferred.promise;
+
 
         }
 

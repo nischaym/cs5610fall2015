@@ -8,7 +8,7 @@ module.exports = function (app,model) {
     app.put('/api/user/:id',updateUser);
     app.delete('/api/user/:id',removeUserById);
     app.get('/api/users/admin',getAllUsers);
-
+    app.put('/api/user/:id/follower',addFollower);
 
     function getAllUsers(req , res){
 
@@ -100,6 +100,18 @@ module.exports = function (app,model) {
         var userid = req.params.id;
         model
             .removeUserById(userid)
+            .then(function(user){
+                res.json(user);
+            });
+    }
+
+    function addFollower(req,res){
+
+        var userid = req.params.id;
+        var follower = req.body;
+
+        model
+            .addFollower(userid,follower)
             .then(function(user){
                 res.json(user);
             });

@@ -14,6 +14,7 @@
         //}
         //$scope.user = {username:"",firstname:"",lastname:""};
         $scope.user = $rootScope.user;
+
         $scope.userdetailsedit = false;
         $scope.isCollapsedtrips = true;
         $scope.isCollapsedfollowers = true;
@@ -24,7 +25,7 @@
         $scope.newsummary = "";
         $scope.newcontent = "";
         $scope.newtitle = "";
-        var currentuser =
+        $scope.notalreadypresent = true;
 
 
         $scope.userEdit = userEdit;
@@ -33,6 +34,7 @@
         $scope.addTrip = addTrip;
         $scope.saveTrip = saveTrip;
         $scope.removeTrip = removeTrip;
+        $scope.followUser = followUser;
 
         TripService.findAllTripsByUserId($scope.currentviewId).then(function(response){
 
@@ -142,6 +144,40 @@
 
                 });
             });
+        }
+
+        function followUser(){
+
+
+            for(var i=0;i<$scope.displayuser.followers.length;i++)
+            {
+                if($scope.displayuser.followers[i].username == $scope.user.username)
+                {
+                    notalreadypresent = false;
+                    alert('you are already following');
+                    return;
+                }
+            };
+            console.log($scope.notalreadypresent);
+            if($scope.notalreadypresent)
+            {
+
+                follower = {
+                    userid:$scope.user._id,
+                    username:$scope.user.username,
+                    following:$scope.displayuser.username
+                };
+
+                UserService.addFollower($scope.displayuser._id,follower).then(function (response) {
+                    console.log(response);
+                    $scope.displayuser = response;
+                })
+            }
+            else
+            {
+                $scope.notalreadypresent = true;
+            }
+
         }
     }
 
