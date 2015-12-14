@@ -11,7 +11,7 @@
     <div class="profile-content section-nude">
         <div class="container">
             <div class="row owner" style="padding-top: 10px">
-                <btn ng-if="user.username == displayuser.username" ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit </btn>
+                <btn ng-if="user.username == displayuser.username" style="margin-left: 15px" ng-click="userEdit()" class="btn"><i class="fa fa-cog"></i> Edit </btn>
 
                 <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center">
                     <div class="avatar">
@@ -20,6 +20,8 @@
                     </div>
                     <div class="name text-center" >
                         <h4>{{displayuser.username}}</h4>
+                        <!--<btn ng-click="followUser()" class="btn"> Follow </btn>-->
+
                         <!--<h4 class="text-center">-->
                             <!--{{user.firstname}}-->
                             <!--{{user.lastname}}-->
@@ -242,6 +244,29 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <!--<tr>-->
+                                <!--<th>-->
+                                    <!--<h4 ng-if="user.username == displayuser.username">Your Followers</h4>-->
+                                    <!--<h4 ng-if="user.username != displayuser.username">{{displayuser.username}} Followers</h4>-->
+                                <!--</th>-->
+                            <!--</tr>-->
+                            <!--<table class="table table-bordered">-->
+                                <!--<thead>-->
+                                <!--</thead>-->
+                                <!--<tbody>-->
+                                <!--<tr ng-repeat="follower in followers">-->
+                                    <!--<td style="padding-top: 13px"><a href="#/trip/{{trips[$index]._id}}">{{follower.username}}</a></td>-->
+                                    <!--&lt;!&ndash;<td style="padding-top: 13px">{{trip.summary}}</td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<td ng-if="user._id == displayuser._id" class="text-center">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<button ng-click="removeTrip($index)" type="button" class="btn btn-default centered">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<span class="glyphicon glyphicon-trash " aria-hidden="true"></span>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                                <!--</tr>-->
+                                <!--</tbody>-->
+                            <!--</table>-->
+
+
 
                         </div>
                     </div>
@@ -253,14 +278,14 @@
             <!--<div>-->
                 <!--<button type="button" class="btn btn-default" ng-click="isCollapsedfollowers = !isCollapsedfollowers">Followers</button>-->
                 <!--<hr>-->
-                <!--<div uib-collapse="isCollapsedfollowers">-->
+                <!--<div ng-if="isCollapsedfollowers">-->
                     <!--<div class="well well-lg">All Followers</div>-->
                 <!--</div>-->
             <!--</div>-->
             <!--<div>-->
                 <!--<button type="button" class="btn btn-default" ng-click="isCollapsedfollowing = !isCollapsedfollowing">Following</button>-->
                 <!--<hr>-->
-                <!--<div uib-collapse="isCollapsedfollowing">-->
+                <!--<div ng-if="isCollapsedfollowing">-->
                     <!--<div class="well well-lg">All Following</div>-->
                 <!--</div>-->
             <!--</div>-->
