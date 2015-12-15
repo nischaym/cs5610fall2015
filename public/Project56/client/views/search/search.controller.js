@@ -18,10 +18,54 @@
         //}
 
         $scope.search = search;
-        $scope.origin ="";
+        $scope.origin;
         $scope.destination="";
         $scope.results = false;
 
+        //var origin = "please enter";
+        //$.get("http://ipinfo.io", function (response) {
+        //    console.log(response);
+        //    console.log(response.city);
+        //    $scope.origin = response.city;
+        //    console.log(JSON.stringify(origin));
+        //    //$("#ip").html("IP: " + response.ip);
+        //    //$("#address").html("Location: " + response.city + ", " + response.region);
+        //    //$("#details").html(JSON.stringify(response, null, 4));
+        //}, "jsonp");
+
+
+
+        $scope.refresh = refresh;
+
+        function refresh()
+        {
+            $http.get("http://ipinfo.io")
+                .success(function(response){
+                    console.log(response);
+                    $scope.origin = response.city;
+                });
+            //$.get("http://ipinfo.io", function (response) {
+            //    console.log(response);
+            //    console.log(response.city);
+            //    $scope.origin = response.city;
+            //
+            //    //console.log(JSON.stringify(origin));
+            //    //$("#ip").html("IP: " + response.ip);
+            //    //$("#address").html("Location: " + response.city + ", " + response.region);
+            //    //$("#details").html(JSON.stringify(response, null, 4));
+            //}, "json")
+            //    .done(function(res){
+            //        console.log('second');
+            //        console.log(res.city);
+            //        $scope.origin = res.city;
+            //    })
+
+        }
+
+        refresh();
+        console.log('ivyviyiiuvu')
+        //ref();
+        //$scope.origin = origin;
         //if($rootScope.searchstring != "")
         //{
         //
@@ -57,16 +101,19 @@
             //var url1 = "http://free.rome2rio.com/api/1.2/json/Geocode?key=j9jwRQnz&query=" + dest;
             console.log(url);
             $http.get(url)
-                .success(function (response) {
+                .then(function(response){
 
-                     $scope.routes = response.routes;
+                    console.log(response);
+                     $scope.routes = response.data.routes;
                     //$scope.segments = route1.segments;
                     //console.log($scope.routes);
                     $scope.results = true;
 
-                });
-
+                },function(err){
+                    alert('Could not find this place');
+                })
         }
+
 
     }
 

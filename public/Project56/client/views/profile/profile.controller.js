@@ -154,7 +154,7 @@
                 if($scope.displayuser.followers[i].username == $scope.user.username)
                 {
                     notalreadypresent = false;
-                    alert('you are already following');
+                    alert('You Are Already Following');
                     return;
                 }
             };
@@ -172,6 +172,7 @@
                     console.log('after following');
                     console.log(response);
                     $scope.displayuser = response[0];
+                    alert('Thanks For Your Interest');
                 })
             }
             else
