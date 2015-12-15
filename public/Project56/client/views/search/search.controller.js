@@ -19,7 +19,16 @@
 
         $scope.search = search;
         $scope.origin;
-        $scope.destination="";
+        if ($rootScope.destination != null || $rootScope!= undefined)
+        {
+
+            $scope.destination = $rootScope.destination;
+        }
+        else
+        {
+            $scope.destination = "";
+        }
+
         $scope.results = false;
 
         //var origin = "please enter";
@@ -63,7 +72,7 @@
         }
 
         refresh();
-        console.log('ivyviyiiuvu')
+        console.log('ivyviyiiuvu');
         //ref();
         //$scope.origin = origin;
         //if($rootScope.searchstring != "")
@@ -111,7 +120,7 @@
 
                 },function(err){
                     alert('Could not find this place');
-                })
+                });
         }
 
 

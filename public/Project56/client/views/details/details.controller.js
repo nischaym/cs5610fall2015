@@ -17,6 +17,7 @@
         console.log($scope.user);
         $scope.isCollapsedfollowers = true;
 
+
         TripService.getTripById($routeParams.tripid).then(function(response){
             //console.log(response);
             $scope.trip=response;
@@ -33,6 +34,13 @@
         $scope.addComment = addComment;
         $scope.cancelComment = cancelComment;
         $scope.saveComment = saveComment;
+        $scope.routeToSearch = routeToSearch;
+
+        function routeToSearch(){
+
+            $rootScope.destination = $scope.trip.title;
+            $location.url('search');
+        }
 
         function editTrip(){
 
