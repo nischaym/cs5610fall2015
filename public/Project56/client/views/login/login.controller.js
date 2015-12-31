@@ -11,6 +11,8 @@
         //    console.log('in login')
         //    gsdk.initRightMenu();
         //}
+		
+		
 
         $rootScope.user;
         $scope.user = {username:"",password:""};
