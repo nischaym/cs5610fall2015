@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>
+        Welcome to the game
+    </h1>
+
+    <div>
+        <h2>{{showthis}}</h2>
+    </div>
+
+    <h4> Type the above in the box, youl see magic</h4>
+    <input ng-model="input" type="text">
+
+    <h1 ng-if="input == showthis">{{result}}</h1>
+</div>
+</body>
+</html>

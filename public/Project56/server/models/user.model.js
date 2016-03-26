@@ -42,29 +42,12 @@ module.exports = function(app,mongoose,db,UserSchema){
 
     function findById( uid){
 
-        /*Check for the user in the mock list */
-        //var user;
-
         var deferred = q.defer();
         UserModel.find({userid:uid},function(err , result){
             deferred.resolve(0);
         });
         return deferred.promise;
 
-        //
-        //for (var i=0;i < users.length;i++)
-        //{
-        //    if (users[i].userid == userid)
-        //    {
-        //        user = users[i];
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        /*Do Nothing */
-        //    }
-        //}
-        //return(user);
     }
 
     function update(userid,user){
@@ -92,27 +75,6 @@ module.exports = function(app,mongoose,db,UserSchema){
 
         return deferred.promise;
 
-        //var user = null;
-        //for (var i=0;i < users.length;i++)
-        //{
-        //    if (users[i].userid == userid)
-        //    {
-        //        users[i].username = user.username;
-        //        users[i].password = user.password;
-        //        users[i].email = user.email;
-        //        users[i].firstname = user.firstname;
-        //        users[i].lastname = user.lastname;
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        /*Do Nothing */
-        //    }
-        //}
-        //user.userid = userid;
-
-
-        //return(user);
     }
 
     function removeUserById(userid){
