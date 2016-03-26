@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8b2addd-869d-4a71-9937-372fc842d3b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Game/client/Views/Home/home.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Game/client/Views/Home/home.view.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Game/client/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Game/client/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Game/client/gameIndex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Project56/server/models/user.model.js" afterPath="$PROJECT_DIR$/public/Project56/server/models/user.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Game/client/Views/Home/home.view.html" afterPath="$PROJECT_DIR$/public/Game/client/Views/Home/home.view.html" />
     </list>
     <ignored path="cs5610fall2015.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +36,8 @@
       <file leaf-file-name="home.view.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Game/client/Views/Home/home.view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80733943">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.54587156">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -1078,14 +1072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Game/client/gameIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.935484">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Project56/client/views/profile/profile.view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.5161295">
@@ -1118,10 +1104,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/Game/client/gameIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.935484">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/Game/client/Views/Home/home.view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80733943">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.54587156">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding />
         </state>
       </provider>
