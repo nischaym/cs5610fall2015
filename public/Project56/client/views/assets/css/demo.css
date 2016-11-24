@@ -992,3 +992,11 @@ pre.prettyprint{
 .example-pages{
     margin-top: 50px;
 }
+@media screen and (max-width: 750px) {
+    h1{font-size: 35px;}
+    p{padding-left: 15px;padding-right: 15px}
+}
+@media screen and (max-width: 400px) {
+    h1{
+        font-size: 30px;}
+}
